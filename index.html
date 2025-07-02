@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국립익산박물관</title>
+
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/main-font.css">
+    <link rel="stylesheet" href="/css/main-reset.css">   
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Java Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/main.js" defer></script>
+
+</head>
+<body>
+<div id="wrap">
+    <!-- 헤더 -->
+    <header id="header">
+        <div class="container">
+            <h1>
+                <!-- a에 배경으로 로고 이미지 넣기 -->
+                <a href="#"><span class="blind">국립익산박물관</span></a>
+            </h1>
+            <!-- GNB -->
+            <nav id="gnb">
+                <ul class="dep1">
+                    <li>
+                        <a href="#">박물관소개</a>
+                            <ul class="dep2">
+                                <li><a href="#">소개의 글</a></li>
+                                <li><a href="#">연혁</a></li>
+                                <li><a href="#">비전 및 목표</a></li>
+                                <li><a href="#">미륵사지</a></li>
+                                <li><a href="#">백제역사유적지구</a></li>
+                                <li><a href="#">조직 및 업무</a></li>
+                                <li><a href="#">박물관 로고</a></li>
+                            </ul>
+                        <a href="#">관람정보</a>
+                            <ul class="dep2">
+                                <li><a href="#">관람 및 전시해설</a></li>
+                                <li><a href="#">시설안내</a></li>
+                                <li><a href="#">시설 대관안내</a></li>
+                                <li><a href="#">자주묻는질문</a></li>
+                                <li><a href="#">찾아오시는길</a></li>
+                            </ul>
+                        <a href="#">전시&소장품</a>
+                            <ul class="dep2">
+                                <li><a href="#">상설전시</a></li>
+                                <li><a href="#">특별전시</a></li>
+                                <li><a href="#">추천 소장품</a></li>
+                                <li><a href="#">전체소장품검색</a></li>
+                                <li><a href="#">발간자료</a></li>
+                                <li><a href="#">열람/복제</a></li>
+                                <li><a href="#">동영상 이모저모</a></li>
+                            </ul>
+                        <a href="#">교육&행사</a>
+                            <ul class="dep2">
+                                <li><a href="#">교육프로그램</a></li>
+                                <li><a href="#">행사</a></li>
+                                <li><a href="#">예약조회/취소</a></li>
+                                <li><a href="#">지난 교육/행사</a></li>
+                            </ul>
+                        <a href="#">어린이박물관</a>
+                            <ul class="dep2">
+                                <li><a href="#">알려드려요</a></li>
+                                <li><a href="#">관람안내</a></li>
+                                <li><a href="#">관람예약</a></li>
+                                <li><a href="#">시설안내</a></li>
+                                <li><a href="#">찾아오시는 길</a></li>
+                            </ul>
+                        <a href="#">소식&참여</a>
+                            <ul class="dep2">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">고객민원</a></li>
+                                <li><a href="#">정보공개</a></li>
+                                <li><a href="#">박물관 소식지</a></li>
+                            </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="utill">
+                <div class="lang-wrap">
+                    <!-- after로 span에 화살표 리믹스아이콘 넣기-->
+                    <button><span>KOR</span></button>
+                    <!-- display none했다가 풀기-->
+                    <ul> 
+                        <li><a href="#">한국어</a></li>
+                        <li><a href="#" target="_blank">ENGLISH</a></li>
+                        <li><a href="#" target="_blank">中国語</a></li>
+                        <li><a href="#" target="_blank">日本語</a></li>
+                    </ul>
+                </div>
+                <div class="all-menu">
+                    <i class="ri-menu-add-line"></i>
+                    <span class="blind">메뉴 더보기</span>
+                </div>
+                <div class="search-wrap">
+                    <i class="ri-search-line"></i>
+                    <span class="blind">검색창 열기</span>
+                </div>
+            </div>
+        </div >
+    </header>
+
+    <main>
+        <!-- 메인비주얼 -->
+        <!-- 필요한 영상 추가 편집하기 -->
+        <div id="main-visual">
+            <video src="https://youtu.be/HmpJ-Y7ZK58?list=PL-31LU_X1X5MXA2BYvCVWv6Hi8pcc3Fvf&t=7" autoplay></video>
+        </div>
+        
+        <!-- main-infomation -->
+        <section id="main-info">
+            <div class="time-closeday"> 
+                <strong>관람안내</strong>
+                <div class="txt-box">
+                    <span class="big-txt">오전 9시부터<br>오후 6시</span>
+                    <span class="small-txt">(입장마감:오후 5시 30분)</span>
+                </div>
+            </div>
+            <div class="time-closeday"> 
+                <strong>휴관안내</strong>
+                <div class="txt-box">
+                    <span class="big-txt">매주 월요일<br>1월 1일 / 설·추석당일</span>
+                    <span class="small-txt">(월요일:공휴일인 경우 개관 후 다음 평일 휴관)</span>
+                </div>
+            </div>
+            <div class="maininfo-btn">
+                <a href="#">
+                    <strong>교육&행사 예약</strong>
+                    <div class="txt-box">
+                        <span class="big-txt">30인 이상 단체관람은<br>사전예약 필요</span>
+                        <span class="small-txt">(그 외에는 별도 예약 없이 관람 가능)</span>
+                    </div>
+                </a>
+            </div>
+            <div class="maininfo-btn">
+                <a href="#">
+                    <strong>오시는길</strong>
+                    <div class="txt-box">
+                        <span class="big-txt">기차, 택시, 버스, 승용차<br>이용가능</span>
+                        <span class="small-txt">(전화번호:063-830-0900)</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 특별전시 -->
+        <section id="spacial-exhibititon">
+            <hgroup class="section-txt">
+                <h2>특별전시</h2>
+                <p>국립익산박물관의 특별전시를 소개합니다.</p>
+            </hgroup>
+            <!-- swiper-freemode -->
+            <!-- hover하면 0.5op 검은화면 + 더 알아보기 글씨 + 아이콘 -->
+            <div class="exhibition-swiper">
+                <div class="swiper mySwiper">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
+                            <div class="exhi-label current">현재전시중</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/01.jpg" alt="미륵사지 중국도자">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">미륵사지 중국도자</strong>
+                                <span class="exhi-date">2025-06-03~2025-08-31</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="exhi-progress">지나간 전시</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/02.jpg" alt="미륵사지 출토 치미 -제작, 폐기, 복원의 기록">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">미륵사지 출토 치미 -제작, 폐기, 복원의 기록</strong>
+                                <span class="exhi-date">2024-10-22~2025-05-25</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="exhi-progress">지나간전시</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/03.jpg" alt="
+                                금관총 금관, 그리고 이사지왕">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">금관총 금관, 그리고 이사지왕</strong>
+                                <span class="exhi-date">2024-09-13~2024-12-01</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="exhi-progress">지나간전시</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/04.jpg" alt="바다 위의 성, 군산군도">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">바다 위의 성, 군산군도</strong>
+                                <span class="exhi-date">2024-09-10~2024-11-24</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="exhi-progress">지나간전시</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/05.jpg" alt="전북의 고대 성곽">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">전북의 고대 성곽</strong>
+                                <span class="exhi-date">2023-01-10~2023-05-28</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="exhi-progress">지나간전시</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/06.jpg" alt="조선총독부박물관 유리건판 사진-100년 전 미륵사 터와 석탑">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">조선총독부박물관 유리건판 사진-100년 전 미륵사 터와 석탑</strong>
+                                <span class="exhi-date">2022-04-13~2022-10-03</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="exhi-progress">지나간전시</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/07.jfif" alt="백제의 빛, 미륵사 석등">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">백제의 빛, 미륵사 석등</strong>
+                                <span class="exhi-date">2021-10-19~2022-02-13</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="exhi-progress">지나간전시</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/08.jpg" alt="불심 깃든 쇳물, 강원과 전북의 철불">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">불심 깃든 쇳물, 강원과 전북의 철불</strong>
+                                <span class="exhi-date">2021-05-25~2021-08-29</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="exhi-progress">지나간전시</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/09.jpg" alt="100년 전 사진에 담긴 미륵사지 1,300년">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">100년 전 사진에 담긴 미륵사지 1,300년</strong>
+                                <span class="exhi-date">2020-12-15~2021-03-28</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="exhi-progress">지나간전시</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/10.jpg" alt="녹색 유약, 녹유綠釉">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">녹색 유약, 녹유綠釉</strong>
+                                <span class="exhi-date">2020-08-04 ~2020-11-22</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="exhi-progress">지나간전시</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/11.jpg" alt="사리장엄舍利莊嚴-탑 속 또 하나의 세계">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">사리장엄舍利莊嚴-탑 속 또 하나의 세계</strong>
+                                <span class="exhi-date">2020-01-10~2020-04-26</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="exhi-progress">지나간전시</div>
+                            <div class="exhi-poster">
+                                <img src="/img/special/12.jpg" alt="고려시대의 미륵사">
+                            </div>
+                            <div class="exhi-txt">
+                                <strong class="exhi-title">고려시대의 미륵사</strong>
+                                <span class="exhi-date">2018-09-11~2018-12-30</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 전시안내 -->
+        <section id="exhibiton-info">
+            <hgroup class="section-txt">
+                <h2>전시안내</h2>
+                <p>관람순서는 익산백제실, 미륵사지실, 역사문화실 순으로 관람하여 주시기 바랍니다.</p>
+            </hgroup>
+            <ul class="card">
+                <li>
+                    <a href="#">
+                        <div class="card-img">
+                            <img src="/img/iksan/iksan intro.jpg" alt="익산백제실">
+                        </div>
+                        <div class="card-txt">
+                            <div class="card-title">
+                                <strong>익산백제실</strong>
+                                <span>상설전시</span>
+                            </div>
+                            <span class="card-moreinfo">
+                                더 알아보기
+                                <!-- 가상요소 아이콘 추가 -->
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="card-img">
+                            <img src="/img/mirulk/mirulk intro.jpg">
+                        </div>
+                        <div class="card-txt">
+                            <strong>미륵사지실</strong>
+                            <span>상설전시</span>
+                        </div>
+                        <div class="card-moreinfo">
+                            <span>더 알아보기</span>
+                            <!-- 가상요소 아이콘 추가 -->
+                        </div>
+                    </a>
+                </li>
+                <div>
+                    <a href="#">
+                        <div class="card-img">
+                            <img src="/img/history/history intro.jpg" alt="역사문화실">
+                        </div>
+                        <div class="card-txt">
+                            <strong>역사문화실</strong>
+                            <span>상설전시</span>
+                        </div>
+                        <div class="card-moreinfo">
+                            <span>더 알아보기</span>
+                            <!-- 가상요소 아이콘 추가 -->
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <div class="card-img">
+                            <img src="/img/history/spacial intro.jpg" alt="역사문화실">
+                        </div>
+                        <div class="card-txt">
+                            <strong>역사문화실</strong>
+                            <span>특별전시</span>
+                        </div>
+                        <div class="card-moreinfo">
+                            <span>더 알아보기</span>
+                            <!-- 가상요소 아이콘 추가 -->
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </section>
+        
+        <!-- 교육&행사 -->
+        <section id="edu-txt">
+            <hgroup class="section-txt">
+                <h2>교육&행사</h2>
+                <p>국립익산박물관의 교육과 행사를 소개합니다.</p>
+            </hgroup>
+            <!-- 클릭하면 이미지교체 필요 (특강, 만들기체험) js-->
+            <div class="edu-poster">
+                <img src="/img/iksan children class.png" alt="익산어린이박물관학교">
+            </div>
+
+            <div class="year-month-cal">
+                <ul id="date">
+                    <div><i class="ri-arrow-left-s-line"></i></div>
+                    <span>2017년 6월</span>
+                    <div><i class="ri-arrow-right-s-line"></i></div>
+                </ul>
+                <table id="sched_tbl">
+                    <thead>
+                        <!-- th, td first, last child로 색깔 지정 -->
+                        <tr id="day">
+                            <th>일</th>
+                            <th>월</th>
+                            <th>화</th>
+                            <th>수</th>
+                            <th>목</th>
+                            <th>금</th>
+                            <th>토</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2<br>휴관일</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6<button class="spacial-class">특강</button></td>
+                            <td>7<button class="child-class">어린이교실</button></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>9<br>휴관일</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13<button class="spacial-class">특강</button></td>
+                            <td>14<button class="child-class">어린이교실</button></td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>16<br>휴관일</td>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20
+                                <button class="spacial-class">특강</button>
+                                <button class="making-class">체험</button>
+                            </td>
+                            <td>21<button class="child-class">어린이교실</button></td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td>23<br>휴관일</td>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27
+                                <button class="spacial-class">특강</button>
+                                <button class="making-class">체험</button>
+                            </td>
+                            <td>28<button class="child-class">어린이교실</button></td>
+                        </tr>
+                        <tr>
+                            <td>29</td>
+                            <td>30<br>휴관일</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <!-- 홍보영상 -->
+        <section id="video-ads">
+            <hgroup class="section-txt">
+                <h2>홍보영상</h2>
+                <p>영상으로 익산박물관을 만나보세요.</p>
+            </hgroup>
+            <div class="video-tab">
+                <button class="tab1">전시정보<span class="small-txt">수어포함</span></button>
+                <button class="tab2">홍보</button>
+                <button class="tab3">교육</button>
+                <button class="tab4">문화행사</button>
+                <button class="tab5">전시</button>
+            </div>
+            <!-- 비디오컨텐츠 -->
+            <!-- swiper-mousewheel-control -->
+            <div class="video-contents">
+                <div class="content-1"><!--전시정보 영상-->
+                    <div class="swiper mySwiper">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/ynJsrZKtvmI?list=PL-31LU_X1X5MukLZ-QPte-Nuh1_l0g13Z" title="01 익산박물관 홍보영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/ynJsrZKtvmI?list=PL-31LU_X1X5MukLZ-QPte-Nuh1_l0g13Z" title="01 익산박물관 홍보영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/jvO8wY4pT0o?list=PL-31LU_X1X5MukLZ-QPte-Nuh1_l0g13Z" title="02 백제의 미래 익산" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/jvO8wY4pT0o?list=PL-31LU_X1X5MukLZ-QPte-Nuh1_l0g13Z" title="02 백제의 미래 익산" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/mx8K9j0BiqQ?list=PL-31LU_X1X5MukLZ-QPte-Nuh1_l0g13Z" title="03 왕궁리 유적" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/S2N3beZP3lU?list=PL-31LU_X1X5MukLZ-QPte-Nuh1_l0g13Z" title="04 왕궁리 공방터와 화장실" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/OQklonsDHsA?list=PL-31LU_X1X5MukLZ-QPte-Nuh1_l0g13Z" title="05 왕궁리 오층석탑 금동여래입상수정" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/R846e2z7vGc?list=PL-31LU_X1X5MukLZ-QPte-Nuh1_l0g13Z" title="06 왕궁리 오층석탑 사리갖춤" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/Yh66uCp8do4?list=PL-31LU_X1X5MukLZ-QPte-Nuh1_l0g13Z" title="07 금과 은으로 만든 금강경" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/LSSXQW9sIL0?list=PL-31LU_X1X5MukLZ-QPte-Nuh1_l0g13Z" title="08 제석사지" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                        </ul>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="content-2"><!--홍보 영상-->
+                    <div class="swiper mySwiper">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/HmpJ-Y7ZK58?list=PL-31LU_X1X5MXA2BYvCVWv6Hi8pcc3Fvf" title="14곳의 오래된 미래로 떠나는 탐험 | K MUSEUM 국립박물관 통합 홍보영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/s0RatwYbpFM?list=PL-31LU_X1X5MXA2BYvCVWv6Hi8pcc3Fvf" title="국립익산박물관 어린이박물관 홍보영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                        </ul>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="content-3"><!--교육 영상-->
+                    <div class="swiper mySwiper">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/QvqITi80TsY?list=PL-31LU_X1X5OQWPwH0Zi5GK0AmmqT3yOG" title="[교육] 국립익산박물관 미륵사지 교육상자를 소개합니다! | 설명회 안내" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/kURCp-AMUdA?list=PL-31LU_X1X5OQWPwH0Zi5GK0AmmqT3yOG" title="제1기 익산어린이박물관학교 입학식" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/LX3OcKK0Wic?list=PL-31LU_X1X5OQWPwH0Zi5GK0AmmqT3yOG" title="익산성북초 수업참관" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                        </ul>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="content-4"><!--문화행사 영상-->
+                    <div class="swiper mySwiper">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/d2NBTa8i7CI?list=PL-31LU_X1X5MXemoR0V0mm4ejWH2kFsE-" title="[문화행사] 밤의 미륵사지에 귀를 기울이면... | 2024년 백제문화유산주간 녹턴" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/RgcNyNXzK7E?list=PL-31LU_X1X5MXemoR0V0mm4ejWH2kFsE-" title="[문화행사] 2023년 국립익산박물관 문화향연 | 탁보늬 밴드" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/3lbg6law5so?list=PL-31LU_X1X5MXemoR0V0mm4ejWH2kFsE-" title="2022 국립박물관문화향연 &#39;박물관 속 기타&#39; 여덟번째 이야기: 안녕바다" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/rlnR3mT-APE?list=PL-31LU_X1X5MXemoR0V0mm4ejWH2kFsE-" title="[예고편] 2022 국립박물관문화향연 《박물관 속 기타》 여덟번째 이야기: 안녕바" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/6hAfbCrJXVk?list=PL-31LU_X1X5MXemoR0V0mm4ejWH2kFsE-" title="[문화행사] 미륵사지 석탑 샌드아트 | sandart" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/OH4GqYXitJw?list=PL-31LU_X1X5MXemoR0V0mm4ejWH2kFsE-" title="세계유산에서 힐링을! 2022 익산 미륵사지 세계유산 미디어아트 페스타가 펼쳐집니다!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/yO1posy_WUQ?list=PL-31LU_X1X5MXemoR0V0mm4ejWH2kFsE-" title="2022 백제문화유산주간 홍보영상 ㅣ 국립익산박물관 ㅣ 백제왕도에서 펼쳐지는 짜릿한 일주일✨" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                        </ul>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="content-5"><!--전시 영상-->
+                    <div class="swiper mySwiper">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/SnjFnt4aZrk?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[전시] 성인 남성 넷도 들기 버거운 1m 43cm 대형 치미를 복원하는 방법 | 근무시간에 웨이트 하는 학예연구사" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/9FGooW86v2Y?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[전시] 하늘 가장 가까운 곳에서 만나는 | 특별전 &#39;미륵사지 출토 치미 -제작, 폐기, 복원의 기록-&#39;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/9zKT2_ZHsJo?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[전시] 문득, 비가 오는 날에 처마 지붕을 올려다보면... | 특별전 &#39;미륵사지 출토 치미 -제작, 폐기, 복원의 기록-&#39;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/SUA5_aHSxZ8?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[전시] 어느 날 우리 관 옥상으로 금관이 들어왔다 | 국보순회전: 모두의 곁으로" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/UvocYusecdA?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[속보] 지하철을 타고 도심을 유유히 빠져나가는 문화유산들…행선지 마침내 밝혀져… | 국보순회전: 모두의 곁으로" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe width="572" height="322" src="https://www.youtube.com/embed/zhkWsYibZSE?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[속보] 도심 한복판에 국보들이 솟아나… 어디로 이동 중인지는 아직 파악 중인 상황… | 국보순회전" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/4mHJwVM6l7I?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[전시] 국보순회전: 모두의 곁으로 | 대한민국 어디서나, 함께 누리는 우리 문화" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/Rird2D1tCOo?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[전시] 미국 CNN도 반한 보물섬, 고군산군도 | 바다 위의 성, 군산군도" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/ZFXmAdEbW9o?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[특별전] 바다 위의 성, 군산군도 홍보영상 | 섬이 들려주는 이야기" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/WmY7_Xscv70?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[특별전] 전북의 고대 성곽" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/fDTBAvypyP4?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[특별전] 어제는 학예사였던 내가 오늘은 산악인? |  전북의 고대 성곽 VLOG" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/EFPPUXjkhWo?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="국립익산박물관 어린이박물관  | 어린이박물관 관람 꿀팁" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li class="swiper-slide">
+                                <iframe src="https://www.youtube.com/embed/HiBPPqMIMwo?list=PL-31LU_X1X5PnFoGuKwT91s4VqCLnweQY" title="[특별전] 전북의 고대 성곽 | 전북지역 고대 성곽을 종합적으로 살펴보다" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                        </ul>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 공지사항 -->
+        <section id="notice-board">
+            <div class="notice-btn">
+                <button class="tab1">공지사항</button>
+                <button class="tab2">박물관 소식지</button>
+                <button><a href="#">더알아보기</a></button> <!--게시판 페이지로 이동-->
+            </div>
+            
+            <div class="notice-list-1"><!--공지사항 글 리스트-->
+                <ul>
+                    <li>
+                        <div>
+                            <a href="#">
+                                <span class="small-txt">[유관행사]백제문화유산주간(7.8.~7.14.)</span>
+                                <span class="smallAlpha-txt">2025-06-24</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="#">
+                                <span class="small-txt">[공지] 2025년 집중안전점검 실시</span>
+                                <span class="smallAlpha-txt">2025-04-15</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="#">
+                                <span class="small-txt">[공지] 2025년 국립익산박물관 대체휴관일 알림</span>
+                                <span class="smallAlpha-txt">2025-01-20</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="#">
+                                <span class="small-txt">[공지] 국립익산박물관 어린이박물관 운영 및 현장답사 안내</span>
+                                <span class="smallAlpha-txt">2024-03-17</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="notice-list-2"><!--고객민원 글 리스트-->
+                <ul>
+                    <li>
+                        <div>
+                            <a href="#">
+                                <span class="small-txt">[국립익산박물관] 2025년 06월호 소식지</span>
+                                <span class="smallAlpha-txt">2025-05-30</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="#">
+                                <span class="small-txt">[국립익산박물관] 2025년 05월호 소식지</span>
+                                <span class="smallAlpha-txt">2025-04-29</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="#">
+                                <span class="small-txt">[국립익산박물관] 2025년 04월호 소식지</span>
+                                <span class="smallAlpha-txt">2025-03-31</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="#">
+                                <span class="small-txt">[국립익산박물관] 2025년 03월호 소식지</span>
+                                <span class="smallAlpha-txt">2025-03-04</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- 가상요소로 라인 넣기 -->
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="footer-link">
+                <a href="#" target="_blank">박물관소개</a>
+                <a href="#" target="_blank">개인정보처리방침</a>
+                <a href="#" target="_blank">영상정보처리기기</a>
+                <a href="#" target="_blank">운영관리방침</a>
+                <a href="#" target="_blank">저작권정책</a>
+                <a href="#" target="_blank">관련기관</a>
+            </div>
+            <div class="footer-sns">
+                <a href="#" target="_blank">
+                    <span class="blind">인스타그램</span>
+                    <i class="ri-instagram-fill"></i>
+                </a>
+                <a href="#" target="_blank">
+                    <span class="blind">페이스북</span>
+                    <i class="ri-facebook-box-fill"></i>
+                </a>
+                <a href="#" target="_blank">
+                    <span class="blind">블로그</span>
+                    <img src="/img/wa_mark.png" alt="네이버블로그">
+                </a>
+                <a href="#" target="_blank">
+                    <span class="blind">유튜브</span>
+                    <i class="ri-youtube-fill"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 가상요소로 라인 넣기 -->
+        <div class="footer-bottom">
+            <address>
+                (54574) 전북특별자치도 익산시 금마면 미륵사지로 362 (기양리) 국립익산박물관
+                    <span>063-830-0915</span>
+                    <span>FAX. 063-832-2226</span>
+            </address>
+            <p class="copyright">Copyright(c) 2019 국립익산박물관. All rights reserved.</p>
+            <!--style="position: absolute;  -->
+            <img src="/img/wa_mark.png" alt="wa">
+        </div>
+    </footer>
+</div>
+</body>
+</html>
