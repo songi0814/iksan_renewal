@@ -310,20 +310,39 @@ section .section-txt p {
   font-size: 1.6rem; display: flex; 
   flex-direction: column; justify-content: flex-start; align-items: flex-start; 
 }
-#notice-board .notice-list-1 ul div {
+#notice-board .notice-list-1 ul li {
   width: 65vw;
-  border-bottom: 1px solid rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(0,0,0,0.3);
   /* border-top: 1px solid rgba(0,0,0,0.3); */
   /* border: 1px solid #000; */
 }
-#notice-board .notice-list-1 div:last-child {
-  border-bottom: none;
+#notice-board .notice-list-1 ul li:first-child {
+  border-top: none;
 }
 #notice-board .notice-list-1 ul div a {
   display: flex; flex-direction: row; justify-content: space-between;
   margin: 2rem; padding: 2rem;
 }
 
-
-
 #notice-board .notice-list-2 {display: none;}
+
+
+/* footer */
+#footer {
+  padding-top: 5rem; border-top: 1px solid #2222224d;
+}
+#footer .footer-top {
+  border: 1px solid red;
+  display: flex; flex-direction: row; justify-content: space-between;
+}
+#footer .footer-top .footer-link {
+  border: 1px solid #000;
+  /* gap: 2rem; */
+}
+#footer .footer-top .footer-sns {
+  border: 1px solid green; display: flex; font-size: 2.6rem;
+}
+
+#footer .footer-bottom {}
+#footer .footer-bottom address {}
+#footer .footer-bottom p {}
