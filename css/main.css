@@ -6,12 +6,14 @@ html {
   --main-orange: #DB6923;
   --main-blue: #2156A4;
   --main-green: #365E3C;
+  position: relative;
+  height: 100%;
 }
 body {
-  font-family: "Noto Serif KR", 'SUIT', 'Pretendard', '맑은 고딕', sans-serif;
-  color: #222;font-size: 1.6rem;
+  font-family: "Noto Sans KR", 'Pretendard', '맑은 고딕', sans-serif;
+  color: #222;font-size: 1.6rem; margin: 0; padding: 0;
 }
-section {padding: 5.5rem 0;}
+section {padding: 8rem 0;}
 main {padding: 10rem;}
 .big-txt {font-size: 2rem; font-weight: bold;}
 .small-txt {font-size: 1.4rem;}
@@ -36,7 +38,7 @@ section .section-txt p {
 }
 #header h1 a {
   display: block; width: 17.4rem; height: 4rem;
-  background: url(/cording/img/logo/main-logo.png);
+  background: url(/img/logo/main-logo.png);
   background-size: 100% auto;
 }
 
@@ -56,20 +58,26 @@ section .section-txt p {
 
 /* main visual */
 #main-visual {display: block;}
-#main-visual video {width: 100vw; height: 100vh;}
+#main-visual video {width: 90vw; height: 90vh;}
 
 /* main info */
-#main-info {display: flex; justify-content: space-around; gap: 4rem;}
-#main-info div:nth-child(1) strong, #main-info div:nth-child(2) strong {color: var(--main-blue);}
+#main-info {
+  display: flex; justify-content: space-around; gap: 4rem;
+  flex-grow: 1; flex-shrink: 1;
+}
+#main-info .time-closeday strong {color: var(--main-blue);}
+#main-info > div {
+  width: calc(25% - 3rem); height: 40rem; border-radius: 2rem;
+  overflow: hidden;
+}
 #main-info .time-closeday {
-  border: 1px solid var(--main-orange); width: calc(25% - 3rem); height: 40rem;
-  border-radius: 2rem;
+  border: 1px solid var(--main-orange);
   display: flex; flex-direction: column; gap: 6rem; justify-content: center; align-items: center; text-align: center;
 }
 #main-info .maininfo-btn>a {
-  background: var(--main-orange); width: 39.15rem; height: 40rem;
-  border-radius: 2rem; color: #fff;
-  display: flex; flex-direction: column; gap: 6rem; justify-content: center; align-items: center; text-align: center;
+  background: var(--main-orange); 
+  width: 100%; height: 100%; color: #fff; 
+  display: flex; flex-direction: column; gap: 6rem; justify-content: center; align-items: center; text-align: center; 
 }
 #main-info strong {font-size: 3rem; font-weight: bold;}
 #main-info>div .txt-box {
@@ -77,126 +85,206 @@ section .section-txt p {
 }
 #main-info>div .txt-box span {line-height: 3rem;}
 
-
-
-
-
-
-
 /* 특별전시 css */
-html,body {
-  position: relative;
-  height: 100%;
-}
 
-body {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000000;
-  margin: 0;
-  padding: 0;
-}
+#spacial-exhibititon .swiper {width: 100%;}
 
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #444;
-  display: flex;
-  justify-content: center;
+#spacial-exhibititon .swiper-slide {
+  display: flex;flex-direction: column; gap: 2rem;
+  justify-content: flex-start;
   align-items: center;
+  position: relative;  
+  height: 70vh;
+  text-align: center;
+}
+#spacial-exhibititon .exhi-label {
+  position: absolute;left: 0;top: 0px; padding: 1rem;
+  background: var(--main-orange); color: #fff; font-weight: bold;
+  font-size: 1.6rem;
+}
+#spacial-exhibititon  .exhi-progress {
+  position: absolute;left: 0;top: 0px; padding: 1rem;
+  background: #fff; color: var(--main-orange); font-weight: bold; font-size: 1.6rem; border: 1px solid rgba(0,0,0,0.1); 
 }
 
-.swiper-slide img {
+#spacial-exhibititon  .exhi-poster {
+  width: 100%;height: 80%;
+  margin-bottom: 2rem;
+  border-radius: 1.5rem;overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+#spacial-exhibititon .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+#spacial-exhibititon .swiper-slide .exhi-txt {
+  display: flex; flex-direction: column; font-weight: bold; gap: 2rem;
+}
+#spacial-exhibititon .swiper-slide .exhi-txt .exhi-title {
+  color: var(--main-orange); font-size: 2rem;
+}
+#spacial-exhibititon .swiper-slide .exhi-txt .exhi-date {
+  font-size: 1.4rem;
+}
+
+.swiper .swiper-pagination {
+  position: absolute;
+  bottom: 0 !important;
+}
+.swiper .swiper-pagination-bullet {
+  background-color: var(--main-blue);
+  margin: 0 0.5rem !important;
+}
+
+
+
+/* 전시안내 */
+
+#exhibition-info .room-li {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
+#exhibition-info li {
+  /* border: 1px solid red; */
+}
+
+#exhibition-info .room-li li a{
+  display: flex; flex-direction: row;
+  justify-content: center; align-items: center;
+  text-align: left; height: 30rem;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 2rem; overflow: hidden;
+  background: url(/img/stone-pagoda2.png)  right center / 40% no-repeat;
+}
+
+#exhibition-info .card-img {
+  width: 70%; height: 100%;
+  /* border: 1px solid green; */
+}
+#exhibition-info .card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#exhibition-info .card-txt {
+  width: 30%; 
+  height: 100%;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between;
+  padding: 2rem 3rem;
+  /* border: 1px solid orange; */
+}
+
+#exhibition-info .card-txt .card-title{
+  display: flex; flex-direction: column; justify-content: flex-start; gap: 0.8rem;
+}
+#exhibition-info .card-txt .card-title strong {
+  font-weight: bold;
+}
+
+#exhibition-info .card-txt .card-title span {
+  color: var(--main-orange);
+}
+
+#exhibition-info .card-txt .card-moreinfo::after {
+  content: "\F2E5";font-family: 'remixicon';
+}
+
+/* 교육&행사 */
+#edu-event .edu-cont {
+  display: flex; flex-direction: row; gap: 4rem
+  ;
+}
+#edu-event .edu-poster {
+  width: 30%; max-height: 70vh;
+  overflow: hidden;
+}
+#edu-event .edu-poster img {
+  width: 100%; height: auto; object-fit: cover;
+}
 
 
 /* 달력 */
-body {
-    color: #444444;
-    font-size: 12px;;
-}
 
-table, th, td {
-    border: 1px solid #aaaaaa;
-}
-
-table {
-    border-collapse: collapse;
-}
-
-tr {
-    height: 60px;
-    vertical-align: top;
-}
-
-td {
-    width: 76px;
-    padding: 5px;
-}
-
+#edu-event .edu-cont {gap: 4rem;}
+#edu-event .year-month-cal {width: 70%; height: 70vh; gap: 20rem;}
 #date {
-    margin-top: 10px;
-    margin-left: 210px;
-    font-size: 14px;
-    display: flex;
-    list-style-type: none;
+  font-size: 2.4rem; padding: 2rem 5rem;
+  display: flex; justify-content: center; gap: 5rem;
+  list-style-type: none; background: var(--main-orange);
+  font-weight: bold; color: #fff;
 }
+#edu-event .cal-date {padding: 0; width: 100%;}
 
 #sched_tbl {
-    margin-top: 15px;
-    border-top: 2px solid #aaaaaa;
+  border: 1px solid var(--main-orange);
+  border-top: 2px solid var(--main-orange);
+  border-collapse: collapse; width: 100%; margin: 0;
+}
+#sched_tbl .closed-day {
+  border-radius: 2rem; text-align: center;
+  font-size: 1.2rem; background: red;
+  display: block; width: 100%; color: #fff;
+  margin: 1rem 0; padding: 0.5rem 0;
+}
+#sched_tbl td:nth-child(2) {color: red; font-weight: 600;}
+#sched_tbl button {
+  border-radius: 2rem; text-align: center;
+  font-size: 1.2rem; background: var(--main-orange);
+  display: block; width: 100%; color: #fff;
+  margin: 1rem 0; padding: 0.5rem 0;
 }
 
-#day {
-    height: 20px;
-    background-color: #f8f9f2;
-    font-weight: bold;
-    text-align: center;
+#sched_tbl #day {
+  text-align: left;
+  background-color: #f8f9f2;
+  font-weight: bold; text-align: center;
+}
+#sched_tbl #day th {
+  height: 5rem; border: 1px solid var(--main-orange);
+}
+/* #sched_tbl #day th:first-child {color: red;} */
+#sched_tbl tbody tr {height: 11rem; text-align: left;}
+#sched_tbl tbody td {
+  border: 1px solid var(--main-orange);
+  vertical-align: top; width: 10rem; padding: 1rem;
 }
 
 
 /* 홍보영상 */
 
-html,body {
-  position: relative;
-  height: 100%;
+#video-ads .video-contents .swiper {
+  width: 90%;
+  height: 30rem;
 }
 
-body {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: rgb(0, 0, 0)929;
-  margin: 0;
-  padding: 0;
-}
-
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
+#video-ads .swiper-slide {
   text-align: center;
-  font-size: 18px;
-  background: #444;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+.vid-swiper .swiper-wrapper li {
+  /* border: 5px solid #000; */
 }
 
-.swiper-slide img {
+#video-ads .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+
+/* 공지사항 */
+#notice-board {display: flex; flex-direction: column;}
+
+
+
+#notice-board .notice-list-2 {display: none;}

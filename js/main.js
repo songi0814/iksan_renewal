@@ -1,13 +1,11 @@
 
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-
 //특별전시
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
+const exhSwiper = new Swiper(".exh-swiper", {
+    autoplay: true,
+    slidesPerView: 4,
     spaceBetween: 30,
-    freeMode: true,
+    // freeMode: true,
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -15,7 +13,7 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 //홍보영상
-var swiper = new Swiper(".mySwiper", {
+const vidSwiper = new Swiper(".vid-swiper", {
     direction: "vertical",
     slidesPerView: 1,
     spaceBetween: 30,
