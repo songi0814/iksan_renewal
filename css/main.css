@@ -14,7 +14,7 @@ body {
   color: #222;font-size: 1.6rem; margin: 0; padding: 0;
 }
 section {padding: 8rem 0;}
-main {padding: 10rem;}
+main {padding: 0 10rem;}
 .big-txt {font-size: 2rem; font-weight: bold;}
 .small-txt {font-size: 1.4rem;}
 section .section-txt {
@@ -150,9 +150,6 @@ section .section-txt p {
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
 }
-#exhibition-info li {
-  /* border: 1px solid red; */
-}
 
 #exhibition-info .room-li li a{
   display: flex; flex-direction: row;
@@ -160,7 +157,6 @@ section .section-txt p {
   text-align: left; height: 30rem;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 2rem; overflow: hidden;
-  background: url(/img/stone-pagoda2.png)  right center / 40% no-repeat;
 }
 
 #exhibition-info .card-img {
@@ -174,10 +170,11 @@ section .section-txt p {
 }
 
 #exhibition-info .card-txt {
-  width: 30%; 
-  height: 100%;
+  width: 30%; height: 100%;
   display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between;
   padding: 2rem 3rem;
+  position: relative;
+  background: url(/img/stone-pagoda2.png) 80px 10px / 100% no-repeat;
   /* border: 1px solid orange; */
 }
 
@@ -206,7 +203,7 @@ section .section-txt p {
   overflow: hidden;
 }
 #edu-event .edu-poster img {
-  width: 100%; height: auto; object-fit: cover;
+  width: 100%; height: 100%; object-fit: contain;
 }
 
 
@@ -227,18 +224,15 @@ section .section-txt p {
   border-top: 2px solid var(--main-orange);
   border-collapse: collapse; width: 100%; margin: 0;
 }
-#sched_tbl .closed-day {
-  border-radius: 2rem; text-align: center;
-  font-size: 1.2rem; background: red;
-  display: block; width: 100%; color: #fff;
-  margin: 1rem 0; padding: 0.5rem 0;
-}
-#sched_tbl td:nth-child(2) {color: red; font-weight: 600;}
+#sched_tbl td:nth-child(2) {color: red;}
 #sched_tbl button {
-  border-radius: 2rem; text-align: center;
-  font-size: 1.2rem; background: var(--main-orange);
-  display: block; width: 100%; color: #fff;
-  margin: 1rem 0; padding: 0.5rem 0;
+  border-radius: 2rem; text-align: center; font-weight: 800;
+  font-size: 1.2rem; background: rgb(160, 204, 158);
+  display: block; width: auto; color: #222;
+  margin: 1rem 0; padding: 0.5rem 1rem;
+}
+#sched_tbl .closed-day {
+  background: red; color: #fff;font-weight: normal;
 }
 
 #sched_tbl #day {
@@ -271,8 +265,6 @@ section .section-txt p {
   align-items: center;
   overflow: hidden;
 }
-.vid-swiper .swiper-wrapper li {
-}
 
 #video-ads .swiper-slide img {
   display: block;
@@ -300,11 +292,7 @@ section .section-txt p {
   font-size: 2.4rem; color: var(--main-blue); margin-bottom: 4rem;
 }
 
-
-#notice-board .notice-list-1 {
-  border-left: 1px solid rgba(0,0,0,0.3);
-  width: 80vw; padding-left: 2rem;
-}
+#notice-board .notice-list-1 {width: 80vw; padding-left: 2rem;}
 
 #notice-board .notice-list-1 ul{
   font-size: 1.6rem; display: flex; 
@@ -316,9 +304,7 @@ section .section-txt p {
   /* border-top: 1px solid rgba(0,0,0,0.3); */
   /* border: 1px solid #000; */
 }
-#notice-board .notice-list-1 ul li:first-child {
-  border-top: none;
-}
+#notice-board .notice-list-1 ul li:first-child {border-top: none;}
 #notice-board .notice-list-1 ul div a {
   display: flex; flex-direction: row; justify-content: space-between;
   margin: 2rem; padding: 2rem;
@@ -326,23 +312,31 @@ section .section-txt p {
 
 #notice-board .notice-list-2 {display: none;}
 
-
 /* footer */
 #footer {
-  padding-top: 5rem; border-top: 1px solid #2222224d;
+  background: #c4c4c4;
+  padding: 2rem 10rem; border-top: 1px solid #2222224d; gap: 2rem;
 }
 #footer .footer-top {
-  border: 1px solid red;
-  display: flex; flex-direction: row; justify-content: space-between;
+  display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding-bottom: 2rem;
 }
-#footer .footer-top .footer-link {
-  border: 1px solid #000;
-  /* gap: 2rem; */
-}
+#footer .footer-top .footer-link {display: flex; gap: 2rem;}
 #footer .footer-top .footer-sns {
-  border: 1px solid green; display: flex; font-size: 2.6rem;
+  display: flex; font-size: 2.6rem; align-items: center; justify-content: center; text-align: center; gap: 1.5rem;
 }
+#footer .footer-top .footer-sns img {filter: opacity(0.9);}
 
-#footer .footer-bottom {}
-#footer .footer-bottom address {}
-#footer .footer-bottom p {}
+#footer .footer-bottom {
+  padding: 2rem 0; 
+  display: flex; justify-content: space-between;
+  gap: 2rem;
+  border-top: 1px solid #2222224d;
+}
+#footer .footer-bottom .footer-bottom-left {
+  display: flex; flex-direction: column;
+  gap: 1rem; font-size: 1.4rem;
+}
+#footer .footer-bottom .footer-bottom-left address {
+  display: flex; gap: 2rem;
+}
+#footer .footer-bottom .footer-bottom-left address span {font-weight: 500;}
