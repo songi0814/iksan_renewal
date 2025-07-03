@@ -26,6 +26,7 @@ section .section-txt h2 {
 section .section-txt p {
   font-size: 1.4rem; color: var(--main-blue);
 }
+.smallAlpha-txt {color: #22222254;}
 
 /* header */
 
@@ -283,38 +284,46 @@ section .section-txt p {
 
 /* 공지사항 */
 #notice-board {
-  border: 1px solid orangered;
+  /* border: 1px solid orangered; */
   display: flex; justify-content: center;
 }
 #notice-board .notice-btn {
   /* border: 1px solid green; */
-  width: 30vw; background: var(--main-blue);
+  width: 30vw; height: auto; padding: 2rem;
+  /* background: var(--main-blue); */
   display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;
 }
 #notice-board .notice-btn button {
-  padding: 2rem;
-  font-size: 2.4rem; color: #fff; margin-bottom: 4rem;
+  padding: 1.5rem;
+  /* border: 1px solid var(--main-blue); width: 20rem;
+  border-radius: 2rem; */
+  font-size: 2.4rem; color: var(--main-blue); margin-bottom: 4rem;
 }
 
 
 #notice-board .notice-list-1 {
-  /* border: 1px solid red; */
-  width: 80vw;
+  border-left: 1px solid rgba(0,0,0,0.3);
+  width: 80vw; padding-left: 2rem;
 }
 
 #notice-board .notice-list-1 ul{
   font-size: 1.6rem; display: flex; 
-  flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4rem; 
+  flex-direction: column; justify-content: flex-start; align-items: flex-start; 
 }
 #notice-board .notice-list-1 ul div {
-  width: 65vw; padding: 2rem 0;
+  width: 65vw;
   border-bottom: 1px solid rgba(0,0,0,0.3);
-  border-top: 1px solid rgba(0,0,0,0.3);
+  /* border-top: 1px solid rgba(0,0,0,0.3); */
   /* border: 1px solid #000; */
+}
+#notice-board .notice-list-1 div:last-child {
+  border-bottom: none;
 }
 #notice-board .notice-list-1 ul div a {
   display: flex; flex-direction: row; justify-content: space-between;
+  margin: 2rem; padding: 2rem;
 }
+
 
 
 #notice-board .notice-list-2 {display: none;}
