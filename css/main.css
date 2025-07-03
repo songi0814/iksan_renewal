@@ -283,8 +283,18 @@ section .section-txt p {
 
 
 /* 공지사항 */
-#notice-board {display: flex; flex-direction: column;}
-
-
+#notice-board {
+  border: 1px solid orangered;
+  display: flex; justify-content: center;
+}
+#notice-board .notice-btn {
+  border: 1px solid green;
+  width: 20vw; 
+  display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;
+}
+#notice-board .notice-list-1 {
+  border: 1px solid red;
+  width: 80vw;
+}
 
 #notice-board .notice-list-2 {display: none;}
