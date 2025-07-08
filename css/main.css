@@ -39,7 +39,7 @@ section .section-txt p {
 }
 #header h1 a {
   display: block; width: 17.4rem; height: 4rem;
-  background: url(/portfolio/img/logo/main-logo.png);
+  background: url(../img/logo/main-logo.png);
   background-size: 100% auto;
 }
 
@@ -59,7 +59,7 @@ section .section-txt p {
 
 /* main visual */
 #main-visual {display: block;}
-#main-visual video {width: 90vw; height: 90vh;}
+#main-visual video {width: 100vw; height: 90vh;}
 
 /* main info */
 #main-info {
@@ -132,12 +132,12 @@ section .section-txt p {
   font-size: 1.4rem;
 }
 
-.swiper .swiper-pagination {
+#spacial-exhibititon .swiper .swiper-pagination {
   position: absolute;
   bottom: 0 !important;
 }
-.swiper .swiper-pagination-bullet {
-  background-color: var(--main-blue);
+#spacial-exhibititon .swiper .swiper-pagination-bullet {
+  background-color: var(--main-orange);
   margin: 0 0.5rem !important;
 }
 
@@ -273,6 +273,13 @@ section .section-txt p {
 
 #video-ads .swiper-slide iframe {
   display: block; width: 100%; height: 100%; object-fit: contain;
+}
+
+#video-ads .swiper .swiper-pagination {
+  position: absolute;
+}
+#video-ads .swiper .swiper-pagination-bullet {
+  background-color: var(--main-orange);
 }
 
 #video-ads .video-contents .content-2 {display: none;}
