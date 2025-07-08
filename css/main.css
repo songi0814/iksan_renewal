@@ -39,7 +39,7 @@ section .section-txt p {
 }
 #header h1 a {
   display: block; width: 17.4rem; height: 4rem;
-  background: url(../img/logo/main-logo.png);
+  background: url(/portfolio/img/logo/main-logo.png);
   background-size: 100% auto;
 }
 
