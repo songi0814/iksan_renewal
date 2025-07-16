@@ -40,81 +40,87 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', () => {
     const tabButtons = document.querySelectorAll('.video-tab button');
+    const contents = document.querySelectorAll('#video-ads .video-contents > div');
+    let swiperInstances = {};
+
+    function initSwiper(container) {
+        return new Swiper(container.querySelector('.vid-swiper'), {
+            direction: "vertical",
+            slidesPerView: 1,
+            spaceBetween: 30,
+            mousewheel: true,
+            pagination: {
+                el: container.querySelector('.swiper-pagination'),
+                clickable: true,
+            },
+        });
+    }
+
+    function resetTabs() {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        contents.forEach(content => {
+            content.style.display = 'none';
+        });
+    }
 
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
-            tabButtons.forEach(btn => btn.classList.remove('active'));
+            const targetClass = button.dataset.target;
+            const targetContent = document.querySelector(`#video-ads .${targetClass}`);
 
-        button.classList.add('active');
+            if (!targetContent) return;
+
+            resetTabs();
+
+            button.classList.add('active');
+
+            targetContent.style.display = 'block';
+
+            if (!swiperInstances[targetClass]) {
+                swiperInstances[targetClass] = initSwiper(targetContent);
+            } else {
+                swiperInstances[targetClass].update();
+            }
         });
     });
+
+    (function initFirstTab() {
+        tabButtons[0].classList.add('active');
+        contents.forEach((content, index) => {
+            if (index === 0) {
+                content.style.display = 'block';
+                const key = tabButtons[0].dataset.target;
+                swiperInstances[key] = initSwiper(content);
+            } else {
+                content.style.display = 'none';
+            }
+        });
+    })();
 });
 
 
+
+//공지사항
+
 document.addEventListener('DOMContentLoaded', function () {
-    const buttons = document.querySelectorAll('#notice-board .notice-btn button');
-    const lists = document.querySelectorAll('#notice-board .notice-list');
-    
-    buttons.forEach((btn) => {
-        btn.addEventListener('click', function () {
-            const tabType = btn.dataset.tab;
-            
-            if (btn.querySelector('a')) return;
-            
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            lists.forEach(list => {
-                if (list.dataset.type === tabType) {
-                    list.style.display = 'block';
-                } else {
-                    list.style.display = 'none';
+    const tabButtons = document.querySelectorAll('#notice-board .tab-btn');
+    const noticeLists = document.querySelectorAll('#notice-board .notice-list');
+
+    tabButtons.forEach((btn) => {
+        btn.addEventListener('click', function (e) {
+            if (this.querySelector('a')) return;
+
+            tabButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            const targetTab = this.getAttribute('data-tab');
+
+            noticeLists.forEach(list => {
+                list.classList.remove('active');
+                if (list.getAttribute('data-type') === targetTab) {
+                    list.classList.add('active');
                 }
             });
         });
     });
-    
-    lists.forEach(list => {
-        list.style.display = list.dataset.type === 'notice' ? 'block' : 'none';
-    });
-    
-    const vidSwiper = new Swiper(".vid-swiper", {
-        direction: "vertical",
-        slidesPerView: 1,
-        spaceBetween: 30,
-        mousewheel: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
 });
-
-
-//공지사항
-document.addEventListener('DOMContentLoaded', function () {
-    const buttons = document.querySelectorAll('#notice-board .notice-btn button');
-    const lists = [
-        document.querySelector('.notice-list-1'),
-        document.querySelector('.notice-list-2')
-    ];
-
-    buttons.forEach((btn, idx) => {
-        btn.addEventListener('click', function (e) {
-        if (btn.querySelector('a')) return;
-
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        lists.forEach(l => l.style.display = 'none');
-            if (idx === 0) lists[0].style.display = 'block';
-            if (idx === 1) lists[1].style.display = 'block';
-        });
-    });
-
-    lists[0].style.display = 'block';
-    lists[1].style.display = 'none';
-});
-
-
-

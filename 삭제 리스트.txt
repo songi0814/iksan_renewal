@@ -1,0 +1,159 @@
+#header .utill .all-menu-popup {
+  /* display: none; */
+  background: #c98a8a;
+  position: fixed;left: 0;right: 0;top: 0;bottom: 0; height: 100vh;
+}
+#header .utill .all-menu-popup .all-menu-top {
+  position: absolute; left: 0;right: 0;
+  display: flex;justify-content: space-between;
+  padding: 4rem 6rem;color: #222;
+}
+#header .utill .all-menu-popup .all-menu-top a {
+  display: block; width: 17.4rem; height: 4rem;
+  background: url(../img/logo/main-logo.png);
+  background-size: 100% auto;
+}
+#header .utill .all-menu-popup .all-menu-setting {
+  display: flex; flex-direction: row; justify-content: space-between;
+}
+#header .utill .all-menu-popup .all-menu-left {
+  width: 40vw; height: 100vh; overflow: hidden; 
+}
+#header .utill .all-menu-popup .all-menu-left img{
+  object-fit: cover;
+}
+#header .utill .all-menu-popup .all-menu-right{
+  padding: 5rem 10rem 5rem 0; width: 55vw; height: 100vh; 
+  border: 1px solid blue;
+}
+#header .utill .all-menu-popup .all-menu-right .all-menu-list{
+  display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; height: 100%; text-align: center; width: 100%;
+  border: 1px solid red;
+}
+#header .utill .all-menu-popup .all-menu-right .all-menu-list .all-menu-cont>a{
+  border: 1px solid green; padding-bottom: 3rem; border-bottom: 2px solid var(--main-orange); position: relative;
+}
+#header .utill .all-menu-popup .all-menu-right .dep2 {
+  display: flex; flex-direction: column; align-items: center;
+  font-weight: normal; gap: 5rem; padding-top: 5rem;
+  position: absolute;
+  /* display: none; */
+  border: 1px solid blueviolet;
+}
+#header .utill .all-menu-popup .all-menu-right .dep3 {
+  /* display: none; */
+  font-size: 1.4rem; padding-top: 1.5rem; color: #333;
+  border: 1px solid yellow;
+}
+#header .utill .all-menu-popup .all-menu-right .dep3>li {
+  padding-bottom: 1.5rem;
+  border: 1px solid orange;
+}
+
+
+
+
+
+
+
+
+
+
+<div class="all-menu-popup">
+                        <div class="all-menu-top">
+                            <h1>
+                                <!-- 로고 삽입 a배경으로 -->
+                                <a href="#"><span class="blind">국립익산박물관</span></a>
+                            </h1>
+                        </div>
+                        <div class="all-menu-setting">
+                            <div class="all-menu-left">
+                                <img src="./img/con1_bg.jpg" alt="">
+                            </div>
+                            <div class="all-menu-right">
+                                <ul class="all-menu-list">
+                                    <li class="all-menu-cont">
+                                        <a href="#">박물관소개</a>
+                                            <ul class="dep2">
+                                                <li><a href="#">소개의 글</a></li>
+                                                <li><a href="#">연혁</a>
+                                                    <ul class="dep3">
+                                                        <li><a href="#">박물관 연혁</a></li>
+                                                        <li><a href="#"></a>미륵사지연혁</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">비전 및 목표</a></li>
+                                                <li><a href="#">미륵사지</a></li>
+                                                <li><a href="#">백제역사유적지구</a></li>
+                                                <li><a href="#">조직 및 업무</a></li>
+                                                <li><a href="#">박물관 로고</a></li>
+                                            </ul>
+                                    </li>
+                                    <li class="all-menu-cont">
+                                        <a href="#">관람정보</a>
+                                            <ul class="dep2">
+                                                    <li><a href="#">관람 및 전시해설</a></li>
+                                                    <li><a href="#">시설안내</a></li>
+                                                    <li><a href="#">시설 대관안내</a></li>
+                                                    <li><a href="#">자주묻는질문</a></li>
+                                                    <li><a href="#">찾아오시는길</a></li>
+                                            </ul>
+                                    </li>
+                                    <li class="all-menu-cont">
+                                        <a href="#">전시&소장품</a>
+                                            <ul class="dep2">
+                                                <li><a href="#">상설전시</a></li>
+                                                <li><a href="#">특별전시</a></li>
+                                                <li><a href="#">추천 소장품</a></li>
+                                                <li><a href="#">전체소장품검색</a></li>
+                                                <li><a href="#">발간자료</a></li>
+                                                <li><a href="#">열람/복제</a>
+                                                    <ul class="dep3">
+                                                        <li><a href="#">소장품 열람</a></li>
+                                                        <li><a href="#">소장품 복제</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">동영상 이모저모</a></li>
+                                            </ul>
+                                    </li>
+                                    <li class="all-menu-cont">
+                                        <a href="#">교육&행사</a>
+                                            <ul class="dep2">
+                                                <li><a href="#">교육프로그램</a></li>
+                                                <li><a href="#">행사</a></li>
+                                                <li><a href="#">예약조회/취소</a></li>
+                                                <li><a href="#">지난 교육/행사</a></li>
+                                            </ul>
+                                    </li>
+                                    <li class="all-menu-cont">
+                                        <a href="#">어린이박물관</a>
+                                            <ul class="dep2">
+                                                <li><a href="#">알려드려요</a></li>
+                                                <li><a href="#">관람안내</a></li>
+                                                <li><a href="#">관람예약</a></li>
+                                                <li><a href="#">시설안내</a></li>
+                                                <li><a href="#">찾아오시는 길</a></li>
+                                            </ul>
+                                    </li>
+                                    <li class="all-menu-cont">
+                                        <a href="#">소식&참여</a>
+                                            <ul class="dep2">
+                                                <li><a href="#">공지사항</a></li>
+                                                <li><a href="#">고객민원</a></li>
+                                                <li><a href="#">정보공개</a>
+                                                    <ul class="dep3">
+                                                        <li><a href="#">정보공개제도 안내</a></li>
+                                                        <li><a href="#">정보공개목록</a></li>
+                                                        <li><a href="#">사전정보공표</a></li>
+                                                        <li><a href="#">정보공개 자료실</a></li>
+                                                        <li><a href="#">공공데이터 개방</a></li>
+                                                        <li><a href="#">정보공개 수수료</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">박물관 소식지</a></li>
+                                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
