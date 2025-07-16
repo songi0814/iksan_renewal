@@ -74,6 +74,13 @@ section .section-txt p {
   background: url(../img/logo/main-logo-white.png) no-repeat center/contain;
 }
 
+#header .utill .all-menu-popup .all-menu-top .allmenu-close i {
+  font-size: 3rem;
+}
+#header .utill .all-menu-popup .all-menu-top .allmenu-close i:hover {
+  color: var(--main-orange);
+}
+
 #header .utill .all-menu-setting {display: flex;}
 
 #header .utill .all-menu-left {
@@ -84,7 +91,7 @@ section .section-txt p {
   width: 100%; height: 100%; object-fit: cover;
 }
 
-#header .utill .all-menu-right {width: 65vw; padding: 5rem 8rem;}
+#header .utill .all-menu-right {width: 65vw; padding: 8rem;}
 
 #header .utill .all-menu-list {
   display: flex; justify-content: space-between;

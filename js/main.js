@@ -1,3 +1,12 @@
+//allmenu
+const allMenuOpen = document.querySelector('.all-menu-open')
+allMenuOpen.addEventListener('click', function() {
+    document.querySelector('.all-menu-popup').style.display = 'block'
+})
+const allMenuClose = document.querySelector('.allmenu-close')
+allMenuClose.addEventListener('click', function() {
+    document.querySelector('.all-menu-popup').style.display = 'none'
+})
 
 
 //특별전시
