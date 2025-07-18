@@ -12,9 +12,13 @@ html {
 body {
   font-family: "Noto Sans KR", 'Pretendard', '맑은 고딕', sans-serif;
   color: #222;font-size: 1.6rem; margin: 0; padding: 0;
+  word-break: keep-all;
 }
 section {padding: 6rem 0;}
 main {padding: 10rem 10rem 0 10rem;}
+@media screen and (max-width: 950px) {
+  main {padding: 10rem 5rem 0 5rem;}
+} 
 .big-txt {font-size: 2rem; font-weight: bold;}
 .small-txt {font-size: 1.4rem;}
 section .section-txt {
@@ -43,11 +47,19 @@ section .section-txt p {
   background-size: 100% auto;
 }
 
+
 #gnb .dep1 li {display: flex; gap: 5rem;}
 #gnb .dep1 li a {font-size: 1.6rem;}
 #gnb .dep1 li .dep2 {display: none;}
 /* 클릭하면 dep 2 열기 */
 
+@media screen and (max-width: 1260px) {
+  #gnb .dep1 li a  {font-size: 1.4rem;}
+  #header h1 a {width: 17.4rem; height: 4rem;background-size: 100% auto;}
+}
+@media screen and (max-width: 1202px) {
+  #gnb .dep1 li {display: none;}
+}
 
 #header .utill {display: flex; gap: 3rem;font-size: 1.8rem; font-weight: 700;}
 #header .utill .lang-wrap {font-weight: 600;}
@@ -69,9 +81,10 @@ section .section-txt p {
 }
 
 #header .utill .all-menu-popup .all-menu-top a {
-  display: block; position: absolute;
+  display: block; position: absolute; z-index: 9999;
   width: 17.4rem; height: 4rem;
-  background: url(../img/logo/main-logo-white.png) no-repeat center/contain;
+  background: url(../img/logo/main-logo-white.png);
+  background-size: 100% auto;
 }
 
 #header .utill .all-menu-popup .all-menu-top .allmenu-close i {
@@ -81,70 +94,103 @@ section .section-txt p {
   color: var(--main-orange);
 }
 
-#header .utill .all-menu-setting {display: flex;}
-
-#header .utill .all-menu-left {
-  width: 35vw; height: 100vh; overflow: hidden;
-}
-
-#header .utill .all-menu-left img {
-  width: 100%; height: 100%; object-fit: cover;
-}
-
-#header .utill .all-menu-right {width: 65vw; padding: 8rem;}
-
-#header .utill .all-menu-list {
+#header .utill .all-menu-setting {
   display: flex; justify-content: space-between;
-  align-items: flex-start; text-align: left;
-  width: 100%; gap: 3rem;
-  align-items: stretch;
-  /* border: 1px solid #000; */
+  height: 100vh;
+  font-family: 'Pretendard', sans-serif;
 }
 
-.all-menu-cont {
-  width: 16%; padding-right: 3rem;
-  position: relative; border-right: 1px solid #a3a3a3 ;
-}
-.all-menu-cont:last-child {
-  border-right: none;
+.all-menu-left {
+  width: 35%;
+  background: url('./img/con1_bg.jpg') no-repeat center center / cover; overflow: hidden;
+  position: relative;
 }
 
+.all-menu-left img {
+  display: block; height: 100%; object-fit: cover;
+}
+
+.all-menu-right {
+  width: 60%; padding: 10rem;
+  overflow: auto;
+  background-color: #fff;
+  box-sizing: border-box;
+  
+}
+
+.all-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  overflow: auto;
+  height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: #e0e0e0 transparent;
+}
+
+.all-menu-cont {border-bottom: 1px solid #a9a9a9;}
 .all-menu-cont > a {
-  display: block; font-weight: 700;
-  font-size: 1.6rem; margin-bottom: 2rem;
-  border-bottom: 2px solid var(--main-orange);
-  padding-bottom: 3rem; text-align: center;
-  /* border: 1px solid red; */
+  font-size: 2rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 4rem;
+  color: var(--main-orange);
+  text-decoration: none;
 }
 
-.dep2 {
-  display: flex; flex-direction: column;
-  gap: 8rem; font-size: 1.4rem; font-weight: 500;
-  color: #222; text-align: center;
-  /* border: 1px solid orange;  */
+.all-menu-cont .dep2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem 3rem;
+  margin-bottom: 2rem;
 }
 
-.dep2 > li > a {color: #222;}
-
-.dep3 {
-  margin-top: 1rem; margin-left: 1rem;
-  font-size: 1.3rem; color: #666;
-  display: flex; flex-direction: column;
-  gap: 0.8rem; font-weight: 400;
+.all-menu-cont .dep2 > li {
+  width: calc(33.33% - 20px); /* 3열 레이아웃 */
+  font-size: 15px;
+  line-height: 1.4;
 }
 
+.all-menu-cont .dep2 > li > a {
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.all-menu-cont .dep2 > li > a:hover {
+  color: var(--main-green);
+  text-decoration: underline;
+}
+
+.all-menu-cont .dep3 {
+  margin-top: 0.8rem;
+}
+
+.all-menu-cont .dep3 li a {
+  font-size: 1.4rem; font-weight: 300; 
+  color: #666;
+  text-decoration: none;
+}
+
+.all-menu-cont .dep3 li a:hover {
+  color: var(--main-green);
+}
 
 
 /* main visual */
 #main-visual {
   display: block;
   position: relative;
-  left: -10rem;
-  width: calc(100% + 20rem);
+  /* left: -10rem; */
+  width: 100%;
 }
 #main-visual video {
   object-fit: cover;
   width: 100%; height: 90vh;
+}
+
+@media screen and (max-width: 1400px) {
+  #main-visual video {height: auto;}
 }
 
 /* main info */
@@ -178,9 +224,24 @@ section .section-txt p {
 }
 #main-info>div .txt-box span {line-height: 3rem;}
 
+@media screen and (max-width: 1260px) {
+  #main-info .time-closeday strong {font-size: 2.4rem;}
+  #main-info .maininfo-btn>a strong{font-size: 2.4rem;}
+  .big-txt{font-size: 1.6rem;}
+  .small-txt{font-size: 1.2rem;}
+}
+@media screen and (max-width: 1150px) {
+  #main-info {display: grid; grid-template-columns: repeat(2,1fr);}
+  #main-info > div {width: auto; height: 30rem;}
+}
+
 /* 특별전시 css */
 
-#spacial-exhibititon .swiper {width: 100%;}
+#spacial-exhibititon .swiper {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;
+  width: 100%;
+}
+#spacial-exhibititon .swiper-wrapper {padding-bottom: 5rem;}
 #spacial-exhibititon .swiper-slide {
   display: flex;flex-direction: column; gap: 2rem;
   justify-content: flex-start;
@@ -259,16 +320,14 @@ section .section-txt p {
 #exhibition-info .card-img {width: 70%; height: 100%;}
 #exhibition-info .card-img img {
   width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
+  object-fit: cover; display: block;
 }
 
 #exhibition-info .card-txt {
   width: 30%; height: 100%;
   display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between;
-  padding: 2rem 3rem;
-  position: relative;
-  background: url(/img/stone-pagoda2.png) 8rem 1rem / 100% no-repeat;
+  padding: 2rem 3rem; position: relative;
+  background: url(/img/stone-pagoda2.png) 8rem 1rem / 100% 100%no-repeat;
 }
 
 #exhibition-info .card-txt .card-title{
@@ -285,6 +344,34 @@ section .section-txt p {
 #exhibition-info .card-txt .card-moreinfo::after {
   content: "\F2E5";font-family: 'remixicon';
 }
+
+@media screen and (max-width: 1330px) {
+  #exhibition-info .card-txt .card-moreinfo {font-size: 1.4rem;}
+  #exhibition-info .card-txt .card-moreinfo::after {font-size: 1.4rem;}
+}
+@media screen and (max-width: 1150px) {
+  #exhibition-info .room-li {grid-template-columns: 1fr 1fr;}
+  #exhibition-info .room-li li a {height: 20rem;}
+  #exhibition-info .card-txt {background: none;}
+  #exhibition-info .card-txt .card-title {font-size: 1.4rem;}
+}
+@media screen and (max-width: 1130px) {
+  #exhibition-info .room-li {grid-template-columns: 1fr;}
+}
+@media screen and (max-width: 607px) {
+  #exhibition-info .card-txt .card-moreinfo {font-size: 1.2rem; font-weight: 700;}
+  #exhibition-info .card-txt .card-moreinfo::after {font-size: 1.2rem; font-weight: 700;}
+}
+@media screen and (max-width: 565px) {
+  #exhibition-info .card-txt .card-moreinfo {font-size: 1rem; font-weight: 700;}
+  #exhibition-info .card-txt .card-moreinfo::after {font-size: 1rem; font-weight: 700;}
+}
+@media screen and (max-width: 523px) {
+  #exhibition-info .card-txt .card-moreinfo {font-size: 0.6rem; font-weight: 700;}
+  #exhibition-info .card-txt .card-moreinfo::after {font-size: 0.6rem; font-weight: 700;}
+}
+
+
 
 /* 교육&행사 */
 #edu-event .edu-cont {
@@ -335,48 +422,63 @@ section .section-txt p {
 #sched_tbl #day th {
   height: 5rem; border: 1px solid var(--main-orange);
 }
-/* #sched_tbl #day th:first-child {color: red;} */
 #sched_tbl tbody tr {height: 11rem; text-align: left;}
 #sched_tbl tbody td {
   border: 1px solid var(--main-orange);
   vertical-align: top; width: 10rem; padding: 1rem;
 }
 
+@media screen and (max-width: 1330px) {
+  #edu-event .edu-poster {display: none;}
+  #edu-event .edu-cont {display: flex; justify-content: center; gap: 0;}
+  #edu-event .year-month-cal {width: 100%;}
+  .popup-overlay {
+    display: none; position: fixed;
+    z-index: 1001; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center; align-items: center;
+  }
 
+  .popup-content {
+    position: relative; padding: 1rem;
+    border-radius: 2rem; max-width: 40%;
+  }
+
+  .popup-content img {
+    max-width: 100%; max-height: 100%;
+  }
+
+  .popup-close {
+    position: absolute; top: 1.5rem; right: 1.5rem; font-size: 3rem; font-weight: bold; cursor: pointer; color: var(--main-orange);
+  }
+  #sched_tbl tbody td {width: calc(100% / 7);}
+}
+@media screen and (max-width: 800px) {
+  #sched_tbl button {font-size: 1rem;}
+}
 
 /* 홍보영상 */
-/* video-ads 전체 레이아웃 */
 #video-ads .video-part {
-  display: flex;
-  flex-direction: column;
+  display: flex; flex-direction: column;
   gap: 4rem;
 }
 
-/* 탭 버튼 영역 */
 #video-ads .video-tab {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 10rem;
-  color: var(--main-blue);
-  padding-bottom: 2rem;
+  display: flex; flex-direction: row;
+  justify-content: space-between;
+   /* gap: 10rem; */
+  color: var(--main-blue); padding-bottom: 2rem; 
   border-bottom: 1px solid var(--main-orange);
 }
 
-/* 탭 버튼 기본 스타일 */
 #video-ads .video-tab button {
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: var(--main-blue);
-  font-weight: normal;
-  position: relative;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
+  font-size: 2rem; background: none;
+  border: none; color: var(--main-blue);
+  font-weight: normal; position: relative;
+  cursor: pointer; padding: 0.5rem 1rem;
   transition: all 0.3s ease;
 }
 
-/* 탭 버튼 내 소형 텍스트 */
 #video-ads .video-tab .small-txt {
   font-size: 1.2rem;
   margin-left: 0.4rem;
@@ -400,8 +502,7 @@ section .section-txt p {
 
 /* Swiper 설정 */
 #video-ads .video-contents .swiper {
-  width: 100%;
-  height: 60rem;
+  width: 100%; height: 60rem;
 }
 
 #video-ads .swiper-slide {
@@ -428,11 +529,18 @@ section .section-txt p {
   background-color: var(--main-orange);
 }
 
-/* ✅ 모든 콘텐츠 기본 숨김 (JavaScript가 표시함) */
 #video-ads .video-contents > div {
   display: none;
 }
 
+@media screen and (max-width:1060px) {
+  #video-ads .video-tab button {font-size: 1.6rem;}
+}
+@media screen and (max-width:800px) {
+  #video-ads .video-contents .swiper {height: 30rem;}
+
+}
+  
 /* 공지사항 */
 #notice-board {display: flex; justify-content: center;}
 
@@ -476,20 +584,37 @@ section .section-txt p {
   display: flex; justify-content: space-between;
   margin: 2rem; padding: 2rem;
 }
+@media screen and (max-width: 1150px) {
+  #notice-board .tab-btn {font-size: 1.6rem;}
+  #notice-board .notice-list ul {font-size: 1.2rem;}
+}
+@media screen and (max-width: 1130px) {
+  #notice-board {flex-direction: column;}
+  #notice-board .notice-btn {width: 100%;flex-direction: row;}
+  #notice-board .notice-list {width: 80vw;padding-left: 0;}
+  #notice-board .notice-list ul li {width: 80vw}
+}
+
+@media screen and (max-width: 930px) {
+  #notice-board .notice-list ul div a {margin: 1rem; padding: 1rem;}
+  #notice-board .tab-btn {height: 5rem;}
+}
 
 /* footer */
 #footer {
   background: #c4c4c4;
   padding: 2rem 10rem; border-top: 1px solid #2222224d; gap: 2rem;
 }
+@media screen and (max-width: 950px){
+  #footer {padding: 1.5rem 5rem;}
+}
 #footer .footer-top {
   display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding-bottom: 2rem;
 }
-#footer .footer-top .footer-link {display: flex; gap: 2rem;}
+#footer .footer-top .footer-link {display: flex; gap: 2rem; flex-wrap: wrap;}
 #footer .footer-top .footer-sns {
   display: flex; font-size: 2.6rem; align-items: center; justify-content: center; text-align: center; gap: 1.5rem;
 }
-#footer .footer-top .footer-sns img {filter: opacity(0.9);}
 
 #footer .footer-bottom {
   padding: 2rem 0; 
@@ -505,3 +630,17 @@ section .section-txt p {
   display: flex; gap: 2rem;
 }
 #footer .footer-bottom .footer-bottom-left address span {font-weight: 500;}
+#footer .footer-bottom img {width: 6rem;}
+
+@media screen and (max-width: 1150px) {
+  #footer .footer-top {font-size: 1.4rem;}
+  #footer .footer-bottom .footer-bottom-left {font-size: 1.2rem;}
+}
+@media screen and (max-width: 1000px) {
+  #footer .footer-top {font-size: 1.2rem;}
+  #footer .footer-bottom .footer-bottom-left {font-size: 1rem;}
+  #footer .footer-top .footer-sns {font-size: 2rem;}
+}
+@media screen and (max-width: 860px) {
+  #footer .footer-top {flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 1.5rem;}
+}

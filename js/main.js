@@ -13,6 +13,17 @@ allMenuClose.addEventListener('click', function() {
 const exhSwiper = new Swiper(".exh-swiper", {
     autoplay: true,
     slidesPerView: 4,
+    breakpoints: {
+        1150: {
+          slidesPerView: 3, // 1150px 이상일 때 3개
+        },
+        950: {
+            slidesPerView: 2, // 950px->2개
+        },
+        450: {
+          slidesPerView: 1, // 0~450px->1개
+        }
+    },
     spaceBetween: 30,
     // freeMode: true,
     pagination: {
@@ -20,6 +31,7 @@ const exhSwiper = new Swiper(".exh-swiper", {
         clickable: true,
     },
 });
+
 
 //교육&행사
 document.addEventListener('DOMContentLoaded', function () {
@@ -45,6 +57,44 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const popup = document.getElementById('imagePopup');
+    const popupImage = document.getElementById('popupImage');
+    const closeBtn = document.querySelector('.popup-close');
+
+    // 버튼 클릭 시 이미지 표시
+document.querySelectorAll('.change-image-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+    if (window.innerWidth <= 1330) {
+        const imageSrc = this.dataset.img;
+        if (imageSrc) {
+        popupImage.src = imageSrc;
+        popup.style.display = 'flex';
+        }
+    }
+    });
+});
+
+// 닫기
+closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+});
+
+// 배경 클릭 시 닫기
+popup.addEventListener('click', (e) => {
+    if (e.target === popup) {
+    popup.style.display = 'none';
+    }
+});
+
+// 화면 리사이즈 시 팝업 닫기
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 1330) {
+    popup.style.display = 'none';
+    }
+});
+});
+
 //홍보영상
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -57,6 +107,14 @@ document.addEventListener('DOMContentLoaded', () => {
             direction: "vertical",
             slidesPerView: 1,
             spaceBetween: 30,
+            // breakpoints: {
+            //     800: {
+            //         spaceBetween: 10, 
+            //     },
+            //     500:{
+            //         spaceBetween: 10
+            //     }
+            // },
             mousewheel: true,
             pagination: {
                 el: container.querySelector('.swiper-pagination'),

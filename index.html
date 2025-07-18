@@ -158,7 +158,7 @@
                                                         <li><a href="#">소장품 복제</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">동영상 이모저모</a></li>
+                                                <li><a href="#">동영상이모저모</a></li>
                                             </ul>
                                     </li>
                                     <li class="all-menu-cont">
@@ -509,49 +509,49 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>2 <br><button class="closed-day change-image-btn" data-type="reset">휴관일</button></td>
+                                    <td>2 <br><button class="closed-day change-image-btn" data-type="reset" data-img="./img/main_poster.png">휴관일</button></td>
                                     <td>3</td>
                                     <td>4</td>
                                     <td>5</td>
-                                    <td>6<button class="spacial-class change-image-btn" data-type="special">특강</button></td>
-                                    <td>7<button class="child-class change-image-btn" data-type="children">어린이교실</button></td>
+                                    <td>6<button class="spacial-class change-image-btn" data-type="special" data-img="./img/special.jpg">특강</button></td>
+                                    <td>7<button class="child-class change-image-btn" data-type="children" data-img="./img/children.png">어린이 교실</button></td>
                                 </tr>
                                 <tr>
                                     <td>8</td>
-                                    <td>9 <br><button class="closed-day change-image-btn" data-type="reset">휴관일</button></td>
+                                    <td>9 <br><button class="closed-day change-image-btn" data-type="reset" data-img="./img/main_poster.png">휴관일</button></td>
                                     <td>10</td>
                                     <td>11</td>
                                     <td>12</td>
-                                    <td>13<button class="spacial-class change-image-btn" data-type="special">특강</button></td>
-                                    <td>14<button class="child-class change-image-btn" data-type="children">어린이교실</button></td>
+                                    <td>13<button class="spacial-class change-image-btn" data-type="special" data-img="./img/special.jpg">특강</button></td>
+                                    <td>14<button class="child-class change-image-btn" data-type="children" data-img="./img/children.png">어린이 교실</button></td>
                                 </tr>
                                 <tr>
                                     <td>15</td>
-                                    <td>16 <br><button class="closed-day change-image-btn" data-type="reset">휴관일</button></td>
+                                    <td>16 <br><button class="closed-day change-image-btn" data-type="reset" data-img="./img/main_poster.png">휴관일</button></td>
                                     <td>17</td>
                                     <td>18</td>
                                     <td>19</td>
                                     <td>20
-                                        <button class="spacial-class change-image-btn" data-type="special">특강</button>
-                                        <button class="making-class change-image-btn" data-type="experience">체험</button>
+                                        <button class="spacial-class change-image-btn" data-type="special" data-img="./img/special.jpg">특강</button>
+                                        <button class="making-class change-image-btn" data-type="experience" data-img="./img/experience.jpg">체험</button>
                                     </td>
-                                    <td>21<button class="child-class change-image-btn" data-type="children">어린이교실</button></td>
+                                    <td>21<button class="child-class change-image-btn" data-type="children" data-img="./img/children.png">어린이 교실</button></td>
                                 </tr>
                                 <tr>
                                     <td>22</td>
-                                    <td>23 <br><button class="closed-day change-image-btn" data-type="reset">휴관일</button></td>
+                                    <td>23 <br><button class="closed-day change-image-btn" data-type="reset" data-img="./img/main_poster.png">휴관일</button></td>
                                     <td>24</td>
                                     <td>25</td>
                                     <td>26</td>
                                     <td>27
-                                        <button class="spacial-class change-image-btn" data-type="special">특강</button>
-                                        <button class="making-class change-image-btn" data-type="experience">체험</button>
+                                        <button class="spacial-class change-image-btn" data-type="special" data-img="./img/special.jpg">특강</button>
+                                        <button class="making-class change-image-btn" data-type="experience" data-img="./img/experience.jpg">체험</button>
                                     </td>
-                                    <td>28<button class="child-class change-image-btn" data-type="children">어린이교실</button></td>
+                                    <td>28<button class="child-class change-image-btn" data-type="children" data-img="./img/children.png">어린이 교실</button></td>
                                 </tr>
                                 <tr>
                                     <td>29</td>
-                                    <td>30 <br><button class="closed-day change-image-btn" data-type="reset">휴관일</button></td>
+                                    <td>30 <br><button class="closed-day change-image-btn" data-type="reset" data-img="./img/main_poster.png">휴관일</button></td>
                                     <td>1</td>
                                     <td>2</td>
                                     <td>3</td>
@@ -562,6 +562,12 @@
                         </table>
                     </div>
                 </div>
+            </div>
+            <div id="imagePopup" class="popup-overlay">
+            <div class="popup-content">
+                <span class="popup-close"><i class="ri-close-circle-line"></i></span>
+                <img id="popupImage" src="" alt="팝업 이미지">
+            </div>
             </div>
         </section>
         
@@ -825,7 +831,7 @@
                 </a>
                 <a href="#" target="_blank">
                     <span class="blind">블로그</span>
-                    <img src="./img/naver-blog.png" width="22px" alt="네이버블로그">
+                    <i class="ri-news-fill"></i>
                 </a>
                 <a href="#" target="_blank">
                     <span class="blind">유튜브</span>
@@ -839,13 +845,13 @@
             <div class="footer-bottom-left">
                 <address>
                     (54574) 전북특별자치도 익산시 금마면 미륵사지로 362 (기양리) 국립익산박물관
-                        <span>063-830-0915</span>
-                        <span>FAX. 063-832-2226</span>
+                    <span>063-830-0915</span>
+                    <span>FAX. 063-832-2226</span>
                 </address>
                 <p class="copyright">Copyright(c) 2019 국립익산박물관. All rights reserved.</p>
             </div>
             <!--style="position: absolute;  -->
-            <img src="./img/wa_mark.png" alt="wa" width="60px">
+            <img src="./img/wa_mark.png" alt="wa">
         </div>
     </footer>
 </div>
