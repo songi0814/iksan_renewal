@@ -106,6 +106,12 @@ section .section-txt p {
   position: relative;
 }
 
+@media screen and (max-width:1260px) {
+  #header .utill .all-menu-popup .all-menu-top a {background: url(../img/logo/main-logo.png); background-size: 100% auto}
+  .all-menu-left {display: none;}
+  #header .all-menu-right {width: 100%;}
+}
+
 .all-menu-left img {
   display: block; height: 100%; object-fit: cover;
 }
@@ -115,7 +121,6 @@ section .section-txt p {
   overflow: auto;
   background-color: #fff;
   box-sizing: border-box;
-  
 }
 
 .all-menu-list {
@@ -175,6 +180,11 @@ section .section-txt p {
 .all-menu-cont .dep3 li a:hover {
   color: var(--main-green);
 }
+
+@media screen and (max-width: 650px) {
+  .all-menu-cont .dep2 > li {width: 100%; font-size: 2rem;}
+}
+
 
 
 /* main visual */
@@ -624,23 +634,29 @@ section .section-txt p {
 }
 #footer .footer-bottom .footer-bottom-left {
   display: flex; flex-direction: column;
-  gap: 1rem; font-size: 1.4rem;
+  gap: 1rem; font-size: 1.4rem; font-weight: 500;
 }
-#footer .footer-bottom .footer-bottom-left address {
-  display: flex; gap: 2rem;
-}
-#footer .footer-bottom .footer-bottom-left address span {font-weight: 500;}
-#footer .footer-bottom img {width: 6rem;}
+
+#footer .footer-bottom .footer-bottom-left address span
+#footer .footer-bottom img {width: 12rem;}
 
 @media screen and (max-width: 1150px) {
   #footer .footer-top {font-size: 1.4rem;}
   #footer .footer-bottom .footer-bottom-left {font-size: 1.2rem;}
+  #footer .footer-bottom img {width: 10rem; height: 100%;}
 }
 @media screen and (max-width: 1000px) {
   #footer .footer-top {font-size: 1.2rem;}
   #footer .footer-bottom .footer-bottom-left {font-size: 1rem;}
+  #footer .footer-bottom img {width: 8rem; height: 100%;}
   #footer .footer-top .footer-sns {font-size: 2rem;}
 }
 @media screen and (max-width: 860px) {
   #footer .footer-top {flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 1.5rem;}
+  #footer .footer-bottom img {width: 6rem; height: 100%;}
+}
+@media screen and (max-width: 723px) {
+  .footer-bottom address span {
+    display: block; margin-top: 4px;
+  }
 }
