@@ -1,3 +1,13 @@
+//header lang
+const btnLang = document.querySelector('#header .lang-wrap button')
+const langWrap = document.querySelector('#header .lang-wrap')
+
+btnLang.addEventListener('click', function() {
+    langWrap.classList.toggle('active')
+    // searchbox 안보임
+    document.querySelector('#header').classList.add('scroll')
+})
+
 //allmenu
 const allMenuOpen = document.querySelector('.all-menu-open')
 allMenuOpen.addEventListener('click', function() {
@@ -8,6 +18,17 @@ allMenuClose.addEventListener('click', function() {
     document.querySelector('.all-menu-popup').style.display = 'none'
 })
 
+//search
+const searchWrap = document.querySelector('#header .utill .search-wrap');
+searchWrap.querySelector('button').addEventListener('click', function(e) {
+    e.stopPropagation(); 
+});
+
+searchWrap.addEventListener('click', function(e) {
+    if (e.target.closest('.search-close')) {
+        searchWrap.querySelector('.search-box').style.display = 'none';
+    }
+});
 
 //특별전시
 const exhSwiper = new Swiper(".exh-swiper", {

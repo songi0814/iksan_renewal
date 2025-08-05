@@ -36,37 +36,94 @@ section .section-txt p {
 
 #header {
   background: #9ec5ff;
-  position: fixed; width: 100%; top: 0;z-index: 1000;
+  position: fixed; width: 100%; top: 0;z-index: 1000;  
 }
 #header .container {
-  display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 5rem; height: 10rem; padding: 0 6rem;
+  display: flex; justify-content: space-between; align-items: center; gap: 5rem; height: 10rem; 
+  padding: 0 6rem;
 }
 #header h1 a {
   display: block; width: 17.4rem; height: 4rem;
   background: url(../img/logo/main-logo.png);
   background-size: 100% auto;
+  transition: all 0.5s;
 }
 
-
-#gnb .dep1 li {display: flex; gap: 5rem;}
-#gnb .dep1 li a {font-size: 1.6rem;}
-#gnb .dep1 li .dep2 {display: none;}
-/* 클릭하면 dep 2 열기 */
+#gnb .dep1 {display: flex; justify-content: space-between; align-items: center;}
+#gnb .dep1>li {padding: 3rem; display: flex; justify-content: center;}
+#gnb .dep1>li>a {font-size: 1.6rem; display: flex; align-items: center; justify-content: center;}
+#gnb .dep2 {
+  display: none; justify-content: center; flex-direction: column;
+  position: absolute; left: inherit; right: inherit; top: 10.8rem;
+  background: var(--main-blue);color: #fff;
+}
+#gnb .dep1>li:hover>a {
+  text-decoration: underline var(--main-blue) .3rem;
+  text-underline-offset: 2rem;
+}
+#gnb .dep1>li:hover .dep2 {display: block;}
+#gnb .dep1>li:hover .dep2>li {
+  padding: 1.5rem; width: 14rem;
+}
 
 @media screen and (max-width: 1260px) {
-  #gnb .dep1 li a  {font-size: 1.4rem;}
   #header h1 a {width: 17.4rem; height: 4rem;background-size: 100% auto;}
+  #gnb .dep1>li>a {font-size: 1.4rem;}
 }
 @media screen and (max-width: 1202px) {
-  #gnb .dep1 li {display: none;}
+  #gnb .dep1>li {display: none;}
 }
 
 #header .utill {display: flex; gap: 3rem;font-size: 1.8rem; font-weight: 700;}
-#header .utill .lang-wrap {font-weight: 600;}
-#header .utill .lang-wrap button>span::after{
-  content: "\EA4E";font-family: 'remixicon';
+
+#header .utill .lang-wrap {position: relative;}
+#header .utill .lang-wrap button {
+  display: flex; gap: .8rem;
+  font-size: 1.6rem; font-weight: 500;
 }
-#header .utill .lang-wrap ul {display: none;}
+#header .utill .lang-wrap button::after {
+  content: "\EA4D";font-family: 'remixicon';
+  transition: transform 0.3s;
+}
+#header .utill .lang-wrap.active button::after {
+  transform: rotate(180deg); /*inline 요소에는 적용안됨*/
+}
+#header .utill .lang-wrap ul {
+  display: none;flex-direction: column;gap: 1.5rem;
+  position: absolute;left: 50%;transform: translateX(-50%);
+  padding: 1.4rem 2.4rem;top: 6rem;
+  background: var(--main-blue);
+  color: #fff; font-weight: normal; font-size: 1.2rem;
+}
+#header .utill .lang-wrap.active ul {display: flex;}
+
+#header .utill .search-wrap .search-box {
+  display: none;flex-direction: column; justify-content: center; gap: 2.6rem;
+  align-items: center; padding: 10rem 3rem;
+  position: absolute;left: 0;right: 0;top: 10rem;
+  background: var(--main-blue);
+}
+#header .utill .search-box h2 {
+  color: var(--main-orange);font-size: 4rem;
+  font-weight: 900;
+}
+#header .search-box form {
+  display: flex;gap: 0.4rem;
+}
+#header .search-box form input {
+  height: 5.6rem;width: 48rem;padding: 0 2.4rem;
+  color: #222;background: #fafafa;
+  border-radius: 0.5rem;
+}
+#header .search-box form input:focus {
+  outline: 1px solid var(--main-green);
+}
+#header .search-box form button {
+  width: 5.6rem;height: 5.6rem;
+  background: #ffffff;border-radius: 0.5rem;
+  font-size: 2.2rem;
+}
+
 
 #header .utill .all-menu-popup {
   display: none;
