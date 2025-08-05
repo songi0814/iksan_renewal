@@ -21,7 +21,8 @@ allMenuClose.addEventListener('click', function() {
 //search
 const searchWrap = document.querySelector('#header .utill .search-wrap');
 searchWrap.querySelector('button').addEventListener('click', function(e) {
-    e.stopPropagation(); 
+    e.stopPropagation();
+    searchWrap.querySelector('.search-box').style.display = 'flex';
 });
 
 searchWrap.addEventListener('click', function(e) {

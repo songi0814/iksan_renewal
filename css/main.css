@@ -52,23 +52,29 @@ section .section-txt p {
 #gnb .dep1 {display: flex; justify-content: space-between; align-items: center;}
 #gnb .dep1>li {padding: 3rem; display: flex; justify-content: center;}
 #gnb .dep1>li>a {font-size: 1.6rem; display: flex; align-items: center; justify-content: center;}
+#gnb .dep1>li:hover>a {
+  text-decoration: underline var(--main-blue) .3rem;
+  text-underline-offset: 2rem;
+}
 #gnb .dep2 {
   display: none; justify-content: center; flex-direction: column;
   position: absolute; left: inherit; right: inherit; top: 10.8rem;
   background: var(--main-blue);color: #fff;
-}
-#gnb .dep1>li:hover>a {
-  text-decoration: underline var(--main-blue) .3rem;
-  text-underline-offset: 2rem;
 }
 #gnb .dep1>li:hover .dep2 {display: block;}
 #gnb .dep1>li:hover .dep2>li {
   padding: 1.5rem; width: 14rem;
 }
 
+@media screen and (max-width: 1370px) {
+  #gnb .dep1>li>a {font-size: 1.4rem;}
+  #gnb .dep1>li {padding: 2rem;}
+  #gnb .dep2 {font-size: 1.2rem;}
+  #gnb .dep1>li:hover .dep2>li {padding: 1rem; width: 12rem;}
+}
+
 @media screen and (max-width: 1260px) {
   #header h1 a {width: 17.4rem; height: 4rem;background-size: 100% auto;}
-  #gnb .dep1>li>a {font-size: 1.4rem;}
 }
 @media screen and (max-width: 1202px) {
   #gnb .dep1>li {display: none;}
