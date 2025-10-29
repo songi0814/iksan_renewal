@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소장품 | 추천소장품</title>
+
+    <!-- Style Sheet -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main-font.css">
+    <link rel="stylesheet" href="../css/main-reset.css">
+    <link rel="stylesheet" href="../css/sub01.css">
+    
+    <!-- Java Script -->
+    <script src="../js/sub01.js" defer></script>
+</head>
+<body>
+<div id="wrap">
+    <!-- 헤더 -->
+    <header id="header">
+        <div class="container">
+            <h1>
+                <!-- a에 배경으로 로고 이미지 넣기 -->
+                <a href="#"><span class="blind">국립익산박물관</span></a>
+            </h1>
+            <!-- GNB -->
+            <nav id="gnb">
+                <ul class="dep1">
+                    <li><a href="#">박물관소개</a>
+                        <ul class="dep2">
+                            <li><a href="#">소개의 글</a></li>
+                            <li><a href="#">연혁</a></li>
+                            <li><a href="#">비전 및 목표</a></li>
+                            <li><a href="#">미륵사지</a></li>
+                            <li><a href="#">백제역사유적지구</a></li>
+                            <li><a href="#">조직 및 업무</a></li>
+                            <li><a href="#">박물관 로고</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">관람정보</a>
+                        <ul class="dep2">
+                            <li><a href="#">관람 및 전시해설</a></li>
+                            <li><a href="#">시설안내</a></li>
+                            <li><a href="#">시설 대관안내</a></li>
+                            <li><a href="#">자주묻는질문</a></li>
+                            <li><a href="#">찾아오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">전시&소장품</a>
+                        <ul class="dep2">
+                                <li><a href="#">상설전시</a></li>
+                                <li><a href="#">특별전시</a></li>
+                                <li><a href="#">추천 소장품</a></li>
+                                <li><a href="#">전체소장품검색</a></li>
+                                <li><a href="#">발간자료</a></li>
+                                <li><a href="#">열람/복제</a></li>
+                                <li><a href="#">동영상 이모저모</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">교육&행사</a>
+                        <ul class="dep2">
+                                <li><a href="#">교육프로그램</a></li>
+                                <li><a href="#">행사</a></li>
+                                <li><a href="#">예약조회/취소</a></li>
+                                <li><a href="#">지난 교육/행사</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">어린이박물관</a>
+                        <ul class="dep2">
+                            <li><a href="#">알려드려요</a></li>
+                                <li><a href="#">관람안내</a></li>
+                                <li><a href="#">관람예약</a></li>
+                                <li><a href="#">시설안내</a></li>
+                                <li><a href="#">찾아오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">소식&참여</a>
+                        <ul class="dep2">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">고객민원</a></li>
+                                <li><a href="#">정보공개</a></li>
+                                <li><a href="#">박물관 소식지</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="utill">
+                <div class="lang-wrap">
+                    <!-- after로 span에 화살표 리믹스아이콘 넣기-->
+                    <button><span>KOR</span></button>
+                    <!-- display none했다가 풀기-->
+                    <ul> 
+                        <li><a href="#">한국어</a></li>
+                        <li><a href="#" target="_blank">ENGLISH</a></li>
+                        <li><a href="#" target="_blank">中国語</a></li>
+                        <li><a href="#" target="_blank">日本語</a></li>
+                    </ul>
+                </div>
+                <div class="all-menu-wrap">
+                    <button class="all-menu-open">
+                        <i class="ri-menu-add-line"></i>
+                        <span class="blind">메뉴 더보기</span>
+                    </button>
+                    <div class="all-menu-popup">
+                        <div class="all-menu-top">
+                            <h1>
+                                <!-- 로고 삽입 a배경으로 -->
+                                <a href="#"><span class="blind">국립익산박물관</span></a>
+                            </h1>
+                            <button class="allmenu-close">
+                                <i class="ri-close-fill"></i>
+                                <span class="blind">전체메뉴 닫기</span>
+                            </button>
+                        </div>
+                        <div class="all-menu-setting">
+                            <div class="all-menu-left">
+                                <img src="../img/con1_bg.jpg" alt="">
+                            </div>
+                            <div class="all-menu-right">
+                                <ul class="all-menu-list">
+                                    <li class="all-menu-cont">
+                                        <a href="#">박물관소개</a>
+                                            <ul class="dep2">
+                                                <li><a href="#">소개의 글</a></li>
+                                                <li><a href="#">연혁</a>
+                                                    <ul class="dep3">
+                                                        <li><a href="#">박물관 연혁</a></li>
+                                                        <li><a href="#">미륵사지연혁</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">비전 및 목표</a></li>
+                                                <li><a href="#">미륵사지</a></li>
+                                                <li><a href="#">백제역사유적지구</a></li>
+                                                <li><a href="#">조직 및 업무</a></li>
+                                                <li><a href="#">박물관 로고</a></li>
+                                            </ul>
+                                    </li>
+                                    <li class="all-menu-cont">
+                                        <a href="#">관람정보</a>
+                                            <ul class="dep2">
+                                                    <li><a href="#">관람 및 전시해설</a></li>
+                                                    <li><a href="#">시설안내</a></li>
+                                                    <li><a href="#">시설 대관안내</a></li>
+                                                    <li><a href="#">자주묻는질문</a></li>
+                                                    <li><a href="#">찾아오시는길</a></li>
+                                            </ul>
+                                    </li>
+                                    <li class="all-menu-cont">
+                                        <a href="#">전시&소장품</a>
+                                            <ul class="dep2">
+                                                <li><a href="#">상설전시</a></li>
+                                                <li><a href="#">특별전시</a></li>
+                                                <li><a href="#">추천 소장품</a></li>
+                                                <li><a href="#">전체소장품검색</a></li>
+                                                <li><a href="#">발간자료</a></li>
+                                                <li><a href="#">열람/복제</a>
+                                                    <ul class="dep3">
+                                                        <li><a href="#">소장품 열람</a></li>
+                                                        <li><a href="#">소장품 복제</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">동영상이모저모</a></li>
+                                            </ul>
+                                    </li>
+                                    <li class="all-menu-cont">
+                                        <a href="#">교육&행사</a>
+                                            <ul class="dep2">
+                                                <li><a href="#">교육프로그램</a></li>
+                                                <li><a href="#">행사</a></li>
+                                                <li><a href="#">예약조회/취소</a></li>
+                                                <li><a href="#">지난 교육/행사</a></li>
+                                            </ul>
+                                    </li>
+                                    <li class="all-menu-cont">
+                                        <a href="#">어린이박물관</a>
+                                            <ul class="dep2">
+                                                <li><a href="#">알려드려요</a></li>
+                                                <li><a href="#">관람안내</a></li>
+                                                <li><a href="#">관람예약</a></li>
+                                                <li><a href="#">시설안내</a></li>
+                                                <li><a href="#">찾아오시는 길</a></li>
+                                            </ul>
+                                    </li>
+                                    <li class="all-menu-cont">
+                                        <a href="#">소식&참여</a>
+                                            <ul class="dep2">
+                                                <li><a href="#">공지사항</a></li>
+                                                <li><a href="#">고객민원</a></li>
+                                                <li><a href="#">정보공개</a>
+                                                    <ul class="dep3">
+                                                        <li><a href="#">정보공개제도 안내</a></li>
+                                                        <li><a href="#">정보공개목록</a></li>
+                                                        <li><a href="#">사전정보공표</a></li>
+                                                        <li><a href="#">정보공개 자료실</a></li>
+                                                        <li><a href="#">공공데이터 개방</a></li>
+                                                        <li><a href="#">정보공개 수수료</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">박물관 소식지</a></li>
+                                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="search-wrap">
+                    <button>
+                        <i class="ri-search-line"></i>
+                        <span class="blind">검색창 열기</span>
+                    </button>
+                    <div class="search-box">
+                        <h2>SEARCH</h2>
+                        <form>
+                            <input type="text" placeholder="필요한 정보를 검색해 보세요">
+                            <button type="submit">
+                                <i class="ri-search-line"></i>
+                                <span class="blind">검색하기</span>
+                            </button>
+                            <button class="search-close">
+                                <i class="ri-close-fill"></i>
+                                <span class="blind">검색 닫기</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div >
+    </header>
+
+    <!-- 메인 이미지 -->
+    <div class="main-img">
+        <img src="../img/mirulk/sub-background1.png" alt="">
+    </div>
+    
+    <!-- 메인 -->
+    <main id="main">
+        <!-- sub-menu-tab -->
+        <div id="sub-tab">
+            <h3>소장품</h3>
+            <div class="sub-tab-list">
+                <ul>
+                    <li><a href="#">추천소장품</a></li>
+                    <li><a href="#">전체소장품 검색</a></li>
+                    <li><a href="#">발간자료</a></li>
+                    <li><a href="#">열람/복제</a></li>
+                    <li><a href="#">동영상 이모저모</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 검색 tab -->
+        <div id="search-box">
+            <div class="search-tab-lists">
+                <div class="custom-select-box">
+                    <div class="select-selected">
+                        소장품명
+                        <span class="material-icons">expand_more</span>
+                    </div>
+                    <ul class="select-items select-hide">
+                        <li data-value="coll-name">소장품명</li>
+                        <li data-value="exhi-room">전시실</li>
+                    </ul>
+                </div>
+                <input type="text" placeholder="검색어를 입력해주세요.">
+                <button type="submit">
+                    <span class="material-icons">search</span>
+                    <span>검색</span>
+                </button>
+            </div>
+        </div>
+
+        <ul class="product-list" id="productList"></ul>
+        <button id="loadMoreBtn">더보기</button>
+
+
+    </main>
+
+
+    <!-- 풋터 -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="footer-link">
+                <a href="#" target="_blank">박물관소개</a>
+                <a href="#" target="_blank">개인정보처리방침</a>
+                <a href="#" target="_blank">영상정보처리기기</a>
+                <a href="#" target="_blank">운영관리방침</a>
+                <a href="#" target="_blank">저작권정책</a>
+                <a href="#" target="_blank">관련기관</a>
+            </div>
+            <div class="footer-sns">
+                <a href="#" target="_blank">
+                    <span class="blind">인스타그램</span>
+                    <i class="ri-instagram-fill"></i>
+                </a>
+                <a href="#" target="_blank">
+                    <span class="blind">페이스북</span>
+                    <i class="ri-facebook-box-fill"></i>
+                </a>
+                <a href="#" target="_blank">
+                    <span class="blind">블로그</span>
+                    <i class="ri-news-fill"></i>
+                </a>
+                <a href="#" target="_blank">
+                    <span class="blind">유튜브</span>
+                    <i class="ri-youtube-fill"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 가상요소로 라인 넣기 -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <address>
+                    (54574) 전북특별자치도 익산시 금마면 미륵사지로 362 (기양리) 국립익산박물관
+                </address>
+                <div class="footer-num">
+                    <span>063-830-0915</span>
+                    <span>FAX. 063-832-2226</span>
+                </div class="footer-num">
+                <p class="copyright">Copyright(c) 2019 국립익산박물관. All rights reserved.</p>
+            </div>
+            <!--style="position: absolute;  -->
+            <img src="../img/wa_mark.png" alt="wa">
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
+

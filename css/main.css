@@ -58,7 +58,7 @@ section .section-txt p {
 }
 #gnb .dep2 {
   display: none; justify-content: center; flex-direction: column;
-  position: absolute; left: inherit; right: inherit; top: 10.8rem;
+  position: absolute; left: inherit; right: inherit; top: 10rem;
   background: var(--main-blue);color: #fff;
 }
 #gnb .dep1>li:hover .dep2 {display: block;}
