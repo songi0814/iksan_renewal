@@ -31,6 +31,30 @@ searchWrap.addEventListener('click', function(e) {
     }
 });
 
+
+
+// dep2
+document.querySelectorAll('#gnb .dep1 > li > a').forEach(item => {
+  item.addEventListener('click', e => {
+    e.preventDefault();
+    const parentLi = e.currentTarget.closest('li');
+    const subMenu = parentLi.querySelector('.dep2');
+
+    // dep2가 없으면 종료 (에러 방지)
+    if (!subMenu) return;
+
+    // 다른 메뉴 닫기
+    document.querySelectorAll('#gnb .dep2').forEach(menu => {
+      if (menu !== subMenu) menu.classList.remove('active');
+    });
+
+    // 현재 클릭한 메뉴 토글
+    subMenu.classList.toggle('active');
+  });
+});
+
+
+
 //특별전시
 const exhSwiper = new Swiper(".exh-swiper", {
     autoplay: true,
@@ -192,24 +216,59 @@ document.addEventListener('DOMContentLoaded', () => {
 //공지사항
 
 document.addEventListener('DOMContentLoaded', function () {
-    const tabButtons = document.querySelectorAll('#notice-board .tab-btn');
-    const noticeLists = document.querySelectorAll('#notice-board .notice-list');
+  const tabButtons = document.querySelectorAll('#notice-board .tab-btn');
+  const noticeLists = document.querySelectorAll('#notice-board .notice-list');
+  const limitCount = 5;
 
-    tabButtons.forEach((btn) => {
-        btn.addEventListener('click', function (e) {
-            if (this.querySelector('a')) return;
+  // ----- 스크롤 제한 설정 함수 -----
+  function setScrollLimit(list) {
+    const ul = list.querySelector('ul');
+    if (!ul) return;
 
-            tabButtons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
+    const lis = ul.querySelectorAll('li');
+    if (lis.length <= limitCount) {
+      ul.style.maxHeight = 'none';
+      ul.style.overflowY = 'visible';
+      return;
+    }
 
-            const targetTab = this.getAttribute('data-tab');
+    // 실제로 보이는 li의 높이 계산
+    const liHeight = lis[0].offsetHeight || 0;
+    const computedStyle = window.getComputedStyle(lis[0]);
+    const marginTop = parseFloat(computedStyle.marginTop) || 0;
+    const marginBottom = parseFloat(computedStyle.marginBottom) || 0;
+    const gap = marginTop + marginBottom;
 
-            noticeLists.forEach(list => {
-                list.classList.remove('active');
-                if (list.getAttribute('data-type') === targetTab) {
-                    list.classList.add('active');
-                }
-            });
-        });
+    // 제한 적용
+    ul.style.maxHeight = (liHeight + gap) * limitCount + 'px';
+    ul.style.overflowY = 'auto';
+  }
+
+  // ----- 탭 전환 기능 -----
+  tabButtons.forEach((btn) => {
+    btn.addEventListener('click', function () {
+      if (this.querySelector('a')) return;
+
+      tabButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const targetTab = this.getAttribute('data-tab');
+
+      noticeLists.forEach(list => {
+        list.classList.remove('active');
+        if (list.getAttribute('data-type') === targetTab) {
+          list.classList.add('active');
+
+          // 🔸 탭이 보이는 순간 높이 재계산
+          setTimeout(() => {
+            setScrollLimit(list);
+          }, 50);
+        }
+      });
     });
+  });
+
+  // ----- 초기 활성 탭에도 적용 -----
+  const activeList = document.querySelector('#notice-board .notice-list.active');
+  if (activeList) setScrollLimit(activeList);
 });

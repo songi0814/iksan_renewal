@@ -40,31 +40,63 @@ section .section-txt p {
 }
 #header .container {
   display: flex; justify-content: space-between; align-items: center; gap: 5rem; height: 10rem; 
-  padding: 0 6rem;
+  padding: 0 6rem; 
 }
 #header h1 a {
   display: block; width: 17.4rem; height: 4rem;
   background: url(../img/logo/main-logo.png);
   background-size: 100% auto;
-  transition: all 0.5s;
+  transition: all 0.5s; 
 }
 
-#gnb .dep1 {display: flex; justify-content: space-between; align-items: center;}
-#gnb .dep1>li {padding: 3rem; display: flex; justify-content: center;}
-#gnb .dep1>li>a {font-size: 1.6rem; display: flex; align-items: center; justify-content: center;}
-#gnb .dep1>li:hover>a {
-  text-decoration: underline var(--main-blue) .3rem;
+#gnb .dep1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+#gnb .dep1 > li {
+  padding: 3rem;
+  position: relative;
+}
+#gnb .dep1 > li > a {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#gnb .dep1 > li:hover > a {
+  text-decoration: underline var(--main-blue) 0.3rem;
   text-underline-offset: 2rem;
 }
+
 #gnb .dep2 {
-  display: none; justify-content: center; flex-direction: column;
-  position: absolute; left: inherit; right: inherit; top: 10rem;
-  background: var(--main-blue);color: #fff;
+  display: none;
+  position: absolute;
+  top: 8.8rem;
+  left: 0;
+  background: var(--main-blue);
+  color: #fff;
+  width: 14rem;
+  flex-direction: column;
+  z-index: 10;
 }
-#gnb .dep1>li:hover .dep2 {display: block;}
-#gnb .dep1>li:hover .dep2>li {
-  padding: 1.5rem; width: 14rem;
+
+#gnb .dep2.active {
+  display: flex;
 }
+
+#gnb .dep2 li {
+  padding: 1.2rem;
+  text-align: center;
+}
+#gnb .dep2 li a {
+  color: #fff;
+}
+
+
+
+
 
 @media screen and (max-width: 1370px) {
   #gnb .dep1>li>a {font-size: 1.4rem;}
@@ -292,6 +324,10 @@ section .section-txt p {
   z-index: 2;
 }
 #main-info strong {font-size: 3rem; font-weight: bold;}
+#main-info .maininfo-btn strong::after {
+  content: "\F55F"; font-family: "remixicon";
+}
+
 #main-info>div .txt-box {
   display: flex; flex-direction: column;
 }
@@ -484,8 +520,15 @@ section .section-txt p {
   display: block; width: auto; color: #222;
   margin: 1rem 0; padding: 0.5rem 1rem;
 }
+#sched_tbl button:hover {
+  background: rgb(60, 106, 58); color: #ffffff;
+}
 #sched_tbl .closed-day {
   background: red; color: #fff;font-weight: normal;
+}
+
+#sched_tbl .closed-day:hover {
+  background: rgb(96, 0, 0); color: #fff;
 }
 
 #sched_tbl #day {
@@ -500,6 +543,8 @@ section .section-txt p {
   border: 1px solid var(--main-orange);
   vertical-align: top; width: 10rem; padding: 1rem;
 }
+
+#imagePopup {display: none;}
 
 @media screen and (max-width: 1330px) {
   #edu-event .edu-poster {display: none;}
@@ -615,48 +660,63 @@ section .section-txt p {
 }
   
 /* 공지사항 */
-#notice-board {display: flex; justify-content: center;}
+#notice-board {display: flex; flex-direction: column; justify-content: center;}
 
 #notice-board .notice-btn {
-  width: 30vw; display: flex; flex-direction: column;
-  justify-content: space-between; align-items: flex-start;
-}
-
-#notice-board .tab-btn {
-  width: 100%; height: 12rem; font-size: 2.4rem;
+  width: 100%;
+  display: flex; flex-direction: row;
+  justify-content: space-between; align-items: center;
   color: var(--main-blue); background-color: transparent;
+  border-bottom: 1px solid var(--main-blue);
   cursor: pointer; font-weight: normal; transition: all 0.3s ease;
 }
-
-#notice-board .tab-btn.active {
-  background-color: var(--main-blue); color: #fff;
-  font-weight: bold; border-radius: 2rem;
+#notice-board .notice-btn .notice-btn-left {
+  width: 20vw; height: 8vh;
+  display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+}
+#notice-board .notice-btn .notice-btn-right {
+  color: var(--main-blue); font-size: 1.6rem;
+  display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+}
+#notice-board .notice-btn .notice-btn-right::after {
+  content: "\EA70"; font-family: "remixicon";
 }
 
+#notice-board .tab-btn { width: 100%; height: 100%; }
+#notice-board .tab-btn.active {
+  background-color: var(--main-blue); color: #fff;
+  font-weight: bold; border-radius: 2rem 2rem 0 0;
+}
 #notice-board .tab-btn a {
   text-decoration: none; color: var(--main-blue);
 }
 
-#notice-board .notice-list {
-  display: none; width: 80vw; padding-left: 2rem;
-}
-
-#notice-board .notice-list.active {display: block;}
+#notice-board .notice-list { display: none; width: 100%; }
+#notice-board .notice-list.active { display: block; }
 
 #notice-board .notice-list ul {
-  font-size: 1.6rem; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;
+  font-size: 1.6rem;
+  display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;
+  overflow-y: auto;
+  transition: max-height 0.3s ease;
+}
+
+#notice-board .notice-list ul[data-limit="true"] {
+  overflow-y: auto;
 }
 
 #notice-board .notice-list ul li {
-  width: 65vw; border-top: 1px solid rgba(0, 0, 0, 0.3);
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
 }
-
 #notice-board .notice-list ul li:first-child {border-top: none;}
 
 #notice-board .notice-list ul div a {
   display: flex; justify-content: space-between;
-  margin: 2rem; padding: 2rem;
+  margin: 2rem 0rem; padding: 1rem;
 }
+
+
 @media screen and (max-width: 1150px) {
   #notice-board .tab-btn {font-size: 1.6rem;}
   #notice-board .notice-list ul {font-size: 1.2rem;}
@@ -667,11 +727,11 @@ section .section-txt p {
   #notice-board .notice-list {width: 80vw;padding-left: 0;}
   #notice-board .notice-list ul li {width: 80vw}
 }
-
 @media screen and (max-width: 930px) {
   #notice-board .notice-list ul div a {margin: 1rem; padding: 1rem;}
   #notice-board .tab-btn {height: 5rem;}
 }
+
 
 /* footer */
 #footer {

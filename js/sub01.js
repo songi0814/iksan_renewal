@@ -32,6 +32,26 @@ searchWrap.addEventListener('click', function(e) {
 });
 
 
+// dep2
+document.querySelectorAll('#gnb .dep1 > li > a').forEach(item => {
+  item.addEventListener('click', e => {
+    e.preventDefault();
+    const parentLi = e.currentTarget.closest('li');
+    const subMenu = parentLi.querySelector('.dep2');
+
+    // dep2가 없으면 종료 (에러 방지)
+    if (!subMenu) return;
+
+    // 다른 메뉴 닫기
+    document.querySelectorAll('#gnb .dep2').forEach(menu => {
+      if (menu !== subMenu) menu.classList.remove('active');
+    });
+
+    // 현재 클릭한 메뉴 토글
+    subMenu.classList.toggle('active');
+  });
+});
+
 
 
 //sub-menu-tab

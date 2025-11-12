@@ -34,35 +34,63 @@ font-size: 1.4rem; color: var(--main-blue);
 /* header */
 
 #header {
-background: #9ec5ff;
-position: fixed; width: 100%; top: 0;z-index: 1000;  
+  background: #9ec5ff;
+  position: fixed; width: 100%; top: 0;z-index: 1000;  
 }
 #header .container {
-display: flex; justify-content: space-between; align-items: center; gap: 5rem; height: 10rem; 
-padding: 0 6rem;
+  display: flex; justify-content: space-between; align-items: center; gap: 5rem; height: 10rem; 
+  padding: 0 6rem; 
 }
 #header h1 a {
-display: block; width: 17.4rem; height: 4rem;
-background: url(../../img/logo/main-logo.png);
-background-size: 100% auto;
-transition: all 0.5s;
+  display: block; width: 17.4rem; height: 4rem;
+  background: url(../img/logo/main-logo.png);
+  background-size: 100% auto;
+  transition: all 0.5s; 
 }
 
-#gnb .dep1 {display: flex; justify-content: space-between; align-items: center;}
-#gnb .dep1>li {padding: 3rem; display: flex; justify-content: center;}
-#gnb .dep1>li>a {font-size: 1.6rem; display: flex; align-items: center; justify-content: center;}
-#gnb .dep1>li:hover>a {
-text-decoration: underline var(--main-blue) .3rem;
-text-underline-offset: 2rem;
+#gnb .dep1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
 }
+#gnb .dep1 > li {
+  padding: 3rem;
+  position: relative;
+}
+#gnb .dep1 > li > a {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#gnb .dep1 > li:hover > a {
+  text-decoration: underline var(--main-blue) 0.3rem;
+  text-underline-offset: 2rem;
+}
+
 #gnb .dep2 {
-display: none; justify-content: center; flex-direction: column;
-position: absolute; left: inherit; right: inherit; top: 10rem;
-background: var(--main-blue);color: #fff;
+  display: none;
+  position: absolute;
+  top: 8.8rem;
+  left: 0;
+  background: var(--main-blue);
+  color: #fff;
+  width: 14rem;
+  flex-direction: column;
+  z-index: 10;
 }
-#gnb .dep1>li:hover .dep2 {display: block;}
-#gnb .dep1>li:hover .dep2>li {
-padding: 1.5rem; width: 14rem;
+
+#gnb .dep2.active {
+  display: flex;
+}
+
+#gnb .dep2 li {
+  padding: 1.2rem;
+  text-align: center;
+}
+#gnb .dep2 li a {
+  color: #fff;
 }
 
 @media screen and (max-width: 1370px) {
@@ -304,7 +332,7 @@ color: var(--main-green);
 /* 검색 tab */
 #search-box {
     background: var(--main-blue); padding: 2.5rem; max-width: 100vw;
-    margin: 0 auto;
+    margin: 0 auto; border-radius: 2rem;
 }
 
 #search-box .search-tab-lists {
@@ -317,7 +345,7 @@ color: var(--main-green);
 .select-selected {
     display: flex; align-items: center; box-sizing: border-box;
     justify-content: space-between; height: 4rem; padding: 0 2rem;
-    border-radius: 2.5rem; border: 1px solid #fff;
+    border-radius: 1rem; border: 1px solid #fff;
     background-color: var(--main-blue); color: #fff; cursor: pointer;
 }
 
@@ -346,7 +374,7 @@ color: var(--main-green);
 
 /* 입력창 */
 .search-tab-lists input {
-    height: 4rem; border-radius: 2.5rem;
+    height: 4rem; border-radius: 1rem;
     border: 1px solid #fff; background-color: var(--main-blue);
     padding: 0 2rem; font-size: 1.6rem;
     color: #fff; width: 100%; box-sizing: border-box;
@@ -357,7 +385,7 @@ color: var(--main-green);
     display: flex; align-items: center;
     justify-content: center; background: #fff;
     color: var(--main-blue); cursor: pointer;
-    width: 12rem; height: 4rem; border-radius: 2.5rem;
+    width: 12rem; height: 4rem; border-radius: 1rem;
     border: 1px solid #fff; font-size: 1.6rem;
 }
 .search-tab-lists button span {font-weight: 500;}
