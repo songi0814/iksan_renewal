@@ -66,8 +66,10 @@ section .section-txt p {
   justify-content: center;
 }
 #gnb .dep1 > li:hover > a {
-  text-decoration: underline var(--main-blue) 0.3rem;
-  text-underline-offset: 2rem;
+  text-decoration-line: underline;
+  text-decoration-color: var(--main-blue);
+  text-decoration-thickness: 0.25rem;
+  text-underline-offset: 0.7rem;
 }
 
 #gnb .dep2 {
