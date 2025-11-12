@@ -83,7 +83,7 @@ section .section-txt p {
 }
 
 #gnb .dep2.active {
-  display: flex;
+  display: block;
 }
 
 #gnb .dep2 li {
