@@ -95,6 +95,10 @@ section .section-txt p {
   #main-info > div {width: auto; height: 30rem;}
 }
 
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  
+}
+
 /* 특별전시 css */
 
 #spacial-exhibititon .swiper {
