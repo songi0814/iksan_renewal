@@ -228,7 +228,7 @@ font-size: 1.4rem; color: var(--main-blue);
 .product-list li:hover .product-info {opacity: 1;}
 
 #loadMoreBtn {
-    display: block; margin: 2rem auto; color: #fff;
+    display: block; margin: 5rem auto; color: #fff;
     padding: 1rem 2rem; font-size: 1.6rem; font-weight: 500;
     cursor: pointer; background: var(--main-orange);
     border-radius: 1rem;

@@ -2,12 +2,14 @@
 
 /* footer */
 #footer {
-  background: #c4c4c4;
+  background: #c4c4c4; width: 100%;
   padding: 2rem 10rem; border-top: 1px solid #2222224d; gap: 2rem;
 }
+
 @media screen and (max-width: 950px){
   #footer {padding: 1.5rem 5rem;}
 }
+
 #footer .footer-top {
   display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding-bottom: 2rem;
 }
@@ -49,4 +51,29 @@
   .footer-bottom address span {
     display: block; margin-top: 4px;
   }
+}
+
+@media screen and (max-width: 600px) {
+  #footer {
+    gap: 0.5rem;
+  }
+  #footer .footer-top {
+    font-size: 1rem;
+  }
+  #footer .footer-top .footer-link {gap: 1rem;}
+  #footer .footer-top .footer-sns {
+    font-size: 1.5rem;
+  }
+  #footer .footer-bottom * {gap: 1rem; font-size: 0.8rem;}
+}
+
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  #footer {
+    padding: 1rem 2rem; gap: 0.5rem;
+  }
+  #footer .footer-top {
+    padding-bottom: 1rem; gap: 1rem;
+  }
+  #footer .footer-top .footer-link {font-size: 0.6rem;}
+
 }
