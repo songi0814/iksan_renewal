@@ -67,20 +67,15 @@ document.addEventListener('click', e => {
 //특별전시
 const exhSwiper = new Swiper(".exh-swiper", {
     autoplay: true,
-    slidesPerView: 4,
+    slidesPerView: 1,
     breakpoints: {
-        1150: {
-          slidesPerView: 3, // 1150px 이상일 때 3개
-        },
-        950: {
-            slidesPerView: 2, // 950px->2개
-        },
-        450: {
-          slidesPerView: 1, // 0~450px->1개
-        }
+        1920: {slidesPerView: 4,},
+        1150: {slidesPerView: 3,},
+        950: {slidesPerView: 2,},
+        450: {slidesPerView: 1,}
     },
     spaceBetween: 30,
-    // freeMode: true,
+    freeMode: true,
     pagination: {
         el: ".swiper-pagination",
         clickable: true,

@@ -4,10 +4,10 @@
 
 #header {
   background: #9ec5ff;
-  position: fixed; width: 100%; top: 0; z-index: 1000;  
+  position: fixed; width: 100vw; top: 0; z-index: 1000;  
 }
 #header .container {
-  display: flex; justify-content: space-between; align-items: center; gap: 5rem; height: 10rem; 
+  display: flex; justify-content: space-between; align-items: center; height: 10rem; 
   padding: 0 6rem; 
 }
 

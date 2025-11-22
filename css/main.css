@@ -15,20 +15,36 @@ body {
   word-break: keep-all;
 }
 section {padding: 6rem 0;}
+@media screen and (max-width: 1150px) {
+  section {padding: 4rem 0;}
+}
+@media screen and (min-width: 0px) and (max-width: 550px) {section {padding: 1rem 0;}}
+
 main {padding: 10rem 10rem 0 10rem;}
 @media screen and (max-width: 950px) {
   main {padding: 10rem 5rem 0 5rem;}
-} 
+}
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  main {padding: 10rem 2.5rem 0 2.5rem;}
+}
+
 .big-txt {font-size: 2rem; font-weight: bold;}
 .small-txt {font-size: 1.4rem;}
 section .section-txt {
   display: flex; flex-direction: row; gap: 2rem; align-items: end; padding: 5rem 0;
 }
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  section .section-txt {
+    flex-direction: column; align-items: start;
+    gap: 1.5rem; padding: 2rem 0;
+  }
+}
+
 section .section-txt h2 {
-  font-size: 2.4rem; color: var(--main-blue); font-weight: bold;
+  font-size: 4.5vw; color: var(--main-blue); font-weight: bold;
 }
 section .section-txt p {
-  font-size: 1.4rem; color: var(--main-blue);
+  font-size: 2.4vw; color: var(--main-blue);
 }
 .smallAlpha-txt {color: #22222254;}
 
@@ -37,7 +53,6 @@ section .section-txt p {
 #main-visual {
   display: block;
   position: relative;
-  /* left: -10rem; */
   width: 100%;
 }
 #main-visual video {
@@ -83,6 +98,7 @@ section .section-txt p {
   display: flex; flex-direction: column;
 }
 #main-info>div .txt-box span {line-height: 3rem;}
+.br-change {display: block;}
 
 @media screen and (max-width: 1260px) {
   #main-info .time-closeday strong {font-size: 2.4rem;}
@@ -96,7 +112,19 @@ section .section-txt p {
 }
 
 @media screen and (min-width: 0px) and (max-width: 550px) {
-  
+  #main-info {display: grid; grid-template-columns: repeat(1,1fr); gap: 2rem; }
+  #main-info > div {width: auto; height: 100%;}
+  #main-info .time-closeday, #main-info .maininfo-btn>a {
+    padding: 4vw; gap: 2vw; justify-content: center; align-items: flex-start;
+  }
+  #main-info .time-closeday strong, #main-info .maininfo-btn>a strong {font-size: 3vw;}
+  #main-info>div .txt-box {flex-direction: row;  align-items: baseline; gap: 1rem;}
+  .big-txt{font-size: 2.5vw;}
+  .br-change {
+    display: inline; margin-left: 0.2em;
+  }
+  .small-txt{font-size: 2vw;}
+  #main-info>div .txt-box span {line-height: normal;}
 }
 
 /* 특별전시 css */
@@ -106,6 +134,7 @@ section .section-txt p {
   width: 100%;
 }
 #spacial-exhibititon .swiper-wrapper {padding-bottom: 5rem;}
+
 #spacial-exhibititon .swiper-slide {
   display: flex;flex-direction: column; gap: 2rem;
   justify-content: flex-start;
@@ -158,6 +187,13 @@ section .section-txt p {
   margin: 0 0.5rem !important;
 }
 
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  #spacial-exhibititon .swiper .swiper-pagination-bullet {
+    width: 0.8rem; height: 0.8rem;
+    background-color: var(--main-orange);
+    margin: 0 0.3rem !important;
+  }
+}
 
 
 /* 전시안내 */
@@ -192,7 +228,7 @@ section .section-txt p {
   width: 30%; height: 100%;
   display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between;
   padding: 2rem 3rem; position: relative;
-  background: url(/img/stone-pagoda2.png) 8rem 1rem / 100% 100%no-repeat;
+  background: url(/img/stone-pagoda2.png) 8rem 1rem / 100% 100% no-repeat;
 }
 
 #exhibition-info .card-txt .card-title{
@@ -228,20 +264,30 @@ section .section-txt p {
   #exhibition-info .card-txt .card-moreinfo::after {font-size: 1.2rem; font-weight: 700;}
 }
 @media screen and (max-width: 565px) {
-  #exhibition-info .card-txt .card-moreinfo {font-size: 1rem; font-weight: 700;}
-  #exhibition-info .card-txt .card-moreinfo::after {font-size: 1rem; font-weight: 700;}
+  #exhibition-info .card-txt .card-moreinfo {font-size: 1rem;}
+  #exhibition-info .card-txt .card-moreinfo::after {font-size: 1rem;}
 }
-@media screen and (max-width: 523px) {
-  #exhibition-info .card-txt .card-moreinfo {font-size: 0.6rem; font-weight: 700;}
-  #exhibition-info .card-txt .card-moreinfo::after {font-size: 0.6rem; font-weight: 700;}
+
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  #exhibition-info .room-li {
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center; gap: 2rem; width: 100vw;
+  }
+  #exhibition-info .room-li li a {width: 100vw; height: 13rem;}
+  #exhibition-info .card-img {width: 50%;}
+  #exhibition-info .card-txt {width: 50%;}
+  #exhibition-info .card-txt .card-title {font-size: 1.2rem;}
+  #exhibition-info .card-txt .card-title span {
+    font-size: 1rem;
+  }
 }
+
 
 
 
 /* 교육&행사 */
 #edu-event .edu-cont {
-  display: flex; flex-direction: row; gap: 4rem
-  ;
+  display: flex; flex-direction: row; gap: 4rem;
 }
 #edu-event .edu-poster {
   width: 30%; max-height: 70vh;
