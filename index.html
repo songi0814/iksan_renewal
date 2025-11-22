@@ -291,6 +291,8 @@
             </div>
         </section>
         
+        
+
         <!-- 특별전시 -->
         <section id="spacial-exhibititon">
             <hgroup class="section-txt">
@@ -508,101 +510,62 @@
         
         <!-- 교육&행사 -->
         <section id="edu-event">
-            <hgroup class="section-txt">
-                <h2>교육&행사</h2>
-                <p>국립익산박물관의 교육과 행사를 소개합니다.</p>
-            </hgroup>
-            <!-- 클릭하면 이미지교체 필요 (특강, 만들기체험) js-->
-            <div class="edu-cont">
-                <div class="edu-poster">
-                    <img src="./img/main_poster.png" alt="익산어린이박물관학교" class="edu-image-target">
-                </div>
-                <div class="year-month-cal">
-                    <div class="move-month">
-                        <ul id="date">
-                            <div><i class="ri-arrow-left-s-line"></i></div>
-                            <span>2025년 6월</span>
-                            <div><i class="ri-arrow-right-s-line"></i></div>
-                        </ul>
-                    </div>
-                    <div class="cal-date">
-                        <table id="sched_tbl">
-                            <thead>
-                                <!-- th, td first, last child로 색깔 지정 -->
-                                <tr id="day">
-                                    <th>일</th>
-                                    <th>월</th>
-                                    <th>화</th>
-                                    <th>수</th>
-                                    <th>목</th>
-                                    <th>금</th>
-                                    <th>토</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2 <br><button class="closed-day change-image-btn" data-type="reset" data-img="./img/main_poster.png">휴관일</button></td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6<button class="spacial-class change-image-btn" data-type="special" data-img="./img/special.jpg">특강</button></td>
-                                    <td>7<button class="child-class change-image-btn" data-type="children" data-img="./img/children.png">어린이 교실</button></td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>9 <br><button class="closed-day change-image-btn" data-type="reset" data-img="./img/main_poster.png">휴관일</button></td>
-                                    <td>10</td>
-                                    <td>11</td>
-                                    <td>12</td>
-                                    <td>13<button class="spacial-class change-image-btn" data-type="special" data-img="./img/special.jpg">특강</button></td>
-                                    <td>14<button class="child-class change-image-btn" data-type="children" data-img="./img/children.png">어린이 교실</button></td>
-                                </tr>
-                                <tr>
-                                    <td>15</td>
-                                    <td>16 <br><button class="closed-day change-image-btn" data-type="reset" data-img="./img/main_poster.png">휴관일</button></td>
-                                    <td>17</td>
-                                    <td>18</td>
-                                    <td>19</td>
-                                    <td>20
-                                        <button class="spacial-class change-image-btn" data-type="special" data-img="./img/special.jpg">특강</button>
-                                        <button class="making-class change-image-btn" data-type="experience" data-img="./img/experience.jpg">체험</button>
-                                    </td>
-                                    <td>21<button class="child-class change-image-btn" data-type="children" data-img="./img/children.png">어린이 교실</button></td>
-                                </tr>
-                                <tr>
-                                    <td>22</td>
-                                    <td>23 <br><button class="closed-day change-image-btn" data-type="reset" data-img="./img/main_poster.png">휴관일</button></td>
-                                    <td>24</td>
-                                    <td>25</td>
-                                    <td>26</td>
-                                    <td>27
-                                        <button class="spacial-class change-image-btn" data-type="special" data-img="./img/special.jpg">특강</button>
-                                        <button class="making-class change-image-btn" data-type="experience" data-img="./img/experience.jpg">체험</button>
-                                    </td>
-                                    <td>28<button class="child-class change-image-btn" data-type="children" data-img="./img/children.png">어린이 교실</button></td>
-                                </tr>
-                                <tr>
-                                    <td>29</td>
-                                    <td>30 <br><button class="closed-day change-image-btn" data-type="reset" data-img="./img/main_poster.png">휴관일</button></td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+          <hgroup class="section-txt">
+            <h2>교육&행사</h2>
+            <p>국립익산박물관의 교육과 행사를 소개합니다.</p>
+          </hgroup>
+        
+          <div class="edu-cont">
+            <div class="edu-poster">
+              <img src="./img/main_poster.png" alt="익산어린이박물관학교" class="edu-image-target">
             </div>
-            <div id="imagePopup" class="popup-overlay">
+        
+            <div class="year-month-cal">
+              <div class="move-month">
+                <ul id="date">
+                  <div id="prevMonthBtn">
+										<i class="ri-arrow-left-s-line"></i>
+									</div>
+                  <span id="currentMonthText"></span>
+                  <button id="mobileCalToggle" type="button" class="mobile-cal-btn">
+										<i class="ri-calendar-2-line"></i>
+									</button>
+									<div id="nextMonthBtn">
+										<i class="ri-arrow-right-s-line"></i>
+									</div>
+                </ul>
+								<div id="mobileCalendarPopup" class="mobile-cal-popup"></div>
+              </div>
+              <div class="cal-date">
+                <table id="sched_tbl">
+                  <thead>
+                    <tr id="day">
+                      <th>일</th>
+                      <th>월</th>
+                      <th>화</th>
+                      <th>수</th>
+                      <th>목</th>
+                      <th>금</th>
+                      <th>토</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+
+                <div id="threeDaysContainer"></div>
+              </div>
+            </div>
+          </div>
+        
+          <div id="imagePopup" class="popup-overlay">
             <div class="popup-content">
-                <span class="popup-close"><i class="ri-close-circle-line"></i></span>
-                <img id="popupImage" src="" alt="팝업 이미지">
+              <span class="popup-close"><i class="ri-close-circle-line"></i></span>
+              <img id="popupImage" src="" alt="팝업 이미지">
             </div>
-            </div>
+          </div>
         </section>
+        
         
         <!-- 홍보영상 -->
         <section id="video-ads">
@@ -612,7 +575,7 @@
             </hgroup>
             <div class="video-part">
                 <div class="video-tab">
-                    <button class="tab1 active" data-target="content-1">전시정보<span class="small-txt">수어포함</span></button>
+                    <button class="tab1 active" data-target="content-1">전시정보<span class="small-txt">(수어포함)</span></button>
                     <button class="tab2" data-target="content-2">홍보</button>
                     <button class="tab3" data-target="content-3">교육</button>
                     <button class="tab4" data-target="content-4">문화행사</button>

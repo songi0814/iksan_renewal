@@ -33,19 +33,32 @@ main {padding: 10rem 10rem 0 10rem;}
 section .section-txt {
   display: flex; flex-direction: row; gap: 2rem; align-items: end; padding: 5rem 0;
 }
-@media screen and (min-width: 0px) and (max-width: 550px) {
+@media screen and (max-width: 700px) {
   section .section-txt {
     flex-direction: column; align-items: start;
-    gap: 1.5rem; padding: 2rem 0;
+    gap: 2rem; padding: 2rem 0;
   }
 }
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  section .section-txt {gap: 1rem;}
+}
+
 
 section .section-txt h2 {
-  font-size: 4.5vw; color: var(--main-blue); font-weight: bold;
+  font-size: 3rem; color: var(--main-blue); font-weight: bold;
 }
 section .section-txt p {
-  font-size: 2.4vw; color: var(--main-blue);
+  font-size: 1.8rem; color: var(--main-blue);
 }
+@media screen and (max-width: 950px) {
+  section .section-txt h2 {font-size: 2rem;}
+  section .section-txt p {font-size: 1.2rem;}
+}
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  section .section-txt h2 {font-size: 1.4rem;}
+  section .section-txt p {font-size: 1rem;}
+}
+
 .smallAlpha-txt {color: #22222254;}
 
 
@@ -171,7 +184,7 @@ section .section-txt p {
   display: flex; flex-direction: column; font-weight: bold; gap: 2rem;
 }
 #spacial-exhibititon .swiper-slide .exhi-txt .exhi-title {
-  color: var(--main-orange); font-size: 2rem;
+  color: var(--main-orange); font-size: 2rem; line-height: normal;
 }
 #spacial-exhibititon .swiper-slide .exhi-txt .exhi-date {
   font-size: 1.4rem;
@@ -188,6 +201,7 @@ section .section-txt p {
 }
 
 @media screen and (min-width: 0px) and (max-width: 550px) {
+  #spacial-exhibititon .swiper-slide .exhi-txt .exhi-title {font-size: 1.2rem;}
   #spacial-exhibititon .swiper .swiper-pagination-bullet {
     width: 0.8rem; height: 0.8rem;
     background-color: var(--main-orange);
@@ -260,7 +274,7 @@ section .section-txt p {
   #exhibition-info .room-li {grid-template-columns: 1fr;}
 }
 @media screen and (max-width: 607px) {
-  #exhibition-info .card-txt .card-moreinfo {font-size: 1.2rem; font-weight: 700;}
+  #exhibition-info .card-txt .card-moreinfo {font-size: 1.2rem;}
   #exhibition-info .card-txt .card-moreinfo::after {font-size: 1.2rem; font-weight: 700;}
 }
 @media screen and (max-width: 565px) {
@@ -269,14 +283,11 @@ section .section-txt p {
 }
 
 @media screen and (min-width: 0px) and (max-width: 550px) {
-  #exhibition-info .room-li {
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center; gap: 2rem; width: 100vw;
-  }
-  #exhibition-info .room-li li a {width: 100vw; height: 13rem;}
-  #exhibition-info .card-img {width: 50%;}
-  #exhibition-info .card-txt {width: 50%;}
-  #exhibition-info .card-txt .card-title {font-size: 1.2rem;}
+  #exhibition-info .room-li {gap: 1.4rem;}
+  #exhibition-info .room-li li a {height: 12rem;}
+  #exhibition-info .card-img {width: 60%;}
+  #exhibition-info .card-txt {width: 40%; padding: 1rem 2rem;}
+  #exhibition-info .card-txt .card-title {font-size: 1rem;}
   #exhibition-info .card-txt .card-title span {
     font-size: 1rem;
   }
@@ -299,7 +310,6 @@ section .section-txt p {
 
 
 /* 달력 */
-
 #edu-event .edu-cont {gap: 4rem;}
 #edu-event .year-month-cal {width: 70%; height: auto; gap: 20rem;}
 #date {
@@ -308,6 +318,59 @@ section .section-txt p {
   list-style-type: none; background: var(--main-orange);
   font-weight: bold; color: #fff;
 }
+
+/* 상단 영역 위치 고정 (팝업 달력 기준) */
+.move-month {
+  position: relative;
+}
+
+/* 모바일 달력 토글 아이콘 기본 숨김 (PC에서는 안 보이게) */
+#mobileCalToggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* 팝업 달력 기본 스타일 */
+.mobile-cal-popup {
+  display: none;
+}
+
+/* 팝업 달력 안쪽 스타일 */
+.mobile-cal-popup .popup-cal-header {
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  font-size: 1.4rem;
+}
+
+.mobile-cal-popup .popup-cal {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.2rem;
+}
+
+.mobile-cal-popup .popup-cal th,
+.mobile-cal-popup .popup-cal td {
+  text-align: center;
+  padding: 0.4rem 0.2rem;
+}
+
+/* 팝업 달력에서 선택된 날짜(초기에는 오늘) */
+.mobile-cal-popup .popup-cal td.is-selected {
+  background: var(--main-orange);
+  color: #fff;
+  border-radius: 0.8rem;
+}
+
+/* 비어 있는 칸 */
+.mobile-cal-popup .popup-cal td.empty {
+  opacity: 0.3;
+}
+
+
 #edu-event .cal-date {padding: 0; width: 100%;}
 
 #sched_tbl {
@@ -316,13 +379,13 @@ section .section-txt p {
   border-collapse: collapse; width: 100%; margin: 0;
 }
 #sched_tbl td:nth-child(2) {color: red;}
-#sched_tbl button {
+#sched_tbl button, #threeDaysContainer button {
   border-radius: 2rem; text-align: center; font-weight: 800;
   font-size: 1.2rem; background: rgb(160, 204, 158);
   display: block; width: auto; color: #222;
   margin: 1rem 0; padding: 0.5rem 1rem;
 }
-#sched_tbl button:hover {
+#sched_tbl button:hover, #threeDaysContainer button:hover {
   background: rgb(60, 106, 58); color: #ffffff;
 }
 #sched_tbl .closed-day {
@@ -346,7 +409,48 @@ section .section-txt p {
   vertical-align: top; width: 10rem; padding: 1rem;
 }
 
+#sched_tbl td.today {
+  background-color: rgba(219, 105, 35, 0.15);
+  font-weight: bold;
+}
+
+#threeDaysContainer {
+  display: none;
+  margin-top: 1rem;
+  gap: 0.8rem;
+}
+
+#threeDaysContainer {
+  display: none;
+}
+
+#threeDaysContainer .three-days-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none; /* 바깥 테두리는 모바일 쪽에서만 처리 */
+}
+
+
+#threeDaysContainer .three-days-table thead th {
+  background-color: #f8f9f2;
+  text-align: center;
+  border: 0.5px solid var(--main-orange);
+}
+
+#threeDaysContainer .three-days-table tbody td {
+  vertical-align: top;
+  text-align: left;
+  padding: 0.8rem;
+  height: 6rem;
+  font-size: 1.4rem;
+}
+#threeDaysContainer .three-days-table td.today {
+  background: rgba(219, 105, 35, 0.12);
+  font-weight: 700;
+}
+
 #imagePopup {display: none;}
+
 
 @media screen and (max-width: 1330px) {
   #edu-event .edu-poster {display: none;}
@@ -374,8 +478,135 @@ section .section-txt p {
   #sched_tbl tbody td {width: calc(100% / 7);}
 }
 @media screen and (max-width: 800px) {
-  #sched_tbl button {font-size: 1rem;}
+  #sched_tbl button, #threeDaysContainer button {font-size: 1rem;}
 }
+
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  /* 상단 주황색 바 : 전체 날짜 (예: 2025년 11월 22일) */
+  #date {
+    font-size: 1.4rem;
+    padding: 1.6rem 3rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* PC용 화살표는 숨김 */
+  #prevMonthBtn,
+  #nextMonthBtn {
+    display: none;
+  }
+
+  /* 모바일 달력 토글 아이콘 표시 */
+  #mobileCalToggle {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* 큰 달력은 숨기고 3일 달력만 */
+  #sched_tbl {
+    display: none;
+  }
+
+  #threeDaysContainer {
+    display: block;
+    margin-top: 0;
+  }
+
+    /* 3일짜리 달력: 전체 같은 폭/높이, border 2중 방지 */
+    #threeDaysContainer .three-days-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-bottom: 1px solid var(--main-orange);
+    }
+
+    #threeDaysContainer .three-days-table thead tr {
+      display: flex;
+    }
+  
+    #threeDaysContainer .three-days-table thead th {
+      flex: 1;
+      font-size: 1.4rem;
+      padding: 0.8rem 0;
+      background-color: #f8f9f2;
+      border-bottom: 0;
+      text-align: center;
+    }
+  
+    #threeDaysContainer .three-days-table thead th:first-child {
+      border-left: 1px solid var(--main-orange);
+    }
+  
+    #threeDaysContainer .three-days-table thead th:last-child {
+      border-right: 1px solid var(--main-orange);
+    }
+  
+    #threeDaysContainer .three-days-table tbody tr {
+      display: flex;
+    }
+  
+    #threeDaysContainer .three-days-table tbody td {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      border-top: 1px solid var(--main-orange);
+      border-right: 1px solid var(--main-orange);
+      border-left: 0;
+      padding: 0.6rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      height: auto;
+      gap: 0.5rem;
+    }
+  
+    #threeDaysContainer .three-days-table tbody td:first-child {
+      border-left: 1px solid var(--main-orange);
+    }
+  
+    #threeDaysContainer .three-days-table tbody td:last-child {
+      border-right: 1px solid var(--main-orange);
+    }
+  
+    #threeDaysContainer .three-days-table td.today {
+      background: rgba(219, 105, 35, 0.15);
+      font-weight: 700;
+      border-width: 1px;
+    }
+  
+
+  /* 버튼: 3칸 모두 동일한 비율 */
+  #sched_tbl button,
+  #threeDaysContainer button {
+    display: block;
+    margin: 0.4rem auto 0;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  /* 팝업 달력 위치/모양 (아이콘 아래) */
+  .mobile-cal-popup {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    margin-top: 0.8rem;
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    padding: 1rem 1.2rem;
+    z-index: 1000;
+    width: 90vw;
+    max-width: 320px;
+  }
+
+  .mobile-cal-popup.open {
+    display: block;
+  }
+}
+
+
+
 
 /* 홍보영상 */
 #video-ads .video-part {
@@ -386,7 +617,6 @@ section .section-txt p {
 #video-ads .video-tab {
   display: flex; flex-direction: row;
   justify-content: space-between;
-   /* gap: 10rem; */
   color: var(--main-blue); padding-bottom: 2rem; 
   border-bottom: 1px solid var(--main-orange);
 }
