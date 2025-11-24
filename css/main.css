@@ -183,6 +183,8 @@ section .section-txt p {
 #spacial-exhibititon .swiper-slide .exhi-txt {
   display: flex; flex-direction: column; font-weight: bold; gap: 2rem;
 }
+
+
 #spacial-exhibititon .swiper-slide .exhi-txt .exhi-title {
   color: var(--main-orange); font-size: 2rem; line-height: normal;
 }
@@ -201,12 +203,16 @@ section .section-txt p {
 }
 
 @media screen and (min-width: 0px) and (max-width: 550px) {
+  #spacial-exhibititon .swiper-slide .exhi-txt {
+    gap: 1rem;
+  }
   #spacial-exhibititon .swiper-slide .exhi-txt .exhi-title {font-size: 1.2rem;}
   #spacial-exhibititon .swiper .swiper-pagination-bullet {
     width: 0.8rem; height: 0.8rem;
     background-color: var(--main-orange);
     margin: 0 0.3rem !important;
   }
+  #spacial-exhibititon .swiper-wrapper {padding-bottom: 2rem;}
 }
 
 
