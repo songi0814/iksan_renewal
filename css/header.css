@@ -187,6 +187,7 @@
   position: absolute; left: 0;right: 0;
   display: flex;justify-content: space-between;
   padding: 4rem 6rem;color: #222;
+  
 }
 
 #header .utill .all-menu-popup .all-menu-top a {
@@ -194,6 +195,15 @@
   width: 17.4rem; height: 4rem;
   background: url(../img/logo/main-logo-white.png);
   background-size: 100% auto;
+}
+
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  #header .utill .all-menu-popup .all-menu-top {
+    padding: 2rem 3rem;
+  }
+  #header .utill .all-menu-popup .all-menu-top a {
+    width: 12rem; height: 2.8rem;
+  }
 }
 
 #header .utill .all-menu-popup .all-menu-top .allmenu-close i {font-size: 3rem;}
@@ -226,6 +236,16 @@
   background-color: #fff;
   box-sizing: border-box;
 }
+@media screen and (max-width: 650px) {
+  .all-menu-right {
+    padding: 11rem 5rem; 
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  .all-menu-right {
+    padding: 7rem 3rem; 
+  }
+}
 
 .all-menu-list {
   display: flex;
@@ -255,8 +275,8 @@
 }
 
 .all-menu-cont .dep2 > li {
-  width: calc(33.33% - 20px); /* 3열 레이아웃 */
-  font-size: 15px; line-height: 1.4;
+  width: calc(33.33% - 20px);
+  font-size: 1.5rem; line-height: 1.4;
 }
 
 .all-menu-cont .dep2 > li > a {
@@ -280,5 +300,33 @@
 }
 
 @media screen and (max-width: 650px) {
-  .all-menu-cont .dep2 > li {width: 100%; font-size: 2rem;}
+  .all-menu-cont .dep2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem 1rem; margin-bottom: 1rem;
+  }
+  .all-menu-cont .dep2 > li {
+    width: 100%; font-size: 1.4rem;
+  }
+  .all-menu-cont .dep3 li a {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  .all-menu-list {
+    gap: 2rem;
+  }
+  .all-menu-cont > a {
+    margin-bottom: 2rem; font-size: 1.4rem;
+  }
+  .all-menu-cont .dep2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .all-menu-cont .dep2 > li {
+    font-size: 1.2rem;
+  }
+  .all-menu-cont .dep3 li a {
+    font-size: 1rem;
+  }
 }

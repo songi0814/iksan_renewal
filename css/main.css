@@ -652,9 +652,8 @@ section .section-txt p {
   width: 100%;
   display: flex; flex-direction: row;
   justify-content: space-between;
-  /* justify-content: center; */
   align-items: center;
-  gap: 30vw;
+  gap: normal;
   color: var(--main-blue); background-color: transparent;
   border-bottom: 1px solid var(--main-blue);
   cursor: pointer; font-weight: normal; transition: all 0.3s ease;
@@ -734,12 +733,13 @@ section .section-txt p {
 }
 
 @media screen and (min-width: 0px) and (max-width: 550px) {
-  #notice-board .tab-btn {font-size: 1rem;}
+  #notice-board .tab-btn {
+    font-size: 1rem;
+  }
   #notice-board .notice-btn .notice-btn-left button {padding: 1rem;}
   #notice-board .tab-btn.active {
     border-radius: 1rem 1rem 0 0;
   }
-  
   #notice-board .notice-list ul div a {
     padding: 0.5rem 0;
   }
