@@ -574,7 +574,11 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', function () {
   const tabButtons = document.querySelectorAll('#notice-board .tab-btn');
   const noticeLists = document.querySelectorAll('#notice-board .notice-list');
-  const limitCount = 5;
+
+  // ----- PC/Mobile 개수 제한 -----
+  function getLimitCount() {
+    return window.innerWidth <= 930 ? 4 : 5; // 모바일 3개, PC 5개
+  }
 
   // ----- 스크롤 제한 설정 함수 -----
   function setScrollLimit(list) {
@@ -582,21 +586,21 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!ul) return;
 
     const lis = ul.querySelectorAll('li');
+    const limitCount = getLimitCount();
+
     if (lis.length <= limitCount) {
       ul.style.maxHeight = 'none';
       ul.style.overflowY = 'visible';
       return;
     }
 
-    // 실제로 보이는 li의 높이 계산
-    const liHeight = lis[0].offsetHeight || 0;
-    const computedStyle = window.getComputedStyle(lis[0]);
-    const marginTop = parseFloat(computedStyle.marginTop) || 0;
-    const marginBottom = parseFloat(computedStyle.marginBottom) || 0;
-    const gap = marginTop + marginBottom;
+    // 🔹 실제 1번째 ~ limitCount번째 li 까지의 높이 계산
+    const first = lis[0];
+    const last = lis[limitCount - 1];
 
-    // 제한 적용
-    ul.style.maxHeight = (liHeight + gap) * limitCount + 'px';
+    const totalHeight = (last.offsetTop + last.offsetHeight) - first.offsetTop;
+
+    ul.style.maxHeight = totalHeight + 'px';
     ul.style.overflowY = 'auto';
   }
 
@@ -627,4 +631,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // ----- 초기 활성 탭에도 적용 -----
   const activeList = document.querySelector('#notice-board .notice-list.active');
   if (activeList) setScrollLimit(activeList);
+
+  // ----- 뷰포트 변경 시 개수 변경 반영 -----
+  window.addEventListener('resize', () => {
+    const activeList = document.querySelector('#notice-board .notice-list.active');
+    if (!activeList) return;
+
+    const ul = activeList.querySelector('ul');
+    if (!ul) return;
+
+    ul.style.maxHeight = 'none';
+    ul.style.overflowY = 'visible';
+
+    setScrollLimit(activeList);
+  });
 });

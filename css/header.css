@@ -1,7 +1,6 @@
 @charset "utf-8";
 
 /* header */
-
 #header {
   background: #9ec5ff;
   position: fixed; width: 100vw; top: 0; z-index: 1000;  
@@ -10,7 +9,6 @@
   display: flex; justify-content: space-between; align-items: center; height: 10rem; 
   padding: 0 6rem; 
 }
-
 
 #header h1 a {
   display: block; width: 17.4rem; height: 4rem;
@@ -46,7 +44,6 @@
   transition: all 0.3s ease;
 }
 
-
 #gnb .dep2 {
   display: none;
   position: absolute;
@@ -58,18 +55,11 @@
   flex-direction: column;
   z-index: 10;
 }
-
-#gnb .dep2.active {
-  display: block;
-}
-
+#gnb .dep2.active {display: block;}
 #gnb .dep2 li {
-  padding: 1.2rem;
-  text-align: center;
+  padding: 1.2rem; text-align: center;
 }
-#gnb .dep2 li a {
-  color: #fff;
-}
+#gnb .dep2 li a {color: #fff;}
 
 
 @media screen and (max-width: 1370px) {
@@ -96,7 +86,9 @@
 }
 
 
-#header .utill {display: flex; gap: 3rem;font-size: 1.8rem; font-weight: 700;}
+#header .utill {
+  display: flex; gap: 3rem;font-size: 1.8rem; font-weight: 700;
+}
 
 #header .utill .lang-wrap {position: relative;}
 #header .utill .lang-wrap button {
@@ -107,9 +99,7 @@
   content: "\EA4D";font-family: 'remixicon';
   transition: transform 0.3s;
 }
-#header .utill .lang-wrap.active button::after {
-  transform: rotate(180deg);
-}
+#header .utill .lang-wrap.active button::after {transform: rotate(180deg);}
 #header .utill .lang-wrap ul {
   display: none;flex-direction: column;gap: 1.5rem;
   position: absolute;left: 50%;transform: translateX(-50%);
@@ -206,12 +196,8 @@
   background-size: 100% auto;
 }
 
-#header .utill .all-menu-popup .all-menu-top .allmenu-close i {
-  font-size: 3rem;
-}
-#header .utill .all-menu-popup .all-menu-top .allmenu-close i:hover {
-  color: var(--main-orange);
-}
+#header .utill .all-menu-popup .all-menu-top .allmenu-close i {font-size: 3rem;}
+#header .utill .all-menu-popup .all-menu-top .allmenu-close i:hover {color: var(--main-orange);}
 
 #header .utill .all-menu-setting {
   display: flex; justify-content: space-between;
@@ -220,9 +206,8 @@
 }
 
 .all-menu-left {
-  width: 35%;
+  width: 35%; position: relative; 
   background: url('./img/con1_bg.jpg') no-repeat center center / cover; overflow: hidden;
-  position: relative;
 }
 
 @media screen and (max-width:1260px) {
@@ -271,29 +256,23 @@
 
 .all-menu-cont .dep2 > li {
   width: calc(33.33% - 20px); /* 3열 레이아웃 */
-  font-size: 15px;
-  line-height: 1.4;
+  font-size: 15px; line-height: 1.4;
 }
 
 .all-menu-cont .dep2 > li > a {
-  color: #333;
-  text-decoration: none;
+  color: #333; text-decoration: none;
   transition: 0.2s;
 }
 
 .all-menu-cont .dep2 > li > a:hover {
-  color: var(--main-green);
-  text-decoration: underline;
+  color: var(--main-green); text-decoration: underline;
 }
 
-.all-menu-cont .dep3 {
-  margin-top: 0.8rem;
-}
+.all-menu-cont .dep3 {margin-top: 0.8rem;}
 
 .all-menu-cont .dep3 li a {
   font-size: 1.4rem; font-weight: 300; 
-  color: #666;
-  text-decoration: none;
+  color: #666; text-decoration: none;
 }
 
 .all-menu-cont .dep3 li a:hover {
