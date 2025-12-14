@@ -13,223 +13,299 @@ font-family: "Noto Sans KR", 'Pretendard', '맑은 고딕', sans-serif;
 color: #222;font-size: 1.6rem; margin: 0; padding: 0;
 word-break: keep-all;
 }
+
 section {padding: 6rem 0;}
-main {padding: 10rem 10rem 0 10rem;}
+@media screen and (max-width: 1150px) {
+  section {padding: 4rem 0;}
+}
+@media screen and (min-width: 0px) and (max-width: 550px) {section {padding: 1rem 0;}}
+
+
+main {padding: 10rem 10rem 5rem 10rem;}
 @media screen and (max-width: 950px) {
-main {padding: 10rem 5rem 0 5rem;}
+main {padding: 5rem 5rem 0 5rem;}
 } 
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  main {padding: 2rem 2.5rem 0rem 2.5rem;}
+}
+
+
 .big-txt {font-size: 2rem; font-weight: bold;}
 .small-txt {font-size: 1.4rem;}
 section .section-txt {
 display: flex; flex-direction: row; gap: 2rem; align-items: end; padding: 5rem 0;
 }
+@media screen and (max-width: 700px) {
+  section .section-txt {
+    flex-direction: column; align-items: start;
+    gap: 2rem; padding: 2rem 0;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  section .section-txt {gap: 1rem;}
+}
+
 section .section-txt h2 {
 font-size: 2.4rem; color: var(--main-blue); font-weight: bold;
 }
 section .section-txt p {
 font-size: 1.4rem; color: var(--main-blue);
 }
+@media screen and (max-width: 950px) {
+  section .section-txt h2 {font-size: 2rem;}
+  section .section-txt p {font-size: 1.2rem;}
+}
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  section .section-txt h2 {font-size: 1.4rem;}
+  section .section-txt p {font-size: 1rem;}
+}
+
 .smallAlpha-txt {color: #22222254;}
 
 
 /* 메인이미지 */
-.main-img>img {display: block;width: 100vw;}
+.main-img>img {
+  display: block;width: 100vw;
+}
+@media screen and (max-width: 1202px) {
+  .main-img>img {
+    margin-top: 10rem;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  .main-img>img {
+    margin-top: 5rem;
+  }
+}
+
 
 /* 메인 */
-#main {padding-bottom: 5rem;}
-
-#sub-tab {display: flex; flex-direction: column; gap: 4rem; padding-bottom: 2.5rem;}
+#sub-tab {
+  display: flex; flex-direction: column; gap: 10rem; padding-bottom: 3rem;
+}
 #sub-tab h3{
-    font-size: 2.4rem; color: var(--main-orange);
-    text-align: center; font-weight: bold;
+  font-size: 4rem; color: var(--main-orange);
+  text-align: center; font-weight: bold;
 }
 
 #sub-tab .sub-tab-list ul{
-    display: flex; justify-content: space-between; padding: 0;
-    border-bottom: 1px solid var(--main-orange);
+  display: flex; justify-content: space-between; padding: 0;
+  border-bottom: 1px solid var(--main-orange);
 }
 
-#sub-tab .sub-tab-list li {position: relative; padding-bottom: 2rem;}
-#sub-tab .sub-tab-list a {font-size: 1.6rem; white-space: nowrap; display: block;}
-
+#sub-tab .sub-tab-list li {
+  position: relative; padding-bottom: 2rem;
+}
+#sub-tab .sub-tab-list a {
+  font-size: 2rem; white-space: nowrap; display: block;
+}
 @media screen and (max-width: 1020px) {
-    #sub-tab .sub-tab-list a {font-size: 1.4rem;}
+  #sub-tab {gap: 5rem;}
+  #sub-tab h3 {font-size: 3rem;}
+  #sub-tab .sub-tab-list a {font-size: 1.6rem;}
 }
 @media screen and (max-width: 580px) {
-    #sub-tab .sub-tab-list a {font-size: 1.2rem;}
+  #sub-tab .sub-tab-list a {font-size: 1.2rem;}
+}
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  #sub-tab h3 {font-size: 2rem;}
+  #sub-tab .sub-tab-list a {font-size: 1rem;}
 }
 
 /* 활성화 탭 */
 #sub-tab .sub-tab-list li.active a {
-    color: var(--main-orange); font-weight: bold;
+  color: var(--main-orange); font-weight: bold;
 }
 
 #sub-tab .sub-tab-list li.active::after {
-    content: ''; position: absolute;
-    bottom: -1px; left: 0; width: 100%; height: 3px;
-    background-color: var(--main-orange);
-    border-radius: 2px 2px 0 0;
+  content: ''; position: absolute;
+  bottom: -1px; left: 0; width: 100%; height: 3px;
+  background-color: var(--main-orange);
+  border-radius: 2px 2px 0 0;
 }
 
 
 /* 검색 tab */
 #search-box {
-    background: var(--main-blue); padding: 2.5rem; max-width: 100vw;
-    margin: 0 auto; border-radius: 2rem;
+  background: var(--main-blue); padding: 2.5rem; max-width: 100vw;
+  margin: 0 auto; border-radius: 2rem;
 }
 
 #search-box .search-tab-lists {
-    display: flex; flex-direction: row; gap: 2rem; justify-content: space-between;
-    align-items: center;
+  display: flex; flex-direction: row; gap: 2rem; justify-content: space-between;
+  align-items: center;
 }
 
 .custom-select-box {position: relative; width: 15rem;}
 
 .select-selected {
-    display: flex; align-items: center; box-sizing: border-box;
-    justify-content: space-between; height: 4rem; padding: 0 2rem;
-    border-radius: 1rem; border: 1px solid #fff;
-    background-color: var(--main-blue); color: #fff; cursor: pointer;
+  display: flex; align-items: center; box-sizing: border-box;
+  justify-content: space-between; height: 4rem; padding: 0 2rem;
+  border-radius: 1rem; border: 1px solid #fff;
+  background-color: var(--main-blue); color: #fff; cursor: pointer;
 }
 
 .select-selected .material-icons {
-    font-size: 2rem; color: #fff; transition: transform 0.3s;
+  font-size: 2rem; color: #fff;
+  transition: transform 0.3s;
 }
 .select-selected.active .material-icons {transform: rotate(180deg);}
 
 /* 드롭다운 리스트 */
 .select-items {
-    position: absolute;
-    top: 100%; left: 0; right: 0; margin-top: 0.5rem;
-    background-color: #fff; border-radius: 1rem;
-    border: 1px solid var(--main-blue);z-index: 99; list-style: none; padding: 0;
+  position: absolute;
+  top: 100%; left: 0; right: 0; margin-top: 0.5rem;
+  background-color: #fff; border-radius: 1rem;
+  border: 1px solid var(--main-blue);z-index: 99; list-style: none; padding: 0;
 }
 
 .select-items li {
-    color: var(--main-blue);padding: 1.2rem; cursor: pointer;
+  color: var(--main-blue);padding: 1.2rem; cursor: pointer;
 }
 
 .select-items li:hover, .select-items li.same-as-selected {
-    background-color: var(--main-blue); color: #fff;
+  background-color: var(--main-blue); color: #fff;
 }
 
 .select-hide {display: none;}
 
 /* 입력창 */
 .search-tab-lists input {
-    height: 4rem; border-radius: 1rem;
-    border: 1px solid #fff; background-color: var(--main-blue);
-    padding: 0 2rem; font-size: 1.6rem;
-    color: #fff; width: 100%; box-sizing: border-box;
+  height: 4rem; border-radius: 1rem;
+  border: 1px solid #fff; background-color: var(--main-blue);
+  padding: 0 2rem; font-size: 1.6rem;
+  color: #fff; width: 100%; box-sizing: border-box;
 }
 .search-tab-lists input::placeholder {color: #fff;}
 
 .search-tab-lists button {
-    display: flex; align-items: center;
-    justify-content: center; background: #fff;
-    color: var(--main-blue); cursor: pointer;
-    width: 12rem; height: 4rem; border-radius: 1rem;
-    border: 1px solid #fff; font-size: 1.6rem;
+  display: flex; align-items: center;
+  justify-content: center; background: #fff;
+  color: var(--main-blue); cursor: pointer;
+  width: 12rem; height: 4rem; border-radius: 1rem;
+  border: 1px solid #fff; font-size: 1.6rem;
 }
 .search-tab-lists button span {font-weight: 500;}
 .search-tab-lists button .material-icons {
-    font-size: 2rem; margin-right: 0.5rem;
-    color: var(--main-blue);
+  font-size: 2rem; margin-right: 0.5rem;
+  color: var(--main-blue);
 }
 @media screen and (max-width: 1200px) {
-    .search-tab-lists button span:last-child {display: none;}
-    .search-tab-lists button .material-icons {margin: 0rem;}
+  .search-tab-lists button span:last-child {display: none;}
+  .search-tab-lists button .material-icons {margin: 0rem;}
 }
 @media screen and (max-width: 1020px) {
-    #search-box .search-tab-lists {font-size: 1.4rem;}
-    .search-tab-lists input::placeholder {font-size: 1.4rem;}
-    .search-tab-lists button span {font-size: 1.4rem;}
+  #search-box .search-tab-lists {font-size: 1.4rem;}
+  .search-tab-lists input::placeholder {font-size: 1.4rem;}
+  .search-tab-lists button span {font-size: 1.4rem;}
 }
 @media screen and (max-width: 640px) {
-    #search-box .search-tab-lists {font-size: 1.2rem;}
-    .search-tab-lists input::placeholder {font-size: 1.2rem;}
-    .search-tab-lists button span {font-size: 1.2rem;}
+  #search-box .search-tab-lists {font-size: 1.2rem;}
+  .search-tab-lists input::placeholder {font-size: 1.2rem;}
+  .search-tab-lists button span {font-size: 1.2rem;}
+}
+@media screen and (max-width: 580px) {
+  .select-selected {padding: 1rem;}
+}
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  #search-box {padding: 1rem;}
+  #search-box .search-tab-lists {
+    gap: 1rem;
+  }
+  .select-selected, .search-tab-lists input, .search-tab-lists button {height: 2rem;}
+  #search-box .search-tab-lists,
+  .search-tab-lists input,
+  .search-tab-lists input::placeholder,
+  .search-tab-lists button span {
+    font-size: 1rem;
+  }
+  .search-tab-lists input {padding: 0 1rem;}
+  .search-tab-lists button {width: 5rem;}
 }
 
-@media screen and (max-width: 580px) {
-    .select-selected {padding: 1rem;}
-}
 
 /* 소장품 리스트 */
 .product-list {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 4rem; list-style: none; padding-top: 5rem;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 4rem; list-style: none; padding-top: 5rem;
 }
 
 .product-list li {
-    position: relative; padding-bottom: 150%;
-    overflow: hidden; border-radius: 2rem;
+  position: relative; padding-bottom: 150%;
+  overflow: hidden; border-radius: 2rem;
 }
 
 .product-list img {
-    position: absolute; 
-    top: 0; left: 0; width: 100%; height: 100%;
-    display: block; object-fit: cover;
-    transition: transform 0.3s ease;
+  position: absolute; 
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: block; object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .product-list li:hover img {transform: scale(1.05);}
 
 .product-info {
-    position: absolute; bottom: 0; left: 0; right: 0; top: 0;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;  text-align: center;
-    display: flex; flex-direction: column;
-    justify-content: space-between; align-items: center;
-    opacity: 0; transition: opacity 0.3s ease;
+  position: absolute; bottom: 0; left: 0; right: 0; top: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;  text-align: center;
+  display: flex; flex-direction: column;
+  justify-content: space-between; align-items: center;
+  opacity: 0; transition: opacity 0.3s ease;
 }
 .product-info .product-info-top {padding-top: 10rem;}
 .product-info .product-info-top h3 {padding: 1rem; font-size: 1.6rem;}
 .product-info .product-info-top h4 {padding: 2rem; font-size: 1.8rem; margin-bottom: 2rem;}
 .product-info #product-txt {
-    background: var(--main-orange); padding: 1rem 2rem;
-    border-radius: 1rem; display: inline-block;
+  background: var(--main-orange); padding: 1rem 2rem;
+  border-radius: 1rem; display: inline-block;
 }
+.product-info .product-info-bottom{
+  padding-bottom: 5rem;
+}
+
+
 @media screen and (max-width: 1480px) {
-    .product-info .product-info-top h3 {padding: 0.5rem; font-size: 1.4rem;}
-    .product-info .product-info-top h4 {padding: 0.5rem; font-size: 1.6rem;}
+  .product-info .product-info-top h3 {padding: 0.5rem; font-size: 1.4rem;}
+  .product-info .product-info-top h4 {padding: 0.5rem; font-size: 1.6rem;}
 }
 @media screen and (max-width: 1370px) {
-    .product-info .product-info-top {padding-top: 5rem;}
-    .product-info .product-info-top h3 {padding: 0.5rem; font-size: 1.2rem;}
-    .product-info .product-info-top h4 {padding: 0.5rem; font-size: 1.4rem;}
-    .product-info .product-info-bottom {font-size: 1.4rem;}
+  .product-info .product-info-top {padding-top: 5rem;}
+  .product-info .product-info-top h3 {padding: 0.5rem; font-size: 1.2rem;}
+  .product-info .product-info-top h4 {padding: 0.5rem; font-size: 1.4rem;}
+  .product-info .product-info-bottom {font-size: 1.4rem;}
 }
 @media screen and (max-width: 1200px) {
-    .product-list {grid-template-columns: repeat(2, 1fr);}
-    .product-info #product-txt {padding: 0.5rem 1rem}
-    .product-info .product-info-top {padding-top: 10rem;}
-    .product-info .product-info-top h3 {padding: 0.5rem; font-size: 1.4rem;}
-    .product-info .product-info-top h4 {padding: 0.5rem; font-size: 1.6rem;}
+  .product-list {grid-template-columns: repeat(2, 1fr);}
+  .product-info #product-txt {padding: 0.5rem 1rem}
+  .product-info .product-info-top {padding-top: 10rem;}
+  .product-info .product-info-top h3 {padding: 0.5rem; font-size: 1.4rem;}
+  .product-info .product-info-top h4 {padding: 0.5rem; font-size: 1.6rem;}
 }
 
 @media screen and (max-width: 640px) {
-    .product-info .product-info-top {padding-top: 5rem;}
-    .product-info .product-info-top h3 {padding: 0.5rem; font-size: 1.2rem;}
-    .product-info .product-info-top h4 {padding: 0.5rem; font-size: 1.4rem;}
-    .product-info .product-info-bottom {font-size: 1.2rem;}
+  .product-info .product-info-top {padding-top: 5rem;}
+  .product-info .product-info-top h3 {padding: 0.5rem; font-size: 1.2rem;}
+  .product-info .product-info-top h4 {padding: 0.5rem; font-size: 1.4rem;}
+  .product-info .product-info-bottom {font-size: 1.2rem;}
 }
 
-@media screen and (max-width: 530px) {
-    .product-list {grid-template-columns: repeat(1, 1fr);}
-    .product-info .product-info-top {padding-top: 10rem;}
-    .product-info .product-info-top h3 {padding: 0.5rem; font-size: 1.2rem;}
-    .product-info .product-info-top h4 {padding: 0.5rem; font-size: 1.4rem;}
-    .product-info .product-info-bottom {font-size: 1.4rem;}
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  .product-list {padding-top: 2rem; gap: 1rem;}
+  .product-info .product-info-top {padding-top: 4rem;}
+  .product-info .product-info-top h3 {padding: 0.5rem; font-size: 1rem;}
+  .product-info .product-info-top h4 {padding: 0.5rem; font-size: 1rem;}
+  .product-info .product-info-bottom {font-size: 1rem; padding-bottom: 4rem;}
 }
-
-.product-info .product-info-bottom {padding-bottom: 5rem;}
 
 .product-list li:hover .product-info {opacity: 1;}
 
 #loadMoreBtn {
-    display: block; margin: 5rem auto; color: #fff;
-    padding: 1rem 2rem; font-size: 1.6rem; font-weight: 500;
-    cursor: pointer; background: var(--main-orange);
-    border-radius: 1rem;
+  display: block; margin: 5rem auto; color: #fff;
+  padding: 1rem 2rem; font-size: 1.6rem; font-weight: 500;
+  cursor: pointer; background: var(--main-orange);
+  border-radius: 1rem;
+}
+
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  #loadMoreBtn {font-size: 1rem;}
 }

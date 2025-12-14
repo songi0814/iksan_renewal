@@ -3,32 +3,31 @@ const btnLang = document.querySelector('#header .lang-wrap button')
 const langWrap = document.querySelector('#header .lang-wrap')
 
 btnLang.addEventListener('click', function() {
-    langWrap.classList.toggle('active')
-    // searchbox 안보임
-    document.querySelector('#header').classList.add('scroll')
+  langWrap.classList.toggle('active')
+  document.querySelector('#header').classList.add('scroll')
 })
 
 //allmenu
 const allMenuOpen = document.querySelector('.all-menu-open')
 allMenuOpen.addEventListener('click', function() {
-    document.querySelector('.all-menu-popup').style.display = 'block'
+  document.querySelector('.all-menu-popup').style.display = 'block'
 })
 const allMenuClose = document.querySelector('.allmenu-close')
 allMenuClose.addEventListener('click', function() {
-    document.querySelector('.all-menu-popup').style.display = 'none'
+  document.querySelector('.all-menu-popup').style.display = 'none'
 })
 
 //search
 const searchWrap = document.querySelector('#header .utill .search-wrap');
 searchWrap.querySelector('button').addEventListener('click', function(e) {
-    e.stopPropagation();
-    searchWrap.querySelector('.search-box').style.display = 'flex';
+  e.stopPropagation();
+  searchWrap.querySelector('.search-box').style.display = 'flex';
 });
 
 searchWrap.addEventListener('click', function(e) {
-    if (e.target.closest('.search-close')) {
-        searchWrap.querySelector('.search-box').style.display = 'none';
-    }
+  if (e.target.closest('.search-close')) {
+    searchWrap.querySelector('.search-box').style.display = 'none';
+  }
 });
 
 
@@ -36,23 +35,19 @@ searchWrap.addEventListener('click', function(e) {
 // dep2
 document.querySelectorAll('#gnb .dep1 > li > a').forEach(item => {
   item.addEventListener('click', e => {
-    e.preventDefault(); // 링크 이동 막기
+    e.preventDefault();
     const parentLi = e.currentTarget.closest('li');
     const subMenu = parentLi.querySelector('.dep2');
 
     if (!subMenu) return;
 
-    // 모든 dep2 닫기
     document.querySelectorAll('#gnb .dep2').forEach(menu => {
       if (menu !== subMenu) menu.classList.remove('active');
     });
-
-    // 현재 메뉴 토글
     subMenu.classList.toggle('active');
   });
 });
 
-// 바깥 영역 클릭 시 dep2 닫기
 document.addEventListener('click', e => {
   const isInsideGnb = e.target.closest('#gnb');
   if (!isInsideGnb) {
@@ -66,20 +61,20 @@ document.addEventListener('click', e => {
 
 //특별전시
 const exhSwiper = new Swiper(".exh-swiper", {
-    autoplay: true,
-    slidesPerView: 1,
-    breakpoints: {
-        1920: {slidesPerView: 4,},
-        1150: {slidesPerView: 3,},
-        950: {slidesPerView: 2,},
-        450: {slidesPerView: 1,}
-    },
-    spaceBetween: 30,
-    freeMode: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
+  autoplay: true,
+  slidesPerView: 1,
+  breakpoints: {
+    1920: {slidesPerView: 4,},
+    1150: {slidesPerView: 3,},
+    950: {slidesPerView: 2,},
+    450: {slidesPerView: 1,}
+  },
+  spaceBetween: 30,
+  freeMode: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
 });
 
 
@@ -99,43 +94,38 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileCalToggle = document.getElementById("mobileCalToggle");
   const mobileCalendarPopup = document.getElementById("mobileCalendarPopup");
 
-  // 오늘 날짜 정보
+  // 달력
   const today = new Date();
   const TODAY_YEAR = today.getFullYear();
-  const TODAY_MONTH = today.getMonth(); // 0~11
+  const TODAY_MONTH = today.getMonth();
   const TODAY_DATE = today.getDate();
 
-  // PC용 전체 달력에서 사용
+  // PC용 전체 달력
   let currentYear = TODAY_YEAR;
   let currentMonth = TODAY_MONTH;
 
-  // 3일짜리 달력의 기준(가운데) 날짜
+  // 3일짜리 달력
   let selectedDate = new Date(TODAY_YEAR, TODAY_MONTH, TODAY_DATE);
 
-  // 팝업 달력에서 현재 보고 있는 연/월
+  // 팝업 달력
   let popupYear = TODAY_YEAR;
   let popupMonth = TODAY_MONTH;
 
   const weekdayNames = ["일", "월", "화", "수", "목", "금", "토"];
 
-  // ---------------------------
-  // 헤더 텍스트 업데이트
-  // ---------------------------
+  // 헤더 변화
   function updateHeaderText() {
     const isMobile = window.innerWidth <= 550;
     if (isMobile) {
-      // 모바일: 선택된 날짜 전체 (예: 2025년 11월 22일)
       const d = selectedDate;
+      // mobile
       monthText.textContent = `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
     } else {
-      // PC: 연/월 (예: 2025년 11월)
+      // pc
       monthText.textContent = `${currentYear}년 ${currentMonth + 1}월`;
     }
   }
 
-  // ---------------------------
-  // .change-image-btn 클릭 (공통)
-  // ---------------------------
   document.addEventListener("click", function (e) {
     const btn = e.target.closest(".change-image-btn");
     if (!btn) return;
@@ -143,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const type = btn.getAttribute("data-type");
     const imgSrc = btn.dataset.img;
 
-    // 왼쪽 포스터 이미지 교체
+    // 포스터 이미지 교체
     if (imageElement) {
       let newSrc = "./img/main_poster.png";
 
@@ -156,11 +146,9 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (type === "reset") {
         newSrc = "./img/main_poster.png";
       }
-
       imageElement.src = newSrc;
     }
 
-    // 모바일(<=1330px)일 때 이미지 팝업
     if (window.innerWidth <= 1330 && popup && popupImage && imgSrc) {
       popupImage.src = imgSrc;
       popup.style.display = "flex";
@@ -186,9 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ---------------------------
-  // PC용: 전체 달력 렌더링
-  // ---------------------------
+  // PC용: 전체 달력
   function renderCalendar(year, month) {
     currentYear = year;
     currentMonth = month;
@@ -263,9 +249,7 @@ document.addEventListener("DOMContentLoaded", function () {
     tbody.innerHTML = html;
   }
 
-  // ---------------------------
   // 3일짜리 달력 (전날 / 선택한 날 / 다음날)
-  // ---------------------------
   function renderThreeDays() {
     if (!threeDaysContainer) return;
 
@@ -288,8 +272,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // 요일 헤더
       ths += `<th>${weekdayNames[w]}</th>`;
-
-      // 버튼들 생성 (규칙 동일)
       let buttonsHtml = "";
 
       // 월요일: 휴관일
@@ -339,9 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
   }
 
-  // ---------------------------
-  // 팝업 달력 렌더링 (좌/우 이동 포함)
-  // ---------------------------
+  // 팝업 달력 렌더링 (좌/우 이동)
   function renderPopupCalendar() {
     if (!mobileCalendarPopup) return;
 
@@ -401,16 +381,12 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileCalendarPopup.innerHTML = html;
   }
 
-  // ---------------------------
   // 초기 렌더링
-  // ---------------------------
   renderCalendar(currentYear, currentMonth);
   renderThreeDays();
   updateHeaderText();
 
-  // ---------------------------
   // PC용 월 이동 버튼
-  // ---------------------------
   if (prevBtn) {
     prevBtn.addEventListener("click", function () {
       currentMonth--;
@@ -435,16 +411,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ---------------------------
   // 모바일: 달력 팝업 토글
-  // ---------------------------
   if (mobileCalToggle && mobileCalendarPopup) {
     mobileCalToggle.addEventListener("click", () => {
       if (mobileCalendarPopup.classList.contains("open")) {
-        // 닫기 (날짜 선택 없으면 selectedDate 그대로)
         mobileCalendarPopup.classList.remove("open");
       } else {
-        // 열기 전에 현재 선택 날짜 기준으로 월 맞추기
         popupYear = selectedDate.getFullYear();
         popupMonth = selectedDate.getMonth();
         renderPopupCalendar();
@@ -452,7 +424,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // 팝업 내부 클릭(이전/다음 달 + 날짜 선택)
     mobileCalendarPopup.addEventListener("click", (e) => {
       const prevBtn = e.target.closest(".popup-cal-prev");
       const nextBtn = e.target.closest(".popup-cal-next");
@@ -485,17 +456,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const [y, m, d] = cell.getAttribute("data-date").split("-").map(Number);
         selectedDate = new Date(y, m - 1, d);
 
-        // 팝업 닫고 3일 달력 + 헤더 갱신
+        // 팝업 닫고 3일 달력 + 헤더 교체
         mobileCalendarPopup.classList.remove("open");
         renderThreeDays();
         updateHeaderText();
       }
     });
   }
-
-  // ---------------------------
   // 리사이즈 시 헤더 텍스트 모드 변경
-  // ---------------------------
   window.addEventListener("resize", () => {
     updateHeaderText();
   });
@@ -508,63 +476,61 @@ document.addEventListener("DOMContentLoaded", function () {
 //홍보영상
 
 document.addEventListener('DOMContentLoaded', () => {
-    const tabButtons = document.querySelectorAll('.video-tab button');
-    const contents = document.querySelectorAll('#video-ads .video-contents > div');
-    let swiperInstances = {};
+  const tabButtons = document.querySelectorAll('.video-tab button');
+  const contents = document.querySelectorAll('#video-ads .video-contents > div');
+  let swiperInstances = {};
 
-    function initSwiper(container) {
-        return new Swiper(container.querySelector('.vid-swiper'), {
-            direction: "vertical",
-            slidesPerView: 1,
-            spaceBetween: 30,
-            mousewheel: true,
-            pagination: {
-                el: container.querySelector('.swiper-pagination'),
-                clickable: true,
-            },
-        });
-    }
-
-    function resetTabs() {
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        contents.forEach(content => {
-            content.style.display = 'none';
-        });
-    }
-
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetClass = button.dataset.target;
-            const targetContent = document.querySelector(`#video-ads .${targetClass}`);
-
-            if (!targetContent) return;
-
-            resetTabs();
-
-            button.classList.add('active');
-
-            targetContent.style.display = 'block';
-
-            if (!swiperInstances[targetClass]) {
-                swiperInstances[targetClass] = initSwiper(targetContent);
-            } else {
-                swiperInstances[targetClass].update();
-            }
-        });
+  function initSwiper(container) {
+    return new Swiper(container.querySelector('.vid-swiper'), {
+      direction: "vertical",
+      slidesPerView: 1,
+      spaceBetween: 30,
+      mousewheel: true,
+      pagination: {
+          el: container.querySelector('.swiper-pagination'),
+          clickable: true,
+      },
     });
+  }
 
-    (function initFirstTab() {
-        tabButtons[0].classList.add('active');
-        contents.forEach((content, index) => {
-            if (index === 0) {
-                content.style.display = 'block';
-                const key = tabButtons[0].dataset.target;
-                swiperInstances[key] = initSwiper(content);
-            } else {
-                content.style.display = 'none';
-            }
-        });
-    })();
+  function resetTabs() {
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    contents.forEach(content => {
+      content.style.display = 'none';
+    });
+  }
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetClass = button.dataset.target;
+      const targetContent = document.querySelector(`#video-ads .${targetClass}`);
+
+      if (!targetContent) return;
+
+      resetTabs();
+      button.classList.add('active');
+
+      targetContent.style.display = 'block';
+      if (!swiperInstances[targetClass]) {
+          swiperInstances[targetClass] = initSwiper(targetContent);
+      } else {
+          swiperInstances[targetClass].update();
+      }
+    });
+  });
+
+  (function initFirstTab() {
+    tabButtons[0].classList.add('active');
+    contents.forEach((content, index) => {
+      if (index === 0) {
+        content.style.display = 'block';
+        const key = tabButtons[0].dataset.target;
+        swiperInstances[key] = initSwiper(content);
+    } else {
+        content.style.display = 'none';
+      }
+    });
+  })();
 });
 
 
@@ -575,12 +541,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const tabButtons = document.querySelectorAll('#notice-board .tab-btn');
   const noticeLists = document.querySelectorAll('#notice-board .notice-list');
 
-  // ----- PC/Mobile 개수 제한 -----
   function getLimitCount() {
-    return window.innerWidth <= 930 ? 4 : 5; // 모바일 3개, PC 5개
+    return window.innerWidth <= 930 ? 4 : 5;
   }
 
-  // ----- 스크롤 제한 설정 함수 -----
   function setScrollLimit(list) {
     const ul = list.querySelector('ul');
     if (!ul) return;
@@ -594,7 +558,6 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    // 🔹 실제 1번째 ~ limitCount번째 li 까지의 높이 계산
     const first = lis[0];
     const last = lis[limitCount - 1];
 
@@ -604,7 +567,6 @@ document.addEventListener('DOMContentLoaded', function () {
     ul.style.overflowY = 'auto';
   }
 
-  // ----- 탭 전환 기능 -----
   tabButtons.forEach((btn) => {
     btn.addEventListener('click', function () {
       if (this.querySelector('a')) return;
@@ -619,7 +581,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (list.getAttribute('data-type') === targetTab) {
           list.classList.add('active');
 
-          // 🔸 탭이 보이는 순간 높이 재계산
           setTimeout(() => {
             setScrollLimit(list);
           }, 50);
@@ -628,11 +589,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ----- 초기 활성 탭에도 적용 -----
   const activeList = document.querySelector('#notice-board .notice-list.active');
   if (activeList) setScrollLimit(activeList);
 
-  // ----- 뷰포트 변경 시 개수 변경 반영 -----
   window.addEventListener('resize', () => {
     const activeList = document.querySelector('#notice-board .notice-list.active');
     if (!activeList) return;
