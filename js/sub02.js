@@ -8,15 +8,6 @@ btnLang.addEventListener('click', function() {
 })
 
 //allmenu
-// const allMenuOpen = document.querySelector('.all-menu-open')
-// allMenuOpen.addEventListener('click', function() {
-//   display = 'block'
-// })
-// const allMenuClose = document.querySelector('.allmenu-close')
-// allMenuClose.addEventListener('click', function() {
-//   document.querySelector('.all-menu-popup').style.display = 'none'
-// })
-
 const allMenuOpen = document.querySelector('.all-menu-open');
 const allMenuPopup = document.querySelector('.all-menu-popup');
 
@@ -118,89 +109,224 @@ document.fonts.ready.then(() => {
 });
 
 // main-value scroll-trigger (데스크톱 전용 애니메이션)
+// gsap.registerPlugin(SplitText, ScrollTrigger);
+
+// window.addEventListener('load', () => {
+//   const initMainValueAnimation = () => {
+//     const isDesktop = window.matchMedia('(min-width: 1200px)').matches;
+
+//     // 기존 타임라인/트리거 제거
+//     ScrollTrigger.getAll().forEach(st => {
+//       if (st.trigger && st.trigger.id === 'main-value') {
+//         st.kill();
+//       }
+//     });
+
+//     // 스타일 초기화
+//     gsap.set('.value-list .value', {
+//       clearProps: 'all'
+//     });
+
+//     if (!isDesktop) {
+//       // 태블릿/모바일은 정적인 리스트( CSS에서 세로 배치 )
+//       gsap.set('.value-list .value', {
+//         opacity: 1,
+//         scale: 0.35,
+//         x: 0,
+//         transformOrigin: '50% 50%',
+//       });
+//       return;
+//     }
+
+//     // 데스크톱용 타임라인
+//     const m_value = gsap.timeline({
+//       scrollTrigger: {
+//         id: 'main-value',
+//         trigger: '#main-value',
+//         start: 'bottom bottom',
+//         end: 'bottom bottom',
+//         scrub: 3,
+//         pin: '#main-value',
+//         pinSpacing: false,
+//       }
+//     });
+
+//     const getGap = () => {
+//       const w = window.innerWidth;
+//       let baseGap = w * 0.23;
+//       if (w < 1600) baseGap = w * 0.22;
+//       if (w < 1400) baseGap = w * 0.23;
+//       if (w < 1200) baseGap = w * 0.23;
+//       return baseGap;
+//     };
+
+//     const animateValues = () => {
+//       const gap = getGap();
+//       m_value.clear();
+
+//       m_value.to('.value-list .value', {
+//         opacity: 1,
+//         scale: 1,
+//         duration: 1,
+//         ease: 'power2.out'
+//       });
+
+//       const overlapRatio = 0.7;
+//       const offsets = [-1.5, -0.5, 0.5, 1.5].map(v => v * gap * overlapRatio);
+
+//       offsets.forEach((x, i) => {
+//         m_value.to(
+//           `.value-list .v${i + 1}`,
+//           { x, duration: 1, ease: 'power2.out' },
+//           '<'
+//         );
+//       });
+//     };
+
+//     animateValues();
+//     window.addEventListener('resize', animateValues);
+//   };
+
+//   initMainValueAnimation();
+// });
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 window.addEventListener('load', () => {
   const initMainValueAnimation = () => {
-    const isDesktop = window.matchMedia('(min-width: 1025px)').matches;
+    const isDesktop = window.matchMedia('(min-width: 1200px)').matches;
+    const section = document.querySelector('#main-value');
+    const list = section.querySelector('.value-list');
+    const values = gsap.utils.toArray('.value-list .value');
 
-    // 기존 타임라인/트리거 제거
+    /* ------------------------------
+      기존 ScrollTrigger 제거
+    ------------------------------ */
     ScrollTrigger.getAll().forEach(st => {
-      if (st.trigger && st.trigger.id === 'main-value') {
+      if (st.vars && st.vars.id === 'main-value') {
         st.kill();
       }
     });
 
-    // 스타일 초기화
-    gsap.set('.value-list .value', {
-      clearProps: 'all'
-    });
+    gsap.set(values, { clearProps: 'all' });
 
+    /* ------------------------------
+      모바일 / 태블릿
+    ------------------------------ */
     if (!isDesktop) {
-      // 태블릿/모바일은 정적인 리스트( CSS에서 세로 배치 )
-      gsap.set('.value-list .value', {
+      gsap.set(values, {
         opacity: 1,
         scale: 1,
-        x: 0
+        x: 0,
+        transformOrigin: '50% 50%'
       });
       return;
     }
 
-    // 데스크톱용 타임라인
+    /* ------------------------------
+      circle 크기 자동 계산
+    ------------------------------ */
+    const updateCircleSize = () => {
+      const sectionHeight = section.clientHeight;
+      const styles = getComputedStyle(section);
+      const padding =
+        parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
+
+      const usableHeight = sectionHeight - padding;
+
+      const circleSize = Math.min(
+        usableHeight * 0.55,
+        window.innerWidth * 0.22
+      );
+
+      list.style.setProperty('--circle', `${circleSize}px`);
+      return circleSize;
+    };
+
+    /* ------------------------------
+      겹침 계산
+    ------------------------------ */
+    const getOffsets = (circleSize) => {
+      const radius = circleSize / 2;
+      const overlapRatio = Math.min(
+        0.4,
+        Math.max(0.28, window.innerWidth / 3000)
+      );
+
+      const move = radius * (1 + overlapRatio);
+      return [-1.5, -0.5, 0.5, 1.5].map(v => v * move);
+    };
+
+    /* ------------------------------
+      ⭐ 스크롤 전 "대기 상태" 정의
+    ------------------------------ */
+    const setInitialState = () => {
+      updateCircleSize();
+
+      gsap.set(values, {
+        opacity: 1,
+        scale: 0.35,   // 작게 모여 있음
+        x: 0,
+        transformOrigin: '50% 50%'
+      });
+    };
+
+    setInitialState();
+
+    /* ------------------------------
+      ScrollTrigger (pin 없음)
+    ------------------------------ */
     const m_value = gsap.timeline({
       scrollTrigger: {
         id: 'main-value',
         trigger: '#main-value',
-        start: 'bottom bottom',
-        end: 'bottom bottom',
-        scrub: 3,
-        pin: '.value-list'
+        start: 'top 65%',
+        end: 'bottom 75%',
+        scrub: 1.5
       }
     });
 
-    const getGap = () => {
-      const w = window.innerWidth;
-      let baseGap = w * 0.23;
-      if (w < 1600) baseGap = w * 0.22;
-      if (w < 1400) baseGap = w * 0.22;
-      if (w < 1200) baseGap = w * 0.24;
-      if (w < 890) baseGap = w * 0.21;
-      if (w < 790) baseGap = w * 0.2;
-      if (w < 590) baseGap = w * 0.21;
-      if (w < 550) baseGap = w * 0.22;
-      if (w < 500) baseGap = w * 0.22;
-      return baseGap;
-    };
-
+    /* ------------------------------
+      애니메이션
+    ------------------------------ */
     const animateValues = () => {
-      const gap = getGap();
+      const circleSize = updateCircleSize();
+      const offsets = getOffsets(circleSize);
+
       m_value.clear();
 
-      m_value.to('.value-list .value', {
-        opacity: 1,
+      // 1️⃣ start 도달 시 커지면서 등장
+      m_value.to(values, {
         scale: 1,
-        duration: 1,
-        ease: 'power2.out'
+        duration: 2,
+        ease: 'back.out(1.7)',
+        stagger: 0.06
       });
 
-      const overlapRatio = 0.7;
-      const offsets = [-1.5, -0.5, 0.5, 1.5].map(v => v * gap * overlapRatio);
-
+      // 2️⃣ 겹친 상태에서 퍼짐
       offsets.forEach((x, i) => {
         m_value.to(
           `.value-list .v${i + 1}`,
-          { x, duration: 1, ease: 'power2.out' },
-          '<'
+          {
+            x,
+            duration: 3,
+            ease: 'power3.out'
+          },
+          '<+=0.05'
         );
       });
     };
 
     animateValues();
-    window.addEventListener('resize', animateValues);
+    window.addEventListener('resize', () => {
+      setInitialState();
+      animateValues();
+    });
   };
 
   initMainValueAnimation();
 });
+
+
 
 
 
