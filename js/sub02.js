@@ -100,7 +100,7 @@ document.fonts.ready.then(() => {
         markers: false,
         scrub: 1,
         start: "clamp(top center)",
-        end: "clamp(bottom bottom)"
+        end: "clamp(top center)"
       }
       });
     }
@@ -356,10 +356,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // 성과목표
 
 document.addEventListener("DOMContentLoaded", () => {
-  const goalItems = document.querySelectorAll(".per-goals-list li");
+  const goalItems = document.querySelectorAll(".per-goals-list > li");
 
   if (goalItems.length > 0) {
-    goalItems[0].classList.add("active"); // 첫 li 초기 활성화
+    goalItems[0].classList.add("active");
   }
 
   goalItems.forEach((item) => {
@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     item.addEventListener("mouseleave", () => {
       goalItems.forEach((li) => li.classList.remove("active"));
-      goalItems[0].classList.add("active"); // 다시 첫 li로 복귀
+      goalItems[0].classList.add("active");
     });
   });
 });

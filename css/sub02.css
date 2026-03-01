@@ -17,18 +17,19 @@ color: #222;font-size: 1.6rem; margin: 0; padding: 0; word-break: keep-all;
 section {
   padding: 6rem 0;
   margin-bottom: 6rem; 
-  height: 80vh; overflow: visible;
-  min-height: 700px; display: flex;
+  height: 60vh; overflow: visible;
+  /* min-height: 700px; */
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-@media screen and (max-width: 1150px) {
-  section {padding: 4rem 0; height: 40vh;}
+@media screen and (max-width: 1200px) {
+  section {padding: 4rem 0; height: 50vh;}
 }
 @media screen and (max-width: 1024px) {
   section {
-    height: 60vh; min-height: 520px;    margin-bottom: 4rem; padding: 4rem 0;
+    height: 50vh; margin-bottom: 4rem; padding: 4rem 0;
   }
 }
 
@@ -40,7 +41,7 @@ section {
 
 @media screen and (max-width: 767px) {
   section {
-    height: 50vh; min-height: 420px;
+    height: 40vh;
   }
 }
 
@@ -186,24 +187,6 @@ main {padding: 5rem 5rem 0 5rem;}
   border-radius: 2px 2px 0 0;
 }
 
-/* @media screen and (max-width: 768px) {
-  #sub-tab {gap: 2rem;}
-  #sub-tab .sub-tab-list ul {
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  #sub-tab .sub-tab-list ul {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 0.5rem;
-  }
-
-  #sub-tab .sub-tab-list li {
-    padding-bottom: 1rem;
-  }
-} */
 
 @media screen and (min-width: 0px) and (max-width: 499px) {
   #sub-tab .sub-tab-list li.active::after {
@@ -249,7 +232,7 @@ main {padding: 5rem 5rem 0 5rem;}
   width: 100%; display: flex; flex-direction: column;
   align-items: center; position: relative;
   overflow: hidden; padding-block: clamp(4rem, 8vh, 10rem);
-  gap: clamp(3rem, 6vh, 8rem); min-height: 100vh;
+  gap: clamp(3rem, 6vh, 8rem);
 }
 
 #main-value > hgroup{
@@ -352,16 +335,16 @@ main {padding: 5rem 5rem 0 5rem;}
 .strategy-list li {
   filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
   color: #fff; border-radius: 1rem;
-  padding: 6rem 0rem; cursor: pointer; 
+  padding: 2rem 0rem; cursor: pointer; 
   display: flex; flex-direction: column; justify-content: space-between;
   align-items: flex-start; overflow: hidden;
   gap: 2rem; letter-spacing: 0.3rem;
-  width: 11rem; height: 50rem;
+  width: 11rem; height: 30rem;
   background: #9abff8; transition: all 0.4s ease-in-out;
 }
 
 .strategy-list li.active {
-  background-color: var(--main-blue); width: 25rem; padding: 5rem;
+  background-color: var(--main-blue); width: 25rem; padding: 2rem;
 }
 .strategy-list li.active .strategy-list li .str-list-txt{
   text-align: center; width: 100%; height: auto; display: flex;
@@ -369,7 +352,7 @@ main {padding: 5rem 5rem 0 5rem;}
 }
 
 .strategy-list li .str-list-txt {
-  display: flex; flex-direction: column; justify-content: flex-start; gap: 6rem;
+  display: flex; flex-direction: column; justify-content: space-between;
   align-items: center; text-align: center; width: 100%; height: 80%;
 }
 
@@ -392,10 +375,8 @@ main {padding: 5rem 5rem 0 5rem;}
 
 @media screen and (max-width: 1200px) {
   .strategy-list ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
+    flex-wrap: wrap; justify-content: center;
+    flex-direction: column; width: 100%;
   }
 
   .strategy-list li {
@@ -403,6 +384,10 @@ main {padding: 5rem 5rem 0 5rem;}
   }
   .strategy-list li.active {
     background-color: var(--main-blue); width: 80rem; padding: 5rem;
+  }
+  .strategy-list li .str-list-txt {
+    flex-direction: row; justify-content: flex-start;
+    gap: 2rem;
   }
 }
 
@@ -419,12 +404,11 @@ main {padding: 5rem 5rem 0 5rem;}
   }
 
   .strategy-list li.active {
-    width: calc(50% - 1rem);
-    padding: 3rem 2rem;
+    width: calc(50% - 1rem); padding: 3rem 2rem;
   }
 
   .strategy-list li .str-list-txt {
-    gap: 3rem; height: auto;
+    gap: 3rem; height: auto; 
   }
 
   .strategy-list li .str-list-txt p {
@@ -438,7 +422,7 @@ main {padding: 5rem 5rem 0 5rem;}
   }
 
   .strategy-list ul {
-    /* flex-direction: column; */
+    flex-direction: row;
   }
 
   .strategy-list li,
@@ -464,9 +448,9 @@ main {padding: 5rem 5rem 0 5rem;}
 
 #performance-goals {
   width: 100%;
-  /* border: 1px solid #000; */
+  border: 1px solid #000;
   display: flex; flex-direction: column; align-items: center; 
-  gap: 10rem;
+  gap: 10rem; height: auto !important;
 }
 
 #performance-goals hgroup{
@@ -476,7 +460,7 @@ main {padding: 5rem 5rem 0 5rem;}
 
 #performance-goals .per-goals-list {
   display: flex; flex-direction: row;
-  justify-content: space-between; align-items: center; width: 100%;
+  justify-content: space-between; align-items: center; width: 100%; gap: 1rem;
 }
 
 .per-goals-list>li {
@@ -495,17 +479,18 @@ main {padding: 5rem 5rem 0 5rem;}
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0); 
-  transition: background 0.5s ease;
+  transition: background 1s ease;
   z-index: 0;
 }
 .per-goals-list > li.active::before,
 .per-goals-list > li:hover::before {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
 }
 .per-goals-list>li img {
-  padding: 1.5rem; background: rgba(255, 255, 255, 0.7);
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.5);
   width: 6vw; height: auto; border-radius: 2rem;
-  transition: transform 0.5s ease;
+  transition: transform 1s ease;
 }
 
 .per-goals-list > li p {
@@ -518,6 +503,10 @@ main {padding: 5rem 5rem 0 5rem;}
   margin-top: 2rem;
   font-size: 0;
 }
+.per-goals-list > li p .mob-none {
+  display: inline;
+}
+
 .per-goals-list > li.active img,
 .per-goals-list > li:hover img {
   transform: translateY(-1rem);
@@ -533,32 +522,38 @@ main {padding: 5rem 5rem 0 5rem;}
   line-height: 3rem;
 }
 
+
 .per-goals-list > li.active,
 .per-goals-list > li:hover {
   box-shadow: 10px 5px 25px rgba(0, 0, 0, 0.3);
-  transform: translateY(-0.5rem);
+  transform: translateY(-1.5rem);
   gap: 3vh;
+  filter: grayscale(0) opacity(100%);
 }
 
 .glist1 {
   background-image: url(../img/Goal/goal01.jpg); 
   background-size: auto 100%; background-repeat: no-repeat;
   background-position: center;
+  filter: grayscale(100%);
 }
 .glist2 {
   background-image: url(../img/Goal/goal02.jpg); 
   background-size: auto 100%; background-repeat: no-repeat;
   background-position: center;
+  filter: grayscale(100%);
 }
 .glist3 {
   background-image: url(../img/Goal/goal03.jpg); 
   background-size: auto 100%; background-repeat: no-repeat;
   background-position: center;
+  filter: grayscale(100%);
 }
 .glist4 {
   background-image: url(../img/Goal/goal04.jpg); 
   background-size: auto 100%; background-repeat: no-repeat;
   background-position: center;
+  filter: grayscale(100%);
 }
 
 @media screen and (max-width: 1200px) {
@@ -567,20 +562,24 @@ main {padding: 5rem 5rem 0 5rem;}
   }
 
   #performance-goals .per-goals-list {
-    flex-wrap: wrap; gap: 2rem;
+    flex-wrap: wrap; gap: 1rem;
   }
 
   .per-goals-list > li {
-    width: calc(50% - 1rem); height: 40vh;
+    width: calc(25% - 1rem); height: 50vh;
   }
 
   .per-goals-list > li img {width: 8rem;}
+  .per-goals-list > li.active p,
+  .per-goals-list > li:hover p {
+    font-size: 1.4rem; line-height: 2rem;
+    letter-spacing: 0.3rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
   #performance-goals {
     gap: 4rem; padding: 3rem 1.5rem;
-    border: none; /* 모바일에서 테두리 눈에 많이 띄면 제거 */
   }
 
   #performance-goals .per-goals-list {
@@ -589,16 +588,30 @@ main {padding: 5rem 5rem 0 5rem;}
   }
 
   .per-goals-list > li {
-    width: 100%; height: auto;
-    min-height: 260px;
+    width: 100%; height: 15rem;
+    flex-direction: row; 
   }
 
   .per-goals-list > li img {width: 7rem;}
 
-  .per-goals-list > li.active p,
-  .per-goals-list > li:hover p {
-    font-size: 1.6rem; line-height: 2.4rem;
-    letter-spacing: 0.1rem;
+  .per-goals-list > li.active,
+  .per-goals-list > li:hover {
+    transform: translateY(0rem);
+}
+  .per-goals-list > li.active img,
+  .per-goals-list > li:hover img {
+  transform: translateY(0rem);
+  }
+
+  .per-goals-list > li p {
+    transform: translateY(0);
+    margin-top: 0;
+  }
+  .per-goals-list > li p .mob-none {
+    display: none;
+  }
+  .glist1, .glist2, .glist3, .glist4 {
+    background-size: 100% 100%;
   }
 }
 
@@ -607,6 +620,6 @@ main {padding: 5rem 5rem 0 5rem;}
 
   .per-goals-list > li.active p,
   .per-goals-list > li:hover p {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
 }
