@@ -333,24 +333,35 @@ window.addEventListener('load', () => {
 // 전략
 
 document.addEventListener('DOMContentLoaded', () => {
-    const strategyCards = document.querySelectorAll('.strategy-list li');
 
-    const setActiveCard = (cardElement) => {
-        strategyCards.forEach(card => {
-            card.classList.remove('active');
-        });
-        cardElement.classList.add('active');
-    };
+  const tabs = document.querySelectorAll('.strategy-tabs li');
+  const contents = document.querySelectorAll('.tab-content');
 
-    strategyCards.forEach(card => {
-        card.addEventListener('click', () => {
-            setActiveCard(card);
-        });
+  tabs.forEach(tab => {
+
+    tab.addEventListener('click', () => {
+
+      const target = tab.dataset.tab;
+
+      // 버튼 active
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // 내용 변경
+      contents.forEach(content => {
+
+        content.classList.remove('active');
+
+        if (content.dataset.content === target) {
+          content.classList.add('active');
+        }
+
+      });
+
     });
 
-    if (strategyCards.length > 0) {
-        setActiveCard(strategyCards[0]);
-    }
+  });
+
 });
 
 // 성과목표
