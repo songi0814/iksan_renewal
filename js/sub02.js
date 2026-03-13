@@ -1,387 +1,317 @@
-//header lang
+// ============================
+// HEADER LANG
+// ============================
+
 const btnLang = document.querySelector('#header .lang-wrap button')
 const langWrap = document.querySelector('#header .lang-wrap')
 
-btnLang.addEventListener('click', function() {
-  langWrap.classList.toggle('active')
-  document.querySelector('#header').classList.add('scroll')
+if(btnLang && langWrap){
+btnLang.addEventListener('click', () => {
+langWrap.classList.toggle('active')
+document.querySelector('#header').classList.add('scroll')
+})
+}
+
+
+// ============================
+// ALL MENU
+// ============================
+
+const allMenuOpen = document.querySelector('.all-menu-open')
+const allMenuPopup = document.querySelector('.all-menu-popup')
+const allMenuClose = document.querySelector('.allmenu-close')
+
+if(allMenuOpen && allMenuPopup){
+allMenuOpen.addEventListener('click', () => {
+allMenuPopup.style.display = 'block'
+})
+}
+
+if(allMenuClose && allMenuPopup){
+allMenuClose.addEventListener('click', () => {
+allMenuPopup.style.display = 'none'
+})
+}
+
+
+// ============================
+// SEARCH
+// ============================
+
+const searchWrap = document.querySelector('#header .utill .search-wrap')
+
+if(searchWrap){
+
+const searchBtn = searchWrap.querySelector('button')
+
+searchBtn.addEventListener('click', function(e){
+e.stopPropagation()
+searchWrap.querySelector('.search-box').style.display = 'flex'
 })
 
-//allmenu
-const allMenuOpen = document.querySelector('.all-menu-open');
-const allMenuPopup = document.querySelector('.all-menu-popup');
+searchWrap.addEventListener('click', function(e){
+if(e.target.closest('.search-close')){
+searchWrap.querySelector('.search-box').style.display = 'none'
+}
+})
 
-allMenuOpen.addEventListener('click', function () {
-  if (allMenuPopup) {
-    allMenuPopup.style.display = 'block';
-  }
-});
-
-const allMenuClose = document.querySelector('.allmenu-close');
-allMenuClose.addEventListener('click', function () {
-  if (allMenuPopup) {
-    allMenuPopup.style.display = 'none';
-  }
-});
+}
 
 
-//search
-const searchWrap = document.querySelector('#header .utill .search-wrap');
-searchWrap.querySelector('button').addEventListener('click', function(e) {
-  e.stopPropagation();
-  searchWrap.querySelector('.search-box').style.display = 'flex';
-});
+// ============================
+// GNB DEP2
+// ============================
 
-searchWrap.addEventListener('click', function(e) {
-  if (e.target.closest('.search-close')) {
-    searchWrap.querySelector('.search-box').style.display = 'none';
-  }
-});
-
-// dep2
 document.querySelectorAll('#gnb .dep1 > li > a').forEach(item => {
-  item.addEventListener('click', e => {
-  e.preventDefault();
-  const parentLi = e.currentTarget.closest('li');
-  const subMenu = parentLi.querySelector('.dep2');
-  if (!subMenu) return;
 
-  document.querySelectorAll('#gnb .dep2').forEach(menu => {
-    if (menu !== subMenu) menu.classList.remove('active');
-  });
+item.addEventListener('click', e => {
 
-  subMenu.classList.toggle('active');
-  });
-});
+e.preventDefault()
 
+const parentLi = e.currentTarget.closest('li')
+const subMenu = parentLi.querySelector('.dep2')
 
+if(!subMenu) return
 
-//sub-menu-tab
-document.addEventListener('DOMContentLoaded', () => {
-  const tabItems = document.querySelectorAll('#sub-tab .sub-tab-list li');
+document.querySelectorAll('#gnb .dep2').forEach(menu => {
+if(menu !== subMenu) menu.classList.remove('active')
+})
 
-  tabItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-      tabItems.forEach(i => i.classList.remove('active'));
-      e.currentTarget.classList.add('active');
-    });
-  });
+subMenu.classList.toggle('active')
 
-  if (tabItems.length > 0) {
-    tabItems[2].classList.add('active');
-  }
-});
+})
+
+})
 
 
-// vision scroll-trigger
-gsap.registerPlugin(SplitText, ScrollTrigger);
-console.clear();
-gsap.set(".split", { opacity: 1 });
+// ============================
+// SUB TAB (페이지 이동 방지 + active 고정)
+// ============================
+
+const subTabLinks = document.querySelectorAll('#sub-tab .sub-tab-list a')
+
+subTabLinks.forEach(link => {
+
+link.addEventListener('click', (e) => {
+
+e.preventDefault() // 페이지 이동 방지
+
+})
+
+})
+
+
+// ============================
+// GSAP
+// ============================
+
+gsap.registerPlugin(SplitText, ScrollTrigger)
+
+gsap.set(".split", { opacity: 1 })
+
+
+// ============================
+// SPLIT TEXT ANIMATION
+// ============================
+
 document.fonts.ready.then(() => {
-  let containers = gsap.utils.toArray(".container");
 
-  containers.forEach((container) => {
-    let text = container.querySelector(".split");
-    let animation;
+let texts = gsap.utils.toArray(".split")
 
-    SplitText.create(text, {
-    type: "words,lines",
-    mask: "lines",
-    linesClass: "line",
-    autoSplit: true,
-    onSplit: (instance) => {
-      console.log("split")
-      return gsap.from(instance.lines, {
-      yPercent: 120,
-      stagger: 0.2,
-      duration:0.5,
-      scrollTrigger: {
-        trigger: container,
-        markers: false,
-        scrub: 1,
-        start: "clamp(top center)",
-        end: "clamp(top center)"
-      }
-      });
-    }
-    });
-  });
-});
+texts.forEach((text) => {
 
-// main-value scroll-trigger (데스크톱 전용 애니메이션)
-// gsap.registerPlugin(SplitText, ScrollTrigger);
+SplitText.create(text, {
 
-// window.addEventListener('load', () => {
-//   const initMainValueAnimation = () => {
-//     const isDesktop = window.matchMedia('(min-width: 1200px)').matches;
+type: "words,lines",
+mask: "lines",
+linesClass: "line",
 
-//     // 기존 타임라인/트리거 제거
-//     ScrollTrigger.getAll().forEach(st => {
-//       if (st.trigger && st.trigger.id === 'main-value') {
-//         st.kill();
-//       }
-//     });
+onSplit: (instance) => {
 
-//     // 스타일 초기화
-//     gsap.set('.value-list .value', {
-//       clearProps: 'all'
-//     });
+return gsap.from(instance.lines, {
 
-//     if (!isDesktop) {
-//       // 태블릿/모바일은 정적인 리스트( CSS에서 세로 배치 )
-//       gsap.set('.value-list .value', {
-//         opacity: 1,
-//         scale: 0.35,
-//         x: 0,
-//         transformOrigin: '50% 50%',
-//       });
-//       return;
-//     }
+yPercent: 120,
+stagger: 0.2,
+duration:0.6,
 
-//     // 데스크톱용 타임라인
-//     const m_value = gsap.timeline({
-//       scrollTrigger: {
-//         id: 'main-value',
-//         trigger: '#main-value',
-//         start: 'bottom bottom',
-//         end: 'bottom bottom',
-//         scrub: 3,
-//         pin: '#main-value',
-//         pinSpacing: false,
-//       }
-//     });
+scrollTrigger: {
+trigger: text,
+start: "top 80%",
+}
 
-//     const getGap = () => {
-//       const w = window.innerWidth;
-//       let baseGap = w * 0.23;
-//       if (w < 1600) baseGap = w * 0.22;
-//       if (w < 1400) baseGap = w * 0.23;
-//       if (w < 1200) baseGap = w * 0.23;
-//       return baseGap;
-//     };
+})
 
-//     const animateValues = () => {
-//       const gap = getGap();
-//       m_value.clear();
+}
 
-//       m_value.to('.value-list .value', {
-//         opacity: 1,
-//         scale: 1,
-//         duration: 1,
-//         ease: 'power2.out'
-//       });
+})
 
-//       const overlapRatio = 0.7;
-//       const offsets = [-1.5, -0.5, 0.5, 1.5].map(v => v * gap * overlapRatio);
+})
 
-//       offsets.forEach((x, i) => {
-//         m_value.to(
-//           `.value-list .v${i + 1}`,
-//           { x, duration: 1, ease: 'power2.out' },
-//           '<'
-//         );
-//       });
-//     };
+})
 
-//     animateValues();
-//     window.addEventListener('resize', animateValues);
-//   };
 
-//   initMainValueAnimation();
-// });
-gsap.registerPlugin(SplitText, ScrollTrigger);
+// ============================
+// MAIN VALUE CARD ANIMATION
+// ============================
 
 window.addEventListener('load', () => {
-  const initMainValueAnimation = () => {
-    const isDesktop = window.matchMedia('(min-width: 1200px)').matches;
-    const section = document.querySelector('#main-value');
-    const list = section.querySelector('.value-list');
-    const values = gsap.utils.toArray('.value-list .value');
 
-    /* ------------------------------
-      기존 ScrollTrigger 제거
-    ------------------------------ */
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.vars && st.vars.id === 'main-value') {
-        st.kill();
-      }
-    });
-
-    gsap.set(values, { clearProps: 'all' });
-
-    /* ------------------------------
-      모바일 / 태블릿
-    ------------------------------ */
-    if (!isDesktop) {
-      gsap.set(values, {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        transformOrigin: '50% 50%'
-      });
-      return;
-    }
-
-    /* ------------------------------
-      circle 크기 자동 계산
-    ------------------------------ */
-    const updateCircleSize = () => {
-      const sectionHeight = section.clientHeight;
-      const styles = getComputedStyle(section);
-      const padding =
-        parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
-
-      const usableHeight = sectionHeight - padding;
-
-      const circleSize = Math.min(
-        usableHeight * 0.55,
-        window.innerWidth * 0.22
-      );
-
-      list.style.setProperty('--circle', `${circleSize}px`);
-      return circleSize;
-    };
-
-    /* ------------------------------
-      겹침 계산
-    ------------------------------ */
-    const getOffsets = (circleSize) => {
-      const radius = circleSize / 2;
-      const overlapRatio = Math.min(
-        0.4,
-        Math.max(0.28, window.innerWidth / 3000)
-      );
-
-      const move = radius * (1 + overlapRatio);
-      return [-1.5, -0.5, 0.5, 1.5].map(v => v * move);
-    };
-
-    /* ------------------------------
-      ⭐ 스크롤 전 "대기 상태" 정의
-    ------------------------------ */
-    const setInitialState = () => {
-      updateCircleSize();
-
-      gsap.set(values, {
-        opacity: 1,
-        scale: 0.35,   // 작게 모여 있음
-        x: 0,
-        transformOrigin: '50% 50%'
-      });
-    };
-
-    setInitialState();
-
-    /* ------------------------------
-      ScrollTrigger (pin 없음)
-    ------------------------------ */
-    const m_value = gsap.timeline({
-      scrollTrigger: {
-        id: 'main-value',
-        trigger: '#main-value',
-        start: 'top 65%',
-        end: 'bottom 75%',
-        scrub: 1.5
-      }
-    });
-
-    /* ------------------------------
-      애니메이션
-    ------------------------------ */
-    const animateValues = () => {
-      const circleSize = updateCircleSize();
-      const offsets = getOffsets(circleSize);
-
-      m_value.clear();
-
-      // 1️⃣ start 도달 시 커지면서 등장
-      m_value.to(values, {
-        scale: 1,
-        duration: 2,
-        ease: 'back.out(1.7)',
-        stagger: 0.06
-      });
-
-      // 2️⃣ 겹친 상태에서 퍼짐
-      offsets.forEach((x, i) => {
-        m_value.to(
-          `.value-list .v${i + 1}`,
-          {
-            x,
-            duration: 3,
-            ease: 'power3.out'
-          },
-          '<+=0.05'
-        );
-      });
-    };
-
-    animateValues();
-    window.addEventListener('resize', () => {
-      setInitialState();
-      animateValues();
-    });
-  };
-
-  initMainValueAnimation();
-});
-
-
-
-
-
-// 전략
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  const tabs = document.querySelectorAll('.strategy-tabs li');
-  const contents = document.querySelectorAll('.tab-content');
-
-  tabs.forEach(tab => {
-
-    tab.addEventListener('click', () => {
-
-      const target = tab.dataset.tab;
-
-      // 버튼 active
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      // 내용 변경
-      contents.forEach(content => {
-
-        content.classList.remove('active');
-
-        if (content.dataset.content === target) {
-          content.classList.add('active');
-        }
-
-      });
-
-    });
-
-  });
-
-});
-
-// 성과목표
-
-document.addEventListener("DOMContentLoaded", () => {
-  const goalItems = document.querySelectorAll(".per-goals-list > li");
-
-  if (goalItems.length > 0) {
-    goalItems[0].classList.add("active");
+  const section = document.querySelector('#main-value')
+  if(!section) return
+  
+  const values = gsap.utils.toArray('.value-list .value')
+  
+  const initAnimation = () => {
+  
+  const isDesktop = window.matchMedia('(min-width:1200px)').matches
+  
+  ScrollTrigger.getAll().forEach(st=>{
+  if(st.vars && st.vars.id === 'main-value'){
+  st.kill()
   }
+  })
+  
+  gsap.set(values,{clearProps:'all'})
+  
+  if(!isDesktop){
+  
+  gsap.set(values,{
+  opacity:1,
+  scale:1,
+  x:0,
+  y:0
+  })
+  
+  return
+  }
+  
+  
+  /* 초기 상태 */
+  
+  gsap.set(values,{
+  opacity:1,
+  scale:0.3,
+  x:0,
+  y:0
+  })
+  
+  
+  const offsets = [
 
-  goalItems.forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      goalItems.forEach((li) => li.classList.remove("active"));
-      item.classList.add("active");
-    });
+    { x:-420, y:0 },
+    { x:-140, y:0 },
+    { x:140, y:0 },
+    { x:420, y:0 }
+    
+    ]
+  
+  
+  const tl = gsap.timeline({
+  
+  scrollTrigger:{
+  id:'main-value',
+  trigger:'#main-value',
+  start:'top 65%',
+  end:'bottom 75%',
+  scrub:1.5
+  }
+  
+  })
+  
+  
+  tl.to(values,{
+  scale:1,
+  duration:1.5,
+  ease:'back.out(1.7)',
+  stagger:0.06
+  })
+  
+  
+  offsets.forEach((pos,i)=>{
+  
+  tl.to(
+  `.value-list .v${i+1}`,
+  {
+  x:pos.x,
+  y:pos.y,
+  duration:2.5,
+  ease:'power3.out'
+  },
+  '<+=0.05'
+  )
+  
+  })
+  
+  }
+  
+  
+  initAnimation()
+  
+  window.addEventListener('resize', initAnimation)
+  
+  })
 
-    item.addEventListener("mouseleave", () => {
-      goalItems.forEach((li) => li.classList.remove("active"));
-      goalItems[0].classList.add("active");
-    });
-  });
-});
+
+
+
+
+// ============================
+// STRATEGY TAB
+// ============================
+
+const tabs = document.querySelectorAll('.strategy-tabs li')
+const contents = document.querySelectorAll('.tab-content')
+
+tabs.forEach(tab => {
+
+tab.addEventListener('click', () => {
+
+const target = tab.dataset.tab
+
+tabs.forEach(t => t.classList.remove('active'))
+tab.classList.add('active')
+
+contents.forEach(content => {
+
+content.classList.remove('active')
+
+if(content.dataset.content === target){
+content.classList.add('active')
+}
+
+})
+
+})
+
+})
+
+
+// ============================
+// PERFORMANCE GOALS
+// ============================
+
+const goalItems = document.querySelectorAll(".per-goals-list > li")
+
+if(goalItems.length){
+
+goalItems[0].classList.add("active")
+
+goalItems.forEach((item) => {
+
+item.addEventListener("mouseenter", () => {
+
+goalItems.forEach((li) => li.classList.remove("active"))
+item.classList.add("active")
+
+})
+
+item.addEventListener("mouseleave", () => {
+
+goalItems.forEach((li) => li.classList.remove("active"))
+goalItems[0].classList.add("active")
+
+})
+
+})
+
+}
