@@ -1,5 +1,4 @@
 /* common */
-
 html {
   font-size: 10px; position: relative; height: 100%;
   --main-orange: #DB6923;
@@ -12,30 +11,23 @@ body {
   color: #222;font-size: 1.6rem; margin: 0; padding: 0;
   word-break: keep-all;
 }
-
 section {
-  padding: 6rem 0; margin-bottom: 6rem; 
-  min-height:60vh; overflow: visible;
-  display: flex; flex-direction: column; justify-content: center;
+  padding: 6rem 0; margin-bottom: 6rem; min-height:60vh;
+  overflow: visible; display: flex; flex-direction: column; justify-content: center;
 }
 
 @media screen and (max-width: 1200px) {
   section {padding: 4rem 0; height: 50vh;}
 }
 @media screen and (max-width: 1024px) {
-  section {
-    height: 50vh; margin-bottom: 4rem; padding: 4rem 0;
-  }
+  section {height: 50vh; margin-bottom: 4rem; padding: 4rem 0;}
 }
-
 @media screen and (max-width: 768px) {
   section {margin-bottom: 3rem; padding: 3rem 0;}
 }
-
 @media screen and (max-width: 767px) {
   section {height: 40vh;}
 }
-
 @media screen and (min-width: 0px) and (max-width: 550px) {
   section {padding: 2rem 0;height: 25vh;}
 }
@@ -43,7 +35,6 @@ section {
 section > * {
   max-height: 100%; margin: 0 auto;
 }
-
 section hgroup div h3 {
   font-size: 4rem; font-weight: bold;
 }
@@ -53,7 +44,6 @@ section hgroup div h4 {
 @media screen and (max-width: 1024px) {
   section hgroup div h4 {letter-spacing: 0.7rem;}
 }
-
 @media screen and (max-width: 890px) {
   section hgroup div h3 {font-size: 3rem;}
   section hgroup div h4 {font-size: 2rem; letter-spacing: 0.5rem;}
@@ -77,10 +67,10 @@ section .section-txt {
 }
 
 section .section-txt h2 {
-font-size: 2.4rem; color: var(--main-blue); font-weight: bold;
+  font-size: 2.4rem; color: var(--main-blue); font-weight: bold;
 }
 section .section-txt p {
-font-size: 1.4rem; color: var(--main-blue);
+  font-size: 1.4rem; color: var(--main-blue);
 }
 @media screen and (max-width: 950px) {
   section .section-txt h2 {font-size: 2rem;}
@@ -93,26 +83,21 @@ font-size: 1.4rem; color: var(--main-blue);
 
 main {padding: 10rem 10rem 5rem 10rem;}
 @media screen and (max-width: 950px) {
-main {padding: 5rem 5rem 0 5rem;}
-} 
+  main {padding: 5rem 5rem 0 5rem;}
+}
 @media screen and (min-width: 0px) and (max-width: 550px) {
   main {padding: 2rem 2.5rem 0rem 2.5rem;}
 }
-
 .big-txt {font-size: 2rem; font-weight: bold;}
 .small-txt {font-size: 1.4rem;}
 .smallAlpha-txt {color: #22222254;}
 
 
 /* 메인 */
-.main-img > img {
-  max-width: 100%; height: auto;
-}
-
+.main-img > img {max-width: 100%; height: auto;}
 @media screen and (max-width: 768px) {
   .main-img > img {margin-top: 6rem;}
 }
-
 @media screen and (max-width: 768px) {
   .main-img > img {margin-top: 6rem;}
 }
@@ -123,47 +108,38 @@ main {padding: 5rem 5rem 0 5rem;}
   .main-img>img {margin-top: 5rem;}
 }
 
-
+/* sub-tab */
 #sub-tab{
   position:sticky; top:0; background:#fff;
-  z-index:50; display:flex;
-  flex-direction:column; gap:6rem;
+  z-index:50; display:flex; flex-direction:column; gap:6rem;
   padding:4rem 0 3rem 0; border-bottom:1px solid #eee;
 }
-  #sub-tab h3{
+#sub-tab h3{
   font-size:3.5rem; color:var(--main-orange);
   text-align:center; font-weight:bold;
 }
-  #sub-tab .sub-tab-list ul{
+#sub-tab .sub-tab-list ul{
   display:flex; justify-content:space-between;
   gap:4rem; padding:0; border-bottom:1px solid var(--main-orange);
 }
-  #sub-tab .sub-tab-list li{
+#sub-tab .sub-tab-list li{
   position:relative; padding-bottom:1.6rem;
 }
-  #sub-tab .sub-tab-list a{
+#sub-tab .sub-tab-list a{
   font-size:1.6rem; white-space:nowrap;
   display:block; transition:.25s;
 }
-  #sub-tab .sub-tab-list a:hover{
-  color:var(--main-orange);
-}
-  
-  
-  /* active */
-  
+#sub-tab .sub-tab-list a:hover{color:var(--main-orange);}
+
 #sub-tab .sub-tab-list li.active a{
-  color:var(--main-orange);
-  font-weight:bold;
+  color:var(--main-orange); font-weight:bold;
 }
-  
+
 #sub-tab .sub-tab-list li.active::after{
-  content:""; position:absolute;
-  bottom:-1px; left:0; width:100%;
+  content:""; position:absolute; bottom:-1px; left:0; width:100%;
   height:3px; background:var(--main-orange);
 }
-  
-  
+
 @media (max-width:1020px) {
   #sub-tab .sub-tab-list a {font-size:1.2rem;}
 }
@@ -176,42 +152,36 @@ main {padding: 5rem 5rem 0 5rem;}
   #sub-tab .sub-tab-list ul::-webkit-scrollbar {display:none;}
 }
 
-/* =========================
-SECTION TITLE 
-========================= */
-
 section hgroup.split{
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  gap: 1.6rem; margin-bottom: clamp(4rem,6vh,8rem);
+  gap: 1.6rem; margin-bottom: clamp(2rem,6vh,3rem);
   text-align: center;
-  }
+}
 
 section hgroup.split h3{
   font-size: 2.4rem; font-weight: 700;
   color: var(--main-orange); letter-spacing: .1rem;
   position: relative;
 }
+
 section hgroup.split h3::after{
-  content: ""; position: absolute;
-  left: 50%; bottom: -1.2rem; transform:translateX(-50%);
-  width:60px; height:4px; background:var(--main-orange);
-  border-radius:2px;
+  content: ""; position: absolute; left: 50%; bottom: -1.2rem; transform:translateX(-50%); width:60px; height:4px;
+  background:var(--main-orange); border-radius:2px;
 }
-  
+
 /* tablet */
 @media (max-width:1024px){
   section hgroup.split h3 {font-size:3rem;}
-}  
+}
+
 /* mobile */
 @media (max-width:600px){
   section hgroup.split {margin-bottom:3rem;}
   section hgroup.split h3 {font-size:2.4rem;}
 }
 
-
 /* VISION */
-
 #vision{
   position: relative; width: 100%;
   background: url(../img/con3_bg.jpg) center / cover no-repeat;
@@ -233,12 +203,11 @@ section hgroup.split h3::after{
 }
 
 .vision-title{
-  font-size: 2.4rem; letter-spacing:.4rem;
-  color:var(--main-orange); font-weight:600;
+  font-size: 2.4rem; letter-spacing:.4rem; color:var(--main-orange); font-weight:600;
 }
 
 .vision-heading{
-  font-size: 4.5rem; font-weight: 700;
+  font-size: 4.5rem; font-weight: 700; 
   line-height: 1.4; letter-spacing: .05em;
 }
 
@@ -262,15 +231,11 @@ section hgroup.split h3::after{
 }
 
 
-
 /* MAIN VALUE */
-
 #main-value{
   background:url(../img/con5_bg.png) no-repeat left/cover;
   width:100%; display:flex; flex-direction:column;
-  align-items:center; position:relative;
-  overflow:hidden; padding-block:clamp(4rem,8vh,10rem);
-  gap:clamp(3rem,6vh,8rem);
+  align-items:center; position:relative; overflow:hidden; padding-block:clamp(4rem,8vh,10rem); gap:clamp(3rem,6vh,8rem);
 }
 
 #main-value > hgroup{
@@ -302,14 +267,8 @@ section hgroup.split h3::after{
   border-radius:1rem; 
 }
 
-.value-card h4{
-  font-size:2rem; font-weight:700; color:#fff;
-}
-
-.value-card p{
-  font-size:1.4rem; line-height:1.6; color:#f2f2f2;
-}
-
+.value-card h4 {font-size:2rem; font-weight:700; color:#fff;}
+.value-card p {font-size:1.4rem; line-height:1.6; color:#f2f2f2;}
 .v1{background:var(--main-beige);}
 .v2{background:var(--main-green);}
 .v3{background:var(--main-blue);}
@@ -318,12 +277,9 @@ section hgroup.split h3::after{
 /*  TABLET / MOBILE */
 
 @media (max-width:1200px){
-  #main-value{
-    padding:3rem 1.5rem; gap:2rem;
-  }
-  #main-value .value-list{
-    position:static; display:grid;
-    grid-template-columns:1fr 1fr; gap:2rem;
+  #main-value {padding:3rem 1.5rem; gap:2rem;}
+  #main-value .value-list {
+    position:static; display:grid; grid-template-columns:1fr 1fr; gap:2rem;
   }
   #main-value .value{
     position:static; transform:none!important;
@@ -341,40 +297,31 @@ section hgroup.split h3::after{
 
 /* 전략 */
 #strategy {
-  width: 100%;
-  background: url(../img/con6_bg.png) no-repeat center/cover;
+  width: 100%; background: url(../img/con6_bg.png) no-repeat center/cover;
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; gap: clamp(3rem, 4vh, 8rem);
   box-sizing: border-box;
 }
-
 #strategy hgroup h3 {padding: 1rem;}
-
 .strategy-wrap {
   width: 80%; display: flex; flex-direction: column; gap: 2rem;
 }
-
 .strategy-tabs {
-  color: var(--main-blue);
-  display: flex; justify-content: flex-start; gap: 2rem;
+  color: var(--main-blue); display: flex;
+  justify-content: flex-start; gap: 2rem;
 }
-
 .strategy-tabs li {
   padding: 1rem 3rem; border-radius: 1rem;
   background: white; transition: 0.25s; font-size: 2.2rem;
 }
-
 .strategy-tabs li.active {
   background: var(--main-blue); color: #fff; font-weight: bold;
 }
-
 .strategy-content {
   background: var(--main-blue); color: #fff; padding: 3rem 3rem;
-  border-radius: 1rem; font-size: 1.8rem;
-  display: flex; align-items: center; line-height: 100%;
-  letter-spacing: .3rem;
+  border-radius: 1rem; font-size: 1.8rem; display: flex;
+  align-items: center; line-height: 100%; letter-spacing: .3rem;
 }
-
 .tab-content {display: none;}
 .tab-content.active {display: block;}
 .tab-content span {font-weight: bold;}
@@ -416,27 +363,19 @@ section hgroup.split h3::after{
 }
 
 #performance-goals hgroup {color: white;}
-
 #performance-goals .per-goals-list {
-  display: flex; flex-direction: row;
-  justify-content: space-between; align-items: center; width: 100%; gap: 1rem;
+  display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; gap: 1rem;
 }
 
 .per-goals-list>li {
   color: white; font-size: 1.8rem; font-weight: 500;
-  border-radius: 2rem;
-  width: 21vw; height: 60vh;
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  gap: 0vh;
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
-  position: relative;
-  overflow: hidden;
+  border-radius: 2rem; width: 21vw; height: 60vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0vh; transition: box-shadow 0.4s ease, transform 0.4s ease; position: relative; overflow: hidden;
 }
 
 .per-goals-list > li::before {
-  content: ""; position: absolute; inset: 0;
+  content: ""; position: absolute; inset: 0; z-index: 0;
   background: rgba(0, 0, 0, 0); transition: background 1s ease;
-  z-index: 0;
 }
 .per-goals-list > li.active::before,
 .per-goals-list > li:hover::before {
@@ -449,7 +388,7 @@ section hgroup.split h3::after{
 }
 
 .per-goals-list > li p {
-  opacity: 0; transform: translateY(1rem);
+  opacity: 0; transform: translateY(1rem); 
   transition: opacity 0.5s ease, transform 0.5s ease;
   text-align: center; line-height: 0; pointer-events: none;
   margin-top: 2rem; font-size: 0;
@@ -499,7 +438,6 @@ section hgroup.split h3::after{
   #performance-goals {gap: 6rem; padding: 4rem 2rem;}
   #performance-goals .per-goals-list {flex-wrap: wrap; gap: 1rem;}
   .per-goals-list > li {width: calc(25% - 1rem); height: 50vh;}
-
   .per-goals-list > li img {width: 8rem;}
   .per-goals-list > li.active p,
   .per-goals-list > li:hover p {

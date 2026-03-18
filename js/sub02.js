@@ -5,8 +5,8 @@ const langWrap = document.querySelector('#header .lang-wrap')
 
 if(btnLang && langWrap){
   btnLang.addEventListener('click', () => {
-  langWrap.classList.toggle('active')
-  document.querySelector('#header').classList.add('scroll')
+    langWrap.classList.toggle('active')
+    document.querySelector('#header').classList.add('scroll')
   })
 }
 
@@ -33,14 +33,13 @@ const searchWrap = document.querySelector('#header .utill .search-wrap')
 if(searchWrap){
   const searchBtn = searchWrap.querySelector('button')
   searchBtn.addEventListener('click', function(e){
-  e.stopPropagation()
-
-  searchWrap.querySelector('.search-box').style.display = 'flex'
+    e.stopPropagation()
+    searchWrap.querySelector('.search-box').style.display = 'flex'
   })
   searchWrap.addEventListener('click', function(e){
-  if(e.target.closest('.search-close')){
-  searchWrap.querySelector('.search-box').style.display = 'none'
-  }
+    if(e.target.closest('.search-close')){
+      searchWrap.querySelector('.search-box').style.display = 'none'
+    }
   })
 }
 
@@ -54,7 +53,7 @@ item.addEventListener('click', e => {
   if(!subMenu) return
 
   document.querySelectorAll('#gnb .dep2').forEach(menu => {
-  if(menu !== subMenu) menu.classList.remove('active')
+    if(menu !== subMenu) menu.classList.remove('active')
   })
   subMenu.classList.toggle('active')
   })
@@ -95,7 +94,6 @@ document.fonts.ready.then(() => {
       }
     })
   })
-
 })
 
 // MAIN VALUE CARD ANIMATION
@@ -105,7 +103,6 @@ window.addEventListener('load', () => {
   const values = gsap.utils.toArray('.value-list .value')
   const initAnimation = () => {
     const isDesktop = window.matchMedia('(min-width:1200px)').matches
-    
     ScrollTrigger.getAll().forEach(st=>{
       if(st.vars && st.vars.id === 'main-value'){
         st.kill()
