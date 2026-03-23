@@ -73,28 +73,54 @@ subTabLinks.forEach(link => {
 gsap.registerPlugin(SplitText, ScrollTrigger)
 gsap.set(".split", { opacity: 1 })
 
-// SPLIT TEXT ANIMATION
-document.fonts.ready.then(() => {
-  let texts = gsap.utils.toArray(".split")
-  texts.forEach((text) => {
-    SplitText.create(text, {
-    type: "words,lines",
-    mask: "lines",
-    linesClass: "line",
-      onSplit: (instance) => {
-        return gsap.from(instance.lines, {
-          yPercent: 120,
-          stagger: 0.2,
-          duration:0.6,
-          scrollTrigger: {
-            trigger: text,
-            start: "top 80%",
-          }
-        })
-      }
-    })
-  })
-})
+// // SPLIT TEXT ANIMATION
+// document.fonts.ready.then(() => {
+//   let texts = gsap.utils.toArray(".split")
+//   texts.forEach((text) => {
+//     SplitText.create(text, {
+//     type: "words,lines",
+//     mask: "lines",
+//     linesClass: "line",
+//       onSplit: (instance) => {
+//         return gsap.from(instance.lines, {
+//           yPercent: 120,
+//           stagger: 0.2,
+//           duration:0.6,
+//           scrollTrigger: {
+//             trigger: text,
+//             start: "top 80%",
+//           }
+//         })
+//       }
+//     })
+//   })
+// })
+
+	/* ===============================
+	   SECTION TITLE
+	================================= */
+
+	gsap.utils.toArray(".split").forEach((el)=>{
+
+		const targets = el.querySelectorAll("h3");
+
+		gsap.to(targets,{
+			opacity:1,
+			y:0,
+			duration:0.8,
+			stagger:0.2,
+			ease:"power3.out",
+			scrollTrigger:{
+				trigger:el,
+				start:"top 85%",
+				once:true
+			}
+		});
+
+	});
+
+
+
 
 // MAIN VALUE CARD ANIMATION
 window.addEventListener('load', () => {
@@ -165,35 +191,83 @@ window.addEventListener('load', () => {
 })
 
 // STRATEGY TAB
-const tabs = document.querySelectorAll('.strategy-tabs li')
-const contents = document.querySelectorAll('.tab-content')
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    const target = tab.dataset.tab
-    tabs.forEach(t => t.classList.remove('active'))
-    tab.classList.add('active')
-    contents.forEach(content => {
-      content.classList.remove('active')
-      if(content.dataset.content === target){
-        content.classList.add('active')
-      }
-    })
-  })
-})
+gsap.registerPlugin(ScrollTrigger);
+
+/* 카드 애니메이션 */
+gsap.utils.toArray(".strategy-card").forEach((el, i)=>{
+	gsap.to(el,{
+		opacity:1,
+		y:0,
+		duration:0.8,
+		delay:i * 0.15,
+		ease:"power3.out",
+		scrollTrigger:{
+			trigger:el,
+			start:"top 85%"
+		}
+	});
+});
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* ===============================
+   REDUCE MOTION 대응 (접근성)
+================================= */
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if(!prefersReducedMotion){
 
 
-// PERFORMANCE GOALS
-const goalItems = document.querySelectorAll(".per-goals-list > li")
-if(goalItems.length){
-  goalItems[0].classList.add("active")
-  goalItems.forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      goalItems.forEach((li) => li.classList.remove("active"))
-      item.classList.add("active")
-    })
-    item.addEventListener("mouseleave", () => {
-      goalItems.forEach((li) => li.classList.remove("active"))
-      goalItems[0].classList.add("active")
-    })
-  })
+
+	/* ===============================
+	   STRATEGY CARD
+	================================= */
+
+	gsap.utils.toArray(".strategy-card").forEach((el, i)=>{
+
+		gsap.to(el,{
+			opacity:1,
+			y:0,
+			duration:0.8,
+			delay:i * 0.1,
+			ease:"power3.out",
+			scrollTrigger:{
+				trigger:el,
+				start:"top 90%",
+				once:true
+			}
+		});
+
+	});
+
+	/* ===============================
+	   PERFORMANCE CARD
+	================================= */
+
+	gsap.utils.toArray(".performance-card").forEach((el, i)=>{
+
+		gsap.to(el,{
+			opacity:1,
+			y:0,
+			duration:0.8,
+			delay:i * 0.08,
+			ease:"power3.out",
+			scrollTrigger:{
+				trigger:el,
+				start:"top 90%",
+				once:true
+			}
+		});
+
+	});
+
 }
+
+/* ===============================
+   REFRESH (모바일 대응)
+================================= */
+
+window.addEventListener("resize", ()=>{
+	ScrollTrigger.refresh();
+});
