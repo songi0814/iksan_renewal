@@ -11,9 +11,13 @@ body {
   color: #222;font-size: 1.6rem; margin: 0; padding: 0;
   word-break: keep-all;
 }
+
 section {
   padding: 6rem 0; margin-bottom: 6rem; min-height:60vh;
   overflow: visible; display: flex; flex-direction: column; justify-content: space-around;
+}
+section > * {
+  max-height: 100%; margin: 0 auto;
 }
 
 @media screen and (max-width: 1200px) {
@@ -32,67 +36,7 @@ section {
   section {padding: 2rem 0;height: 25vh;}
 }
 
-section > * {
-  max-height: 100%; margin: 0 auto;
-}
-section hgroup div h3 {
-  font-size: 4rem; font-weight: bold;
-}
-section hgroup div h4 {
-  font-size: 2.5rem; font-weight: 300; letter-spacing: 1rem;
-}
-@media screen and (max-width: 1024px) {
-  section hgroup div h4 {letter-spacing: 0.7rem;}
-}
-@media screen and (max-width: 890px) {
-  section hgroup div h3 {font-size: 3rem;}
-  section hgroup div h4 {font-size: 2rem; letter-spacing: 0.5rem;}
-}
-@media screen and (max-width: 640px) {
-  section hgroup div h4 {font-size: 1.4rem;}
-}
-
-section .section-txt {
-  display: flex; flex-direction: row; gap: 2rem; align-items: end; padding: 5rem 0;
-}
-@media screen and (max-width: 700px) {
-  section .section-txt {
-    flex-direction: column; align-items: start;
-    gap: 2rem; padding: 2rem 0;
-  }
-}
-@media screen and (min-width: 0px) and (max-width: 550px) {
-  section .section-txt {gap: 1rem;}
-}
-
-section .section-txt h2 {
-  font-size: 2.4rem; color: var(--main-blue); font-weight: bold;
-}
-section .section-txt p {
-  font-size: 1.4rem; color: var(--main-blue);
-}
-@media screen and (max-width: 950px) {
-  section .section-txt h2 {font-size: 2rem;}
-  section .section-txt p {font-size: 1.2rem;}
-}
-@media screen and (min-width: 0px) and (max-width: 550px) {
-  section .section-txt h2 {font-size: 1.4rem;}
-  section .section-txt p {font-size: 1rem;}
-}
-
-main {padding: 10rem 10rem 5rem 10rem;}
-@media screen and (max-width: 950px) {
-  main {padding: 5rem 5rem 0 5rem;}
-}
-@media screen and (min-width: 0px) and (max-width: 550px) {
-  main {padding: 2rem 2.5rem 0rem 2.5rem;}
-}
-.big-txt {font-size: 2rem; font-weight: bold;}
-.small-txt {font-size: 1.4rem;}
-.smallAlpha-txt {color: #22222254;}
-
-
-/* 메인 */
+/* main-img */
 .main-img > img {max-width: 100%; height: auto;}
 @media screen and (max-width: 768px) {
   .main-img > img {margin-top: 6rem;}
@@ -106,6 +50,20 @@ main {padding: 10rem 10rem 5rem 10rem;}
 @media screen and (min-width: 0px) and (max-width: 550px) {
   .main-img>img {margin-top: 5rem;}
 }
+
+
+/* main */
+main {padding: 10rem 10rem 5rem 10rem;}
+
+@media screen and (max-width: 950px) {
+  main {padding: 5rem 5rem 0 5rem;}
+}
+@media screen and (min-width: 0px) and (max-width: 550px) {
+  main {padding: 2rem 2.5rem 0rem 2.5rem;}
+}
+.big-txt {font-size: 2rem; font-weight: bold;}
+.small-txt {font-size: 1.4rem;}
+.smallAlpha-txt {color: #22222254;}
 
 /* sub-tab */
 #sub-tab{
@@ -166,7 +124,7 @@ section hgroup.split h3{
 
 section hgroup.split h3::after{
   content: ""; position: absolute; left: 50%; bottom: -1.2rem; transform:translateX(-50%); width:60px; height:4px;
-  background:var(--main-orange); border-radius:2px;
+  background:var(--main-orange); border-radius:2px; z-index: 30;
 }
 
 /* tablet */
@@ -373,7 +331,9 @@ section hgroup.split h3::after{
 
 
 /* PERFORMANCE */
-.performance-section {padding:120px 0; background:#fff;}
+.performance-section {
+  padding:120px 0;background:url(../img/con7-1_bg.png) no-repeat center/ cover;
+}
 .performance-grid{
 	display:grid;	grid-template-columns:repeat(4, 1fr); gap:30px;
 }
