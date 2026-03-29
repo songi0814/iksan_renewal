@@ -113,18 +113,17 @@ section hgroup.split{
   display: flex; flex-direction: column;
   align-items: center; justify-content: space-around;
   gap: 1.6rem; margin-bottom: clamp(2rem,6vh,3rem);
-  text-align: center;
+  text-align: center; position: relative; padding-bottom: 1.6rem;
 }
-
 section hgroup.split h3{
   font-size: 2.4rem; font-weight: 700;
   color: var(--main-orange); letter-spacing: .1rem;
-  position: relative;
+  position: relative; 
 }
 
 section hgroup.split h3::after{
-  content: ""; position: absolute; left: 50%; bottom: -1.2rem; transform:translateX(-50%); width:60px; height:4px;
-  background:var(--main-orange); border-radius:2px; z-index: 30;
+  content: ""; position: absolute; left: 50%; bottom: -1.2rem; transform:translateX(-50%); width:100%; height:4px;
+  background:var(--main-orange); border-radius:2px; 
 }
 
 /* tablet */
@@ -137,6 +136,7 @@ section hgroup.split h3::after{
   section hgroup.split {margin-bottom:3rem;}
   section hgroup.split h3 {font-size:2.4rem;}
 }
+
 
 /* VISION */
 #vision{
@@ -218,7 +218,6 @@ section hgroup.split h3::after{
 .v3{background:var(--main-blue);}
 .v4{background:var(--main-orange);}
 
-/*  TABLET / MOBILE */
 
 @media (max-width:1200px){
   #main-value {padding:3rem 1.5rem; gap:2rem;}
@@ -229,7 +228,6 @@ section hgroup.split h3::after{
     position:static; transform:none!important;
     opacity:1!important; width:100%; height:auto;
   }
-  
   .value-card {padding:2rem;}
   .value-card img {width:50px;}
   .value-card h4 {font-size:1.8rem;}
@@ -245,11 +243,9 @@ section hgroup.split h3::after{
 .strategy-section{
 	background: url(../img/con6_bg.png) no-repeat center/ cover;
 }
-
 .strategy-grid{
 	display:grid; grid-template-columns:repeat(3, 1fr); gap:4rem;
 }
-
 .strategy-card{
 	background:rgba(255, 255, 255, 0.9); padding:8rem; border-radius: 2rem; 
 	box-shadow:0 1rem 3rem rgba(0,0,0,1); transition:all 0.4s ease;
@@ -294,6 +290,7 @@ section hgroup.split h3::after{
 .card-header .number {font-size:16px;}
 .card-header h4 {font-size:18px;}
 .card-list li{font-size:14px;}
+
 @media (max-width:1024px){
   .strategy-section {padding:100px 0;}
   .strategy-grid {grid-template-columns:1fr 1fr; gap:30px;}
