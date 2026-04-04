@@ -60,7 +60,7 @@ item.addEventListener('click', e => {
 })
 
 
-// SUB TAB (페이지 이동 방지 + active 고정)
+// SUB TAB
 const subTabLinks = document.querySelectorAll('#sub-tab .sub-tab-list a')
 
 subTabLinks.forEach(link => { 
@@ -73,127 +73,112 @@ subTabLinks.forEach(link => {
 gsap.registerPlugin(SplitText, ScrollTrigger)
 gsap.set(".split", { opacity: 1 })
 
-// // SPLIT TEXT ANIMATION
-// document.fonts.ready.then(() => {
-//   let texts = gsap.utils.toArray(".split")
-//   texts.forEach((text) => {
-//     SplitText.create(text, {
-//     type: "words,lines",
-//     mask: "lines",
-//     linesClass: "line",
-//       onSplit: (instance) => {
-//         return gsap.from(instance.lines, {
-//           yPercent: 120,
-//           stagger: 0.2,
-//           duration:0.6,
-//           scrollTrigger: {
-//             trigger: text,
-//             start: "top 80%",
-//           }
-//         })
-//       }
-//     })
-//   })
-// })
+// SECTION TITLE
 
-	/* ===============================
-	   SECTION TITLE
-	================================= */
+gsap.utils.toArray(".split").forEach((el)=>{
 
-	gsap.utils.toArray(".split").forEach((el)=>{
+  const targets = el.querySelectorAll("h3");
 
-		const targets = el.querySelectorAll("h3");
+  gsap.to(targets,{
+    opacity:1,
+    y:0,
+    duration:0.8,
+    stagger:0.2,
+    ease:"power3.out",
+    scrollTrigger:{
+      trigger:el,
+      start:"top 85%",
+      once:true
+    }
+  });
 
-		gsap.to(targets,{
-			opacity:1,
-			y:0,
-			duration:0.8,
-			stagger:0.2,
-			ease:"power3.out",
-			scrollTrigger:{
-				trigger:el,
-				start:"top 85%",
-				once:true
-			}
-		});
-
-	});
+});
 
 
-
-
-// MAIN VALUE CARD ANIMATION
+// MAIN VALUE CARD
 window.addEventListener('load', () => {
   const section = document.querySelector('#main-value')
-  if(!section) return
+  if (!section) return
+
   const values = gsap.utils.toArray('.value-list .value')
+
   const initAnimation = () => {
     const isDesktop = window.matchMedia('(min-width:1200px)').matches
-    ScrollTrigger.getAll().forEach(st=>{
-      if(st.vars && st.vars.id === 'main-value'){
+
+    ScrollTrigger.getAll().forEach(st => {
+      if (st.vars && st.vars.id === 'main-value') {
         st.kill()
       }
     })
-    gsap.set(values,{clearProps:'all'})
-    if(!isDesktop){
-      gsap.set(values,{
-        opacity:1,
-        scale:1,
-        x:0,
-        y:0
+
+    gsap.set(values, { clearProps: 'all' })
+
+    if (!isDesktop) {
+      gsap.set(values, {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        y: 0
       })
       return
     }
-    
+
+    const container = section.querySelector('.value-list')
+    const containerWidth = container.offsetWidth
+
+    const cardWidth = values[0].offsetWidth
+    const gap = 40 // 카드 사이 여백(px) ← 여기 조절 가능
+
+    const totalWidth = (cardWidth * values.length) + (gap * (values.length - 1))
+
+    // 시작 기준 (왼쪽부터 정렬)
+    const startX = -totalWidth / 2 + cardWidth / 2
+
     /* 초기 상태 */
-    gsap.set(values,{
-      opacity:1,
-      scale:0.3,
-      x:0,
-      y:0
+    gsap.set(values, {
+      opacity: 1,
+      scale: 0.3,
+      x: 0,
+      y: 0
     })
-    const offsets = [
-      { x:-420, y:0 },
-      { x:-140, y:0 },
-      { x:140, y:0 },
-      { x:420, y:0 }
-    ]
+
     const tl = gsap.timeline({
-      scrollTrigger:{
-        id:'main-value',
-        trigger:'#main-value',
-        start:'top 65%',
-        end:'bottom 75%',
-        scrub:1.5
+      scrollTrigger: {
+        id: 'main-value',
+        trigger: '#main-value',
+        start: 'top 65%',
+        end: 'bottom 75%',
+        scrub: 1.5
       }
     })
-    tl.to(values,{
-      scale:1,
-      duration:1.5,
-      ease:'back.out(1.7)',
-      stagger:0.06
+
+    // 1. 커지기
+    tl.to(values, {
+      scale: 1,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
+      stagger: 0.06
     })
-    offsets.forEach((pos,i)=>{
-      tl.to(
-      `.value-list .v${i+1}`,
-        {
-        x:pos.x,
-        y:pos.y,
-        duration:2.5,
-        ease:'power3.out'
-        },
-      '<+=0.05'
-      )
+
+    // 2. 정확한 간격으로 펼치기
+    values.forEach((el, i) => {
+      const x = startX + i * (cardWidth + gap)
+
+      tl.to(el, {
+        x: x,
+        duration: 2.5,
+        ease: 'power3.out'
+      }, '<+=0.05')
     })
   }
+
   initAnimation()
   window.addEventListener('resize', initAnimation)
 })
 
-// STRATEGY TAB
+// STRATEGY CARD
 gsap.registerPlugin(ScrollTrigger);
 
-/* 카드 애니메이션 */
 gsap.utils.toArray(".strategy-card").forEach((el, i)=>{
 	gsap.to(el,{
 		opacity:1,
@@ -208,65 +193,29 @@ gsap.utils.toArray(".strategy-card").forEach((el, i)=>{
 	});
 });
 
-gsap.registerPlugin(ScrollTrigger);
-
-/* ===============================
-   REDUCE MOTION 대응 (접근성)
-================================= */
-
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if(!prefersReducedMotion){
 
 
+// PERFORMANCE CARD
+gsap.utils.toArray(".performance-card").forEach((el, i)=>{
 
-	/* ===============================
-	   STRATEGY CARD
-	================================= */
+  gsap.to(el,{
+    opacity:1,
+    y:0,
+    duration:0.8,
+    delay:i * 0.08,
+    ease:"power3.out",
+    scrollTrigger:{
+      trigger:el,
+      start:"top 90%",
+      once:true
+    }
+  });
 
-	gsap.utils.toArray(".strategy-card").forEach((el, i)=>{
-
-		gsap.to(el,{
-			opacity:1,
-			y:0,
-			duration:0.8,
-			delay:i * 0.1,
-			ease:"power3.out",
-			scrollTrigger:{
-				trigger:el,
-				start:"top 90%",
-				once:true
-			}
-		});
-
-	});
-
-	/* ===============================
-	   PERFORMANCE CARD
-	================================= */
-
-	gsap.utils.toArray(".performance-card").forEach((el, i)=>{
-
-		gsap.to(el,{
-			opacity:1,
-			y:0,
-			duration:0.8,
-			delay:i * 0.08,
-			ease:"power3.out",
-			scrollTrigger:{
-				trigger:el,
-				start:"top 90%",
-				once:true
-			}
-		});
-
-	});
-
+}); 
 }
-
-/* ===============================
-   REFRESH (모바일 대응)
-================================= */
 
 window.addEventListener("resize", ()=>{
 	ScrollTrigger.refresh();
