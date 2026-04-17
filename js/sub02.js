@@ -95,85 +95,41 @@ gsap.utils.toArray(".split").forEach((el)=>{
 });
 
 
-// MAIN VALUE CARD
+// MAIN VALUE CARD (단순화 버전)
 window.addEventListener('load', () => {
-  const section = document.querySelector('#main-value')
-  if (!section) return
-
   const values = gsap.utils.toArray('.value-list .value')
 
-  const initAnimation = () => {
-    const isDesktop = window.matchMedia('(min-width:1200px)').matches
+  const isDesktop = window.matchMedia('(min-width:1200px)').matches
 
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.vars && st.vars.id === 'main-value') {
-        st.kill()
-      }
-    })
-
-    gsap.set(values, { clearProps: 'all' })
-
-    if (!isDesktop) {
-      gsap.set(values, {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        y: 0
-      })
-      return
-    }
-
-    const container = section.querySelector('.value-list')
-    const containerWidth = container.offsetWidth
-
-    const cardWidth = values[0].offsetWidth
-    const gap = 40 // 카드 사이 여백(px) ← 여기 조절 가능
-
-    const totalWidth = (cardWidth * values.length) + (gap * (values.length - 1))
-
-    // 시작 기준 (왼쪽부터 정렬)
-    const startX = -totalWidth / 2 + cardWidth / 2
-
-    /* 초기 상태 */
+  if (!isDesktop) {
     gsap.set(values, {
       opacity: 1,
-      scale: 0.3,
-      x: 0,
-      y: 0
-    })
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        id: 'main-value',
-        trigger: '#main-value',
-        start: 'top 65%',
-        end: 'bottom 75%',
-        scrub: 1.5
-      }
-    })
-
-    // 1. 커지기
-    tl.to(values, {
       scale: 1,
-      duration: 1.5,
-      ease: 'back.out(1.7)',
-      stagger: 0.06
+      clearProps: 'all'
     })
-
-    // 2. 정확한 간격으로 펼치기
-    values.forEach((el, i) => {
-      const x = startX + i * (cardWidth + gap)
-
-      tl.to(el, {
-        x: x,
-        duration: 2.5,
-        ease: 'power3.out'
-      }, '<+=0.05')
-    })
+    return
   }
 
-  initAnimation()
-  window.addEventListener('resize', initAnimation)
+  gsap.fromTo(values,
+    {
+      opacity: 0,
+      scale: 0.6,
+      y: 40
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: '#main-value',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    }
+  )
 })
 
 // STRATEGY CARD
