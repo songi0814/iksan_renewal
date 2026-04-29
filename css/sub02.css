@@ -192,7 +192,7 @@ main {padding: 10rem 10rem 5rem 10rem;}
 }
 
 @media (max-width:480px) {
-  
+  .vision-heading {font-size: 1.4rem !important;}
 }
 
 
@@ -201,7 +201,6 @@ main {padding: 10rem 10rem 5rem 10rem;}
   background:url(../img/con5_bg.png) no-repeat left/cover;
   width:100%; display:flex; flex-direction:column;
   align-items:center;
-  padding-inline:clamp(2rem,5vw,8rem);
 }
 
 #main-value > hgroup{
